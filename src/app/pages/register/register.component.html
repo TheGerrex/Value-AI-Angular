@@ -1,0 +1,51 @@
+<div class="grid">
+    <div class="col-12 md:col-4 p-3">
+        <div class="login-container">
+            <img class='logo' src="../../../assets/logo/value-logo.svg" alt="logo">
+            <h1 class="title">Crea una cuenta</h1>
+            <div class="Inputs">
+                <div class="input-field">
+                    <label>Email</label>
+                    <div class="input-container">
+                        <i class="input-icon pi pi-envelope"></i>
+                        <input type="text" class="input-login" placeholder="ej. email@mail.com">
+                    </div>
+                </div>
+                <div class="input-field">
+                    <label>Contraseña</label>
+                    <div class="input-container">
+                        <i class="input-icon pi pi-lock"></i>
+                        <input type="password" class="input-login" placeholder="amorpropio123">
+                    </div>
+                </div>
+                <div class="input-field">
+                    <label>Repetir Contraseña</label>
+                    <div class="input-container">
+                        <i class="input-icon pi pi-lock"></i>
+                        <input type="password" class="input-login" placeholder="amorpropio123">
+                    </div>
+                </div>
+                <button class="button button-primary button-full">
+                    <span class="button-label" routerLink="/chat">Registrar</span>
+                </button>
+            </div>
+            <div class="register">
+                <span>Ya tienes cuenta? <a routerLink="/login" style="color: #05687A;"> Inicia Sesión </a></span>
+            </div>
+            <hr>
+            <div class="button-container">
+                <button class="button button-primary-light button-full">
+                    <i class="pi pi-google"></i>
+                    <span class="button-label">Regístrate con Google</span>
+                </button>
+                <button class="button button-primary-light button-full">
+                    <i class="pi pi-microsoft"></i>
+                    <span class="button-label">Regístrate con Microsoft</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="hidden md:block md:col-8" style="padding: 0;">
+        <div class="img-container"></div>
+    </div>
+</div>
