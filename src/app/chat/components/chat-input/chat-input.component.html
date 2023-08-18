@@ -1,0 +1,25 @@
+<div class="inputs">
+    <div class="chat-input-box">
+        <div class="chat-input-field">
+            <div class="input-container">
+                <i class="input-icon pi pi-microphone"></i>
+                <textarea class="input-chat" placeholder="Haz una consulta, seleccionando un hilo..." [(ngModel)]="message" (input)="resizeTextArea($event)"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="blob-button">
+        <div class="blob-container shared">
+            <i class="pi pi-share-alt"></i>
+        </div>
+    </div>
+    <div class="blob-button microphone">
+        <div class="blob-container">
+            <i class="pi pi-microphone"></i>
+        </div>
+    </div>
+    <div class="blob-button send">
+        <div class="blob-container">
+            <i class="pi pi-send"></i>
+        </div>
+    </div>
+</div>

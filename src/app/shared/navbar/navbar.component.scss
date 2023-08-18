@@ -1,3 +1,4 @@
+@import '../../../variables';
 .navbar {
     width: 100%;
     height: 80px;
@@ -11,5 +12,99 @@
     .logo {
         width: 64px;
         height: 64px;
+    }
+    .right-options-container {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        align-items: center;
+    }
+    .blob-switch {
+        border-radius: 10px;
+        background-color: $gray-background;
+        .blob-container {
+            display: flex;
+            flex-direction: row;
+            padding: 8px 16px;
+            align-items: center;
+            gap: 8px;
+            p {
+                margin: 0;
+                font-weight: 500;
+            }
+        }
+         :hover {
+            border-radius: 10px;
+            background-color: $gray-50;
+        }
+    }
+    .blob-button {
+        border-radius: 10px;
+        background-color: $gray-background;
+        .blob-container {
+            display: flex;
+            padding: 16px 16px;
+            align-items: center;
+            gap: 8px;
+            p {
+                margin: 0;
+                font-weight: 400;
+            }
+        }
+         :hover {
+            border-radius: 10px;
+            background-color: $gray-50;
+        }
+    }
+    .vertical-hr {
+        border-left: 2px solid rgba($color: #033D48, $alpha: .25);
+        /* Change color and thickness as needed */
+        height: 40px;
+        width: 20px;
+        /* Change height as needed */
+        margin: 0 10px;
+        /* Adjust spacing as needed */
+    }
+    .blob-avatar {
+        border-radius: 10px;
+        background-color: $gray-background;
+        .blob-container {
+            display: flex;
+            padding: 8px 16px;
+            align-items: center;
+            gap: 8px;
+            p {
+                margin: 0;
+                font-weight: 500;
+            }
+            .circle-avatar {
+                width: 32px;
+                height: 32px;
+                border-radius: 100px;
+                background-image: url("https://i.pravatar.cc/32");
+            }
+        }
+         :hover {
+            border-radius: 10px;
+            background-color: $gray-50;
+        }
+    }
+    .blob-language {
+        border-radius: 10px;
+        background-color: $gray-background;
+        .blob-container {
+            display: flex;
+            padding: 14px 16px;
+            align-items: center;
+            gap: 8px;
+            p {
+                margin: 0;
+                font-weight: 400;
+            }
+        }
+         :hover {
+            border-radius: 10px;
+            background-color: $gray-50;
+        }
     }
 }
