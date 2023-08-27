@@ -11,6 +11,10 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./chat/chat.module').then( m => m.ChatModule),
   },
+  {
+    path: '',
+    loadChildren: () => import('./prompt-library/prompt-library.module').then( m => m.PromptLibraryModule),
+  },
 ];
 
 @NgModule({

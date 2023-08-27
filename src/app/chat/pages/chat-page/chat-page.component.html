@@ -1,262 +1,287 @@
-<div class="chat-container">
-    <div class="column-chats-list">
-        <div class="search-box">
-            <div class="search-field">
-                <div class="search-container">
-                    <i class="search-icon pi pi-search"></i>
-                    <input type="text" class="search-input" placeholder="Buscar">
-                </div>
-            </div>
-        </div>
-        <div class="chats">
-            <div class="all-chats">
-                <div class="header">
-                    <div class="title">
-                        <h5>Todos los chats</h5>
-                        <i class="pi pi-chevron-down"></i>
-                    </div>
-                    <button class="button-plus"><i class="pi pi-plus"></i></button>
-                </div>
-                <div class="chat">
-                    <div class="content">
-                        <i class="search-icon pi pi-comment"></i>
-                        <p>Análisis TSLA</p>
+<div class="grid chat-container" style="box-sizing: border-box;">
+    <div class="hidden md:col-fixed" style="width: 300px;">
+        <div class="column-chats-list">
+            <div class="wrapper-search-chats">
+                <div class="search-box">
+                    <div class="search-field">
+                        <div class="search-container">
+                            <i class="search-icon pi pi-search"></i>
+                            <input type="text" class="search-input" placeholder="Buscar">
+                        </div>
                     </div>
                 </div>
-                <div class="chat">
-                    <div class="content">
-                        <i class="search-icon pi pi-comment"></i>
-                        <p>Tendencias del Mercado 2023</p>
-                    </div>
-                </div>
-            </div>
-            <div class="client-chats">
-                <div class="header">
-                    <div class="title">
-                        <h5>Chats de clientes</h5>
-                        <i class="pi pi-chevron-down"></i>
-                    </div>
-                    <button class="button-plus"><i class="pi pi-plus"></i></button>
-                </div>
-                <div class="chat-client">
-                    <div class="title">
-                        <i class="search-icon pi pi-comment"></i>
-                        <p>Obed Gonzales</p>
-                    </div>
-                    <div class="actions">
-                        <i class="search-icon pi pi-pencil"></i>
-                        <i class="search-icon pi pi-share-alt"></i>
-                        <i class="search-icon pi pi-trash"></i>
-                    </div>
-                </div>
-                <div class="chat-client">
-                    <div class="title">
-                        <i class="search-icon pi pi-comment"></i>
-                        <p>Juan Hernández</p>
-                    </div>
-                    <div class="actions">
-                        <i class="search-icon pi pi-pencil"></i>
-                        <i class="search-icon pi pi-share-alt"></i>
-                        <i class="search-icon pi pi-trash"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="buttons-container">
-            <hr>
-            <div class="actions">
-                <button class="button button-secondary button-full">
-                    <p>Librería de Consultas</p>
-                    <i class="search-icon pi pi-book"></i>
-                </button>
-                <button class="button button-primary button-full">
-                    <p>Modelo: GPT-4</p>
-                    <i class="search-icon pi pi-chevron-down"></i>
-                </button>
-                <button class="button button-primary button-full">
-                    <p>Cargar Archivo</p>
-                    <i class="search-icon pi pi-upload"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="column-chat">
-        <div class="main-container">
-            <div class="top-container">
-                <div class="message-user">
-                    <div class="message-blob">
+                <div class="chats">
+                    <div class="all-chats">
                         <div class="header">
-                            <div class="user">
-                                <div class="circle-avatar"></div>
-                                <p>Juan Hernandez</p>
+                            <div class="title">
+                                <h5>Todos los chats</h5>
+                                <i class="pi pi-chevron-down"></i>
                             </div>
-                            <div class="icons">
-                                <i class="pi pi-pencil"></i>
-                                <i class="pi pi-save"></i>
+                            <button class="button-plus"><i class="pi pi-plus"></i></button>
+                        </div>
+                        <div class="chat">
+                            <div class="content">
+                                <i class="search-icon pi pi-comment"></i>
+                                <p>Análisis TSLA</p>
                             </div>
                         </div>
-                        <div class="message">
-                            <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                        <div class="chat">
+                            <div class="content">
+                                <i class="search-icon pi pi-comment"></i>
+                                <p>Tendencias del Mercado 2023</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="details-icon">
-                        <div class="time">
-                            <small>12:20</small>
-                        </div>
-                        <i class="pi pi-microphone"></i>
-                    </div>
-                </div>
-                <div class="message-ai">
-                    <div class="details-icon">
-                        <div class="time">
-                            <small>12:21</small>
-                        </div>
-                        <i class="pi pi-microphone"></i>
-                    </div>
-                    <div class="message-blob-ai">
+                    <div class="client-chats">
                         <div class="header">
-                            <div class="ai">
-                                <div class="circle-ai"></div>
-                                <p>Value AI</p>
+                            <div class="title">
+                                <h5>Chats de clientes</h5>
+                                <i class="pi pi-chevron-down"></i>
                             </div>
-                            <div class="icons">
-                                <i class="pi pi-thumbs-down"></i>
-                                <i class="pi pi-thumbs-up"></i>
-                                <i class="pi pi-copy"></i>
+                            <button class="button-plus"><i class="pi pi-plus"></i></button>
+                        </div>
+                        <div class="chat-client">
+                            <div class="title">
+                                <i class="search-icon pi pi-comment"></i>
+                                <p>Obed Gonzales</p>
                             </div>
-                        </div>
-                        <div class="message">
-                            <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
-                        </div>
-                    </div>
-                    <div class="button-down-container">
-                        <div class="circle-button">
-                            <i class="pi pi-arrow-down"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="message-user">
-                    <div class="message-blob">
-                        <div class="header">
-                            <div class="user">
-                                <div class="circle-avatar"></div>
-                                <p>Juan Hernandez</p>
-                            </div>
-                            <div class="icons">
-                                <i class="pi pi-pencil"></i>
-                                <i class="pi pi-save"></i>
+                            <div class="actions">
+                                <i class="search-icon pi pi-pencil"></i>
+                                <i class="search-icon pi pi-share-alt"></i>
+                                <i class="search-icon pi pi-trash"></i>
                             </div>
                         </div>
-                        <div class="message">
-                            <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
-                        </div>
-                    </div>
-                    <div class="details-icon">
-                        <div class="time">
-                            <small>12:20</small>
-                        </div>
-                        <i class="pi pi-microphone"></i>
-                    </div>
-                </div>
-                <div class="message-ai">
-                    <div class="details-icon">
-                        <div class="time">
-                            <small>12:21</small>
-                        </div>
-                        <i class="pi pi-microphone"></i>
-                    </div>
-                    <div class="message-blob-ai">
-                        <div class="header">
-                            <div class="ai">
-                                <div class="circle-ai"></div>
-                                <p>Value AI</p>
+                        <div class="chat-client">
+                            <div class="title">
+                                <i class="search-icon pi pi-comment"></i>
+                                <p>Juan Hernández</p>
                             </div>
-                            <div class="icons">
-                                <i class="pi pi-thumbs-down"></i>
-                                <i class="pi pi-thumbs-up"></i>
-                                <i class="pi pi-copy"></i>
+                            <div class="actions">
+                                <i class="search-icon pi pi-pencil"></i>
+                                <i class="search-icon pi pi-share-alt"></i>
+                                <i class="search-icon pi pi-trash"></i>
                             </div>
-                        </div>
-                        <div class="message">
-                            <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
-                        </div>
-                    </div>
-                    <div class="button-down-container">
-                        <div class="circle-button">
-                            <i class="pi pi-arrow-down"></i>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="bottom-container">
+            <div class="buttons-container">
+                <hr>
                 <div class="actions">
-                    <button class="button button-refresh">
-                        <span>Regenerar respuesta</span>
-                        <i class="input-icon pi pi-refresh"></i>
+                    <button class="button button-secondary button-full" routerLink="/prompt-library">
+                        <p>Librería de Consultas</p>
+                        <i class="search-icon pi pi-book"></i>
                     </button>
-                    <button class="button button-play">
-                        <span>Continuar respuesta</span>
-                        <i class="input-icon pi pi-play"></i>
+                    <!-- <app-prompt-library></app-prompt-library> -->
+                    <button class="button button-primary button-full">
+                        <p>Modelo: GPT-4</p>
+                        <i class="search-icon pi pi-chevron-down"></i>
                     </button>
-                    <button class="button button-stop">
-                        <span>Detener respuesta</span>
-                        <i class="input-icon pi pi-stop-circle"></i>
+                    <button class="button button-primary button-full">
+                        <p>Cargar Archivo</p>
+                        <i class="search-icon pi pi-upload"></i>
                     </button>
                 </div>
-                <div class="prompts">
-                    <button class="button button-prompt">Que es Value AI?</button>
-                    <button class="button button-prompt">Dime 10 cosas que puedo hacer con Value AI</button>
-                    <button class="button button-prompt">Ver más</button>
-                </div>
-                <app-chat-input style="width: 100%;"></app-chat-input>
             </div>
         </div>
     </div>
-    <div class="column-plugins">
-        <div class="card-user">
-            <h2>Obed Gonzales</h2>
-            <p>Cliente</p>
-        </div>
-        <div class="header">
-            <h5>Plugins</h5>
-        </div>
-        <div class="active-plugins">
-            <div class="title">
-                <div class="circle-number">
-                    <span>2</span>
+    <div class="flex sm:col-9 lg:col-8">
+        <div class="column-chat">
+            <div class="main-container">
+                <div class="top-container">
+                    <div class="message-user">
+                        <div class="message-blob">
+                            <div class="header">
+                                <div class="user">
+                                    <div class="circle-avatar"></div>
+                                    <p>Juan Hernandez</p>
+                                </div>
+                                <div class="icons">
+                                    <i class="pi pi-pencil"></i>
+                                    <i class="pi pi-save"></i>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                            </div>
+                        </div>
+                        <div class="details-icon">
+                            <div class="time">
+                                <small>12:20</small>
+                            </div>
+                            <i class="pi pi-microphone"></i>
+                        </div>
+                    </div>
+                    <div class="message-ai">
+                        <div class="details-icon">
+                            <div class="time">
+                                <small>12:21</small>
+                            </div>
+                            <i class="pi pi-microphone"></i>
+                        </div>
+                        <div class="message-blob-ai">
+                            <div class="header">
+                                <div class="ai">
+                                    <div class="circle-ai"></div>
+                                    <p>Value AI</p>
+                                </div>
+                                <div class="icons">
+                                    <i class="pi pi-thumbs-down"></i>
+                                    <i class="pi pi-thumbs-up"></i>
+                                    <i class="pi pi-copy"></i>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                            </div>
+                        </div>
+                        <div class="button-down-container">
+                            <div class="circle-button">
+                                <i class="pi pi-arrow-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message-user">
+                        <div class="message-blob">
+                            <div class="header">
+                                <div class="user">
+                                    <div class="circle-avatar"></div>
+                                    <p>Juan Hernandez</p>
+                                </div>
+                                <div class="icons">
+                                    <i class="pi pi-pencil"></i>
+                                    <i class="pi pi-save"></i>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                            </div>
+                        </div>
+                        <div class="details-icon">
+                            <div class="time">
+                                <small>12:20</small>
+                            </div>
+                            <i class="pi pi-microphone"></i>
+                        </div>
+                    </div>
+                    <div class="message-ai">
+                        <div class="details-icon">
+                            <div class="time">
+                                <small>12:21</small>
+                            </div>
+                            <i class="pi pi-microphone"></i>
+                        </div>
+                        <div class="message-blob-ai">
+                            <div class="header">
+                                <div class="ai">
+                                    <div class="circle-ai"></div>
+                                    <p>Value AI</p>
+                                </div>
+                                <div class="icons">
+                                    <i class="pi pi-thumbs-down"></i>
+                                    <i class="pi pi-thumbs-up"></i>
+                                    <i class="pi pi-copy"></i>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                            </div>
+                        </div>
+                        <div class="button-down-container">
+                            <div class="circle-button">
+                                <i class="pi pi-arrow-down"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p>Activo</p>
-            </div>
-            <div class="plugins-container">
-                <div class="card-plugin-active">
-                    <div class="circle-plugin-icon">
-                        <img src="" alt="">
+                <div class="bottom-container">
+                    <div class="actions">
+                        <button class="button button-refresh">
+                            <span>Regenerar respuesta</span>
+                            <i class="input-icon pi pi-refresh"></i>
+                        </button>
+                        <button class="button button-play">
+                            <span>Continuar respuesta</span>
+                            <i class="input-icon pi pi-play"></i>
+                        </button>
+                        <button class="button button-stop">
+                            <span>Detener respuesta</span>
+                            <i class="input-icon pi pi-stop-circle"></i>
+                        </button>
                     </div>
-                    <div class="content">
-                        <p>Yahoo Finance</p>
-                        <small>En llamada (Twilio Flex)</small>
+                    <div class="prompts">
+                        <button class="button button-prompt">Que es Value AI?</button>
+                        <button class="button button-prompt">Dime 10 cosas que puedo hacer con Value AI</button>
+                        <button class="button button-prompt">Ver más</button>
                     </div>
-                    <div class="icon">
-                        <i class="search-icon pi pi-trash"></i>
-                    </div>
+                    <app-chat-input style="width: 100%;"></app-chat-input>
                 </div>
             </div>
         </div>
-        <div class="inactive-plugins">
-            <div class="title">
-                <p>Inactivo</p>
+    </div>
+    <div class="hidden lg:block lg:col-2">
+        <div class="column-plugins">
+            <div class="card-user">
+                <h2>Obed Gonzales</h2>
+                <p>Cliente</p>
             </div>
-            <div class="plugins-container">
-                <div class="card-plugin-inactive">
-                    <div class="circle-plugin-icon">
-                        <img src="" alt="">
+            <div class="header">
+                <h5>PLUGINS</h5>
+                <hr>
+            </div>
+            <div class="active-plugins">
+                <div class="title">
+                    <div class="circle-number">
+                        <span>2</span>
                     </div>
-                    <div class="content">
-                        <p>Yahoo Finance</p>
-                        <small>En llamada (Twilio Flex)</small>
+                    <p>Activo</p>
+                </div>
+                <div class="plugins-container">
+                    <div class="card-plugin">
+                        <div class="circle-plugin-icon">
+                            <img src="" alt="">
+                        </div>
+                        <div class="content">
+                            <p>Yahoo Finance</p>
+                            <small>En llamada (Twilio Flex)</small>
+                        </div>
+                        <div class="icon">
+                            <i class="search-icon pi pi-star" style="color: #F59E0B;"></i>
+                        </div>
                     </div>
-                    <div class="icon">
-                        <i class="search-icon pi pi-trash"></i>
+                    <div class="card-plugin">
+                        <div class="circle-plugin-icon">
+                            <img src="" alt="">
+                        </div>
+                        <div class="content">
+                            <p>Bloomberg</p>
+                            <small>En llamada (Twilio Flex)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inactive-plugins">
+                <div class="title">
+                    <p>Inactivo</p>
+                </div>
+                <div class="plugins-container">
+                    <div class="card-plugin inactive">
+                        <div class="circle-plugin-icon">
+                            <img src="" alt="">
+                        </div>
+                        <div class="content">
+                            <p>Web (Bing)</p>
+                            <small>Chat personal</small>
+                        </div>
+                    </div>
+                    <div class="card-plugin inactive">
+                        <div class="circle-plugin-icon">
+                            <img src="" alt="">
+                        </div>
+                        <div class="content">
+                            <p>BIVA</p>
+                            <small>Bolsa Institucional de Valores</small>
+                        </div>
                     </div>
                 </div>
             </div>

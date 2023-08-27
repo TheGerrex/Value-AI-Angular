@@ -7,6 +7,7 @@ import { ChatRoutingModule } from './chat-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { PrimengModule } from '../primeng/primeng.module';
 import { FormsModule } from '@angular/forms';
+import { PromptLibraryComponent } from './components/prompt-library/prompt-library.component';
 
 
 
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     ChatPageComponent,
     LayoutPageComponent,
-    ChatInputComponent
+    ChatInputComponent,
+    PromptLibraryComponent
   ],
   imports: [
     CommonModule,

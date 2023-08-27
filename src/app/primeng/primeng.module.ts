@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { DialogModule } from 'primeng/dialog';
 
 
 
@@ -10,7 +11,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     CommonModule
   ],
   exports: [
-    InputSwitchModule
+    InputSwitchModule,
+    DialogModule
   ]
 })
 export class PrimengModule { }

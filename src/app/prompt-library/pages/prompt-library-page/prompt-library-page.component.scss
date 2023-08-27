@@ -1,0 +1,123 @@
+@import '../../../../variables';
+.container {
+    display: flex;
+    width: 100%;
+    padding: 32px;
+    align-items: flex-start;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.menu {
+    display: flex;
+    width: 250px;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    flex-shrink: 0;
+    .options {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        align-self: stretch;
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+            align-self: stretch;
+
+            .option {
+                display: flex;
+                padding: 16px 8px;
+                justify-content: space-between;
+                align-items: center;
+                align-self: stretch;
+                border-radius: 16px;
+                background: #EFEFEF;
+
+                .content {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 6px;
+                }
+            }
+        }
+    }
+    .action-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+        hr {
+            width: 100%;
+            margin: 0;
+            border: rgba($color: $gray-100, $alpha: .25) 1px solid;
+        }
+        .actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            align-self: stretch;
+        }
+    }
+}
+
+.prompts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+
+    .search-bar {
+        display: flex;
+        width: 100%;
+        padding: 15px;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+        border: 1px solid #033D48;
+        background: #F0FCFE;
+    }
+
+    .prompt-cards-container {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        align-content: flex-start;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+}
+
+.visual-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    flex: 1 0 0;
+    .text-area {
+        display: flex;
+        height: 462px;
+        padding: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+        border-radius: 10px;
+        background: #EFEFEF;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            align-self: stretch;
+        }
+    }
+}
