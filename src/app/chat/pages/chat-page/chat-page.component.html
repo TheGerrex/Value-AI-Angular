@@ -1,5 +1,5 @@
-<div class="grid chat-container" style="box-sizing: border-box;">
-    <div class="hidden md:col-fixed" style="width: 300px;">
+<div class="grid grid-nogutter chat-container">
+    <div class="hidden md:flex md:col-fixed md:p-2" style="width: 300px;">
         <div class="column-chats-list">
             <div class="wrapper-search-chats">
                 <div class="search-box">
@@ -85,7 +85,7 @@
             </div>
         </div>
     </div>
-    <div class="flex sm:col-9 lg:col-8">
+    <div class="flex-1 sm:col-9 lg:col md:p-2">
         <div class="column-chat">
             <div class="main-container">
                 <div class="top-container">
@@ -193,33 +193,139 @@
                             </div>
                         </div>
                     </div>
+                    <div class="message-user">
+                        <div class="message-blob">
+                            <div class="header">
+                                <div class="user">
+                                    <div class="circle-avatar"></div>
+                                    <p>Juan Hernandez</p>
+                                </div>
+                                <div class="icons">
+                                    <i class="pi pi-pencil"></i>
+                                    <i class="pi pi-save"></i>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                            </div>
+                        </div>
+                        <div class="details-icon">
+                            <div class="time">
+                                <small>12:20</small>
+                            </div>
+                            <i class="pi pi-microphone"></i>
+                        </div>
+                    </div>
+                    <div class="message-ai">
+                        <div class="details-icon">
+                            <div class="time">
+                                <small>12:21</small>
+                            </div>
+                            <i class="pi pi-microphone"></i>
+                        </div>
+                        <div class="message-blob-ai">
+                            <div class="header">
+                                <div class="ai">
+                                    <div class="circle-ai"></div>
+                                    <p>Value AI</p>
+                                </div>
+                                <div class="icons">
+                                    <i class="pi pi-thumbs-down"></i>
+                                    <i class="pi pi-thumbs-up"></i>
+                                    <i class="pi pi-copy"></i>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                            </div>
+                        </div>
+                        <div class="button-down-container">
+                            <div class="circle-button">
+                                <i class="pi pi-arrow-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message-user">
+                        <div class="message-blob">
+                            <div class="header">
+                                <div class="user">
+                                    <div class="circle-avatar"></div>
+                                    <p>Juan Hernandez</p>
+                                </div>
+                                <div class="icons">
+                                    <i class="pi pi-pencil"></i>
+                                    <i class="pi pi-save"></i>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                            </div>
+                        </div>
+                        <div class="details-icon">
+                            <div class="time">
+                                <small>12:20</small>
+                            </div>
+                            <i class="pi pi-microphone"></i>
+                        </div>
+                    </div>
+                    <div class="message-ai">
+                        <div class="details-icon">
+                            <div class="time">
+                                <small>12:21</small>
+                            </div>
+                            <i class="pi pi-microphone"></i>
+                        </div>
+                        <div class="message-blob-ai">
+                            <div class="header">
+                                <div class="ai">
+                                    <div class="circle-ai"></div>
+                                    <p>Value AI</p>
+                                </div>
+                                <div class="icons">
+                                    <i class="pi pi-thumbs-down"></i>
+                                    <i class="pi pi-thumbs-up"></i>
+                                    <i class="pi pi-copy"></i>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                            </div>
+                        </div>
+                        <div class="button-down-container">
+                            <div class="circle-button">
+                                <i class="pi pi-arrow-down"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="bottom-container">
-                    <div class="actions">
-                        <button class="button button-refresh">
-                            <span>Regenerar respuesta</span>
-                            <i class="input-icon pi pi-refresh"></i>
-                        </button>
-                        <button class="button button-play">
-                            <span>Continuar respuesta</span>
-                            <i class="input-icon pi pi-play"></i>
-                        </button>
-                        <button class="button button-stop">
-                            <span>Detener respuesta</span>
-                            <i class="input-icon pi pi-stop-circle"></i>
-                        </button>
+                    <div class="wrapper">
+                        <div class="actions">
+                            <button class="button button-refresh">
+                                <span>Regenerar respuesta</span>
+                                <i class="input-icon pi pi-refresh"></i>
+                            </button>
+                            <!-- <button class="button button-play">
+                                <span>Continuar respuesta</span>
+                                <i class="input-icon pi pi-play"></i>
+                            </button> -->
+                            <!-- <button class="button button-stop">
+                                <span>Detener respuesta</span>
+                                <i class="input-icon pi pi-stop-circle"></i>
+                            </button> -->
+                        </div>
+                        <div class="prompts">
+                            <button class="button button-prompt">Que es Value AI?</button>
+                            <button class="button button-prompt">Dime 10 cosas que puedo hacer con Value AI</button>
+                            <button class="button button-prompt">Ver más</button>
+                        </div>
+                        <app-chat-input style="width: 100%;"></app-chat-input>
                     </div>
-                    <div class="prompts">
-                        <button class="button button-prompt">Que es Value AI?</button>
-                        <button class="button button-prompt">Dime 10 cosas que puedo hacer con Value AI</button>
-                        <button class="button button-prompt">Ver más</button>
-                    </div>
-                    <app-chat-input style="width: 100%;"></app-chat-input>
                 </div>
             </div>
         </div>
     </div>
-    <div class="hidden lg:block lg:col-2">
+    <div class="hidden lg:block lg:col-fixed md:p-2" style="width: 300px;">
         <div class="column-plugins">
             <div class="card-user">
                 <h2>Obed Gonzales</h2>
@@ -241,21 +347,25 @@
                         <div class="circle-plugin-icon">
                             <img src="" alt="">
                         </div>
-                        <div class="content">
-                            <p>Yahoo Finance</p>
-                            <small>En llamada (Twilio Flex)</small>
-                        </div>
-                        <div class="icon">
-                            <i class="search-icon pi pi-star" style="color: #F59E0B;"></i>
+                        <div class="wrapper">
+                            <div class="content">
+                                <p>Yahoo Finance</p>
+                                <small>En llamada (Twilio Flex)</small>
+                            </div>
+                            <div class="icon">
+                                <i class="search-icon pi pi-star" style="color: #F59E0B;"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="card-plugin">
                         <div class="circle-plugin-icon">
                             <img src="" alt="">
                         </div>
-                        <div class="content">
-                            <p>Bloomberg</p>
-                            <small>En llamada (Twilio Flex)</small>
+                        <div class="wrapper">
+                            <div class="content">
+                                <p>Bloomberg</p>
+                                <small>En llamada (Twilio Flex)</small>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -269,18 +379,22 @@
                         <div class="circle-plugin-icon">
                             <img src="" alt="">
                         </div>
-                        <div class="content">
-                            <p>Web (Bing)</p>
-                            <small>Chat personal</small>
+                        <div class="wrapper">
+                            <div class="content">
+                                <p>Web (Bing)</p>
+                                <small>Chat personal</small>
+                            </div>
                         </div>
                     </div>
                     <div class="card-plugin inactive">
                         <div class="circle-plugin-icon">
                             <img src="" alt="">
                         </div>
-                        <div class="content">
-                            <p>BIVA</p>
-                            <small>Bolsa Institucional de Valores</small>
+                        <div class="wrapper">
+                            <div class="content">
+                                <p>BIVA</p>
+                                <small>Bolsa Institucional de Valores</small>
+                            </div>
                         </div>
                     </div>
                 </div>

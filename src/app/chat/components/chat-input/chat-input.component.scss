@@ -5,56 +5,75 @@
     /* Reset line-height */
 }
 
-.inputs {
+.inputs, .inputs-mobile {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     gap: 8px;
     width: 100%;
 }
-
-.chat-input-field {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    .input-container {
+.chat-input-box{
+    flex-grow: 2;
+    .chat-input-field {
         width: 100%;
-        position: relative;
         display: flex;
-        align-items: center;
-    }
-    .input-icon {
-        position: absolute;
-        right: 10px;
-        /* Adjust the icon's position as needed */
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1;
-    }
-    label {
-        color: $text;
-        font-size: 16px;
-        font-weight: 500;
-    }
-    .input-chat {
-        // width: 1100px;
-        width: 100%;
-        padding-left: 8px;
-        padding-right: 30px;
-        // padding-top: 12px;
-        // padding-bottom: 12px;
-        border-radius: 10px;
-        border: none;
-        background-color: $gray-background;
-        font-size: 1em;
-        resize: none;
-        overflow: hidden;
-        transition: height 0.2s ease;
-        outline: none;
-         ::placeholder {
-            line-height: calc(100% - 30px);
+        flex-direction: column;
+        gap: 8px;
+        .input-container {
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+        .input-icon {
+            position: absolute;
+            right: 10px;
+            /* Adjust the icon's position as needed */
+            bottom: -4px;
+            transform: translateY(-50%);
+            z-index: 1;
+            padding: 6px;
+            border-radius: 50px;
+            
+        }
+        :hover {
+            background-color: $gray-50;
+        }
+        :active {
+            background-color: $gray-100;
+        }
+        label {
+            color: $text;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        /* Add this pseudo-element for vertical alignment */
+        .input-chat::before {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+        }
+        .input-chat {
+            width: 100%;
+            max-height: 200px;
+            padding: 8px 32px 0px 12px;
+            border-radius: 10px;
+            border: none;
+            background-color: $gray-background;
+            font-size: 1em;
+            resize: none;
+            overflow-y: auto;
+            transition: height 0.2s ease;
+            outline: none;
+        }
+        ::placeholder {
+            // line-height: 40px;
+            font-size: 1em;
         }
     }
+    
 }
 
 .blob-button {

@@ -1,4 +1,4 @@
-<div class="inputs">
+<div class="hidden md:flex inputs">
     <div class="chat-input-box">
         <div class="chat-input-field">
             <div class="input-container">
@@ -15,6 +15,22 @@
     <div class="blob-button microphone">
         <div class="blob-container">
             <i class="pi pi-microphone"></i>
+        </div>
+    </div>
+    <div class="blob-button send">
+        <div class="blob-container">
+            <i class="pi pi-send"></i>
+        </div>
+    </div>
+</div>
+
+<div class="md:hidden inputs-mobile">
+    <div class="chat-input-box">
+        <div class="chat-input-field">
+            <div class="input-container">
+                <i class="input-icon pi pi-ellipsis-v"></i>
+                <textarea class="input-chat" placeholder="Haz una consulta" [(ngModel)]="message" (input)="resizeTextArea($event)"></textarea>
+            </div>
         </div>
     </div>
     <div class="blob-button send">

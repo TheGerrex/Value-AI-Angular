@@ -1,13 +1,16 @@
 @import '../../../../variables';
-// .chat-container {
-//     display: flex;
-//     justify-content: space-between;
-//     width: 100%;
-//     margin: 0 auto;
-//     padding: 0px 16px 16px 16px;
-//     overflow: hidden;
-//     gap: 16px;
-// }
+.chat-container {
+   height: calc(100vh - 50px);
+   overflow-y: hidden;
+    @media (min-width: 768px) { 
+        height: calc(100vh - 80px);
+    }
+}
+
+.column-chat {
+    height: 100%;
+    
+}
 
 .main-container {
     display: flex;
@@ -15,23 +18,30 @@
     box-sizing: border-box;
     flex: 1 1 auto;
     width: 100%;
-    height: calc(100vh - 96px);
+    height: 100%;
     padding: 16px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    border-radius: 10px;
+    border-radius: 0px;
     border: 1px solid rgba(3, 61, 72, 0.25);
     background: #FFF;
     gap: 16px;
+    @media (min-width: 768px) { 
+        border-radius: 10px;
+    }
     .top-container {
         display: flex;
+        height: calc(100vh - 500px);
         flex-direction: column;
         align-items: flex-start;
+        flex-grow: 2;
         gap: 32px;
         overflow-y: auto;
         scrollbar-width: thin;
         scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0);
+        // background-color: #FFF;
+        // background-color: #B91C1C;
         .message-user {
             display: flex;
             align-items: flex-start;
@@ -141,80 +151,88 @@
         }
     }
     .bottom-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 16px;
-        width: 100%;
         position: sticky;
-        bottom: 0;
-        .actions {
+        bottom: 2%;
+        background-color: transparent;
+        width: 100%;
+        .wrapper {
             display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            gap: 8px;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 16px;
             width: 100%;
-            .button-refresh {
-                display: flex;
-                padding: 8px 16px;
-                align-items: center;
-                gap: 10px;
-                border-radius: 10px;
-                border: $gray-100;
-                background: $gray-background;
-                i,
-                span {
-                    color: $text;
+                .actions {
+                    display: flex;
+                    justify-content: center;
+                    // align-items: flex-end;
+                    gap: 8px;
+                    width: 100%;
+                    position: absolute;
+                    top: -60px;
+                    left: 0;
+                    .button-refresh {
+                        display: flex;
+                        padding: 8px 16px;
+                        align-items: center;
+                        gap: 10px;
+                        border-radius: 10px;
+                        border: $gray-100 1px solid;
+                        background: $gray-background;
+                        i,
+                        span {
+                            color: $text;
+                        }
+                    }
+                    .button-play {
+                        display: flex;
+                        padding: 8px 16px;
+                        align-items: center;
+                        gap: 10px;
+                        border-radius: 10px;
+                        border: 1px solid rgba(34, 197, 94, 0.50);
+                        background: #F6FDF9;
+                        i,
+                        span {
+                            color: #15803D;
+                        }
+                    }
+                    .button-stop {
+                        display: flex;
+                        padding: 8px 16px;
+                        align-items: center;
+                        gap: 10px;
+                        border-radius: 10px;
+                        border: 1px solid rgba(185, 28, 28, 0.50);
+                        background: #FEF8F8;
+                        i,
+                        span {
+                            color: #B91C1C;
+                        }
+                    }
                 }
-            }
-            .button-play {
-                display: flex;
-                padding: 8px 16px;
-                align-items: center;
-                gap: 10px;
-                border-radius: 10px;
-                border: 1px solid rgba(34, 197, 94, 0.50);
-                background: #F6FDF9;
-                i,
-                span {
-                    color: #15803D;
+                .prompts {
+                    display: flex;
+                    gap: 8px;
+                    align-items: flex-end;
+                    width: 100%;
+                    .button-prompt {
+                        display: flex;
+                        padding: 8px 16px;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 8px;
+                        align-self: stretch;
+                        border-radius: 12px;
+                        background: $secondary-color-light;
+                        border: none;
+                        font-size: 14px;
+                        i,
+                        span {
+                            color: $text;
+                        }
+                    }
                 }
-            }
-            .button-stop {
-                display: flex;
-                padding: 8px 16px;
-                align-items: center;
-                gap: 10px;
-                border-radius: 10px;
-                border: 1px solid rgba(185, 28, 28, 0.50);
-                background: #FEF8F8;
-                i,
-                span {
-                    color: #B91C1C;
-                }
-            }
-        }
-        .prompts {
-            display: flex;
-            gap: 8px;
-            align-items: flex-end;
-            align-self: stretch;
-            .button-prompt {
-                display: flex;
-                padding: 8px 16px;
-                justify-content: center;
-                align-items: center;
-                gap: 8px;
-                align-self: stretch;
-                border-radius: 12px;
-                background: $secondary-color-light;
-                border: none;
-                i,
-                span {
-                    color: $text;
-                }
-            }
         }
     }
 }
@@ -223,12 +241,15 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 32px;
-    // max-width: 500px;
+    width: 100%;
     justify-content: space-between;
     // height: calc(100vh - 96px);
     height: 100%;
     .wrapper-search-chats {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 16px;
         .search-field {
             width: 100%;
             display: flex;
@@ -251,7 +272,7 @@
                 font-weight: 500;
             }
             .search-input {
-                align-self: stretch;
+                width: 100%;
                 padding-left: 30px;
                 padding-right: 8px;
                 padding-top: 12px;
@@ -368,7 +389,7 @@
         }
     }
 
-    .active-plugins {
+    .active-plugins, .inactive-plugins {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -398,10 +419,10 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-
+            width: 100%;
             .card-plugin {
                 display: flex;
-                width: 250px;
+                width: 100%;
                 padding: 8px 16px;
                 align-items: center;
                 gap: 16px;
@@ -417,19 +438,27 @@
                     border-radius: 100px;
                     border: 2px solid #033D48;
                     background-color: $gray-100;
-
+                    @media (max-width: 1200px) {
+                          display: none;
+                    }
                 }
 
-                .content {
+                .wrapper {
                     display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    gap: 2px;
-                    p {
-                        color: $primary-color-dark;
-                    }
-                    small {
-                        color: $text;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    .content {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 2px;
+                        p {
+                            color: $primary-color-dark;
+                        }
+                        small {
+                            color: $text;
+                        }
                     }
                 }
 
@@ -440,78 +469,8 @@
             }
         }
     }
-    .inactive-plugins {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        .title {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-
-            .circle-number {
-                background-color: $primary-color;
-                border-radius: 100px;
-                padding: 2px 6px;
-                span {
-                    color: #FFF;
-                    font-size: 14px;
-                }
-            }
-
-            p {
-                color: $primary-color-dark;
-                font-weight: 500;
-            }
-        }
-
-        .plugins-container {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-
-            .card-plugin {
-                display: flex;
-                width: 250px;
-                padding: 8px 16px;
-                align-items: center;
-                gap: 16px;
-                border-radius: 10px;
-                border: 1px solid #05687A;
-                background: #F0FCFE;
-                cursor: pointer;
-
-                .circle-plugin-icon {
-                    width: 50px;
-                    height: 50px;
-                    flex-shrink: 0;
-                    border-radius: 100px;
-                    border: 2px solid #033D48;
-                    background-color: $gray-100;
-
-                }
-
-                .content {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    gap: 2px;
-                    
-                    p {
-                        color: $primary-color-dark;
-                    }
-                    small {
-                        color: $text;
-                    }
-                }
-
-                
-            }
-            .inactive {
-                opacity: .50;
-            }
-        }
+    .inactive {
+        opacity: .50;
     }
 }
 
