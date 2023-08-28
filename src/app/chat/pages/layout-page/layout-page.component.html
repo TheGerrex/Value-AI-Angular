@@ -4,9 +4,18 @@
     </div>
     <div class="block md:hidden">
         <div class="Navbar">
-            <i class="pi pi-bars"></i>
+            <i class="pi pi-bars" (click)="toggleSidenav()"></i>
             <p>Obed Gonzales</p>
             <i class="pi pi-ellipsis-v"></i>
+        </div>
+    </div>
+    <div class="container" [class.open]="containerOpen">
+        <div class="sidenav" [class.open]="sidenavOpen">
+            <!-- Sidenav content here -->
+            jkfdlbkslbf
+        </div>
+        <div class="main-content">
+            <!-- Main content here -->
         </div>
     </div>
     <router-outlet></router-outlet>
