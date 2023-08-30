@@ -1,8 +1,8 @@
-<div class="grid relative p-3" style="height: 100%;">
+<div class="grid grid-nogutter relative p-3" style="height: 100%;">
     <div class="hidden xl:flex xl:col-fixed" id="col-menu" [class.lg:flex]="columnMenuOpen" [class.hidden]="!columnMenuOpen">
         <div class="menu">
             <div class="options">
-                <button class="button prompt-menu-close-button xl:hidden" (click)="toggleMenu()"><i class="pi pi-times"></i></button>
+                <button class="button prompt-close-button xl:hidden" (click)="toggleMenu()"><i class="pi pi-times"></i></button>
                 <div class="wrapper">
                        <div class="option">
                             <div class="content">
@@ -45,7 +45,10 @@
     </div>
     <div class="flex-1 md:col" style="height: 100%;">
         <div class="prompts">
-            <button class="button prompt-menu-button xl:hidden" (click)="toggleMenu()"><i class="pi pi-comment"></i></button>
+            <div class="nav-buttons-container">
+                <button class="button prompt-menu-button xl:hidden" (click)="toggleMenu()"><i class="pi pi-book"></i></button>
+                <button class="button prompt-box-button xl:hidden" (click)="togglePromptBox()"><i class="pi pi-comment"></i></button>
+            </div>
             <h1>Consultas Destacadas</h1>
             <div class="search-box">
                 <div class="search-field">
@@ -144,8 +147,9 @@
             </div>
         </div>
     </div>
-    <div class="hidden md:flex lg:col-fixed" style="width: 300px; height: 100%;">
+    <div class="hidden md:flex lg:col-fixed" id="col-promptbox" [class.lg:flex]="columnPromptBoxOpen" [class.hidden]="!columnPromptBoxOpen">
         <div class="visual-box">
+            <button class="button prompt-close-button xl:hidden" (click)="togglePromptBox()"><i class="pi pi-times"></i></button>
             <div class="header">
                 <h1>Previsualizar</h1>
             </div>

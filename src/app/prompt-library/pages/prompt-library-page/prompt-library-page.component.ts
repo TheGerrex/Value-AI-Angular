@@ -7,9 +7,13 @@ import { Component } from '@angular/core';
 })
 export class PromptLibraryPageComponent {
   columnMenuOpen = false;
+  columnPromptBoxOpen = false;
 
 
   toggleMenu() {
     this.columnMenuOpen = !this.columnMenuOpen
+  }
+  togglePromptBox() {
+    this.columnPromptBoxOpen = !this.columnPromptBoxOpen
   }
 }
