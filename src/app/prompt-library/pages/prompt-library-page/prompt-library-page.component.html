@@ -1,75 +1,161 @@
-<div class="container">
-    <div class="menu">
-        <div class="options">
-            <div class="wrapper">
-                   <div class="option">
-                        <div class="content">
-                            <i class="pi pi-star"></i>
-                            <p>Tus consultas</p>
-                        </div>
-                        <i class="pi pi-chevron-right"></i>
-                   </div> 
-                   <div class="option">
-                        <div class="content">
-                            <i class="pi pi-star"></i>
-                            <p>Hecho en comunidad</p>
-                        </div>
-                        <i class="pi pi-chevron-right"></i>
-                   </div> 
-                   <div class="option">
-                        <div class="content">
-                            <i class="pi pi-star"></i>
-                            <p>Consultas destacadas</p>
-                        </div>
-                        <i class="pi pi-chevron-right"></i>
-                   </div> 
-                   <div class="option">
-                        <div class="content">
-                            <i class="pi pi-star"></i>
-                            <p>Categorias</p>
-                        </div>
-                        <i class="pi pi-chevron-right"></i>
-                   </div> 
+<div class="grid relative" style="height: 100%;">
+    <div class="hidden xl:flex xl:col-fixed" id="col-menu" [class.lg:flex]="columnMenuOpen" [class.hidden]="!columnMenuOpen">
+        <div class="menu">
+            <div class="options">
+                <button class="button prompt-menu-close-button xl:hidden" (click)="toggleMenu()"><i class="pi pi-times"></i></button>
+                <div class="wrapper">
+                       <div class="option">
+                            <div class="content">
+                                <i class="pi pi-star"></i>
+                                <p>Tus consultas</p>
+                            </div>
+                            <i class="pi pi-chevron-right"></i>
+                       </div> 
+                       <div class="option">
+                            <div class="content">
+                                <i class="pi pi-globe"></i>
+                                <p>Hecho en comunidad</p>
+                            </div>
+                            <i class="pi pi-chevron-right"></i>
+                       </div> 
+                       <div class="option">
+                            <div class="content">
+                                <i class="pi pi-bolt"></i>
+                                <p>Consultas destacadas</p>
+                            </div>
+                            <i class="pi pi-chevron-right"></i>
+                       </div> 
+                       <div class="option">
+                            <div class="content">
+                                <i class="pi pi-th-large"></i>
+                                <p>Categorias</p>
+                            </div>
+                            <i class="pi pi-chevron-right"></i>
+                       </div> 
+                </div>
             </div>
-        </div>
-        <div class="action-container">
-            <hr>
-            <div class="actions">
-                 <button class="button button-primary button-full">Crear consulta <i class="pi pi-plus"></i></button>
+            <div class="action-container">
+                <hr>
+                <div class="actions">
+                     <button class="button button-primary button-full">Crear consulta <i class="pi pi-plus"></i></button>
+                </div>
+    
             </div>
-
         </div>
     </div>
-    <div class="prompts">
-        <h1>Consultas Destacadas</h1>
-        <input type="text" placeholder="Buscar" class="search-bar">
-        <div class="prompt-cards-container">
-            <div class="card-prompt">
-                <div class="header">
-                    <div class="category-blob"></div>
-                    <i class="pi pi-star"></i>
+    <div class="flex-1 md:col" style="height: 100%;">
+        <div class="prompts">
+            <button class="button prompt-menu-button xl:hidden" (click)="toggleMenu()"><i class="pi pi-comment"></i></button>
+            <h1>Consultas Destacadas</h1>
+            <div class="search-box">
+                <div class="search-field">
+                    <div class="search-container">
+                        <i class="search-icon pi pi-search"></i>
+                        <input type="text" class="search-input" placeholder="Buscar">
+                    </div>
                 </div>
-                <div class="content">
-                    <h5>Preguntas de Tareas</h5>
-                    <p>Obten respuestas de todas tus preguntas de la escuela. Value AI tiene la respuesta</p>
+            </div>
+            <div class="prompt-cards-container">
+                <div class="card-prompt">
+                    <div class="header">
+                        <div class="category-blob">
+                            <h5>Educación</h5>
+                        </div>
+                        <i class="pi pi-star"></i>
+                    </div>
+                    <div class="content">
+                        <h5>Preguntas de Tareas</h5>
+                        <p>Obten respuestas de todas tus preguntas de la escuela. Value AI tiene la respuesta</p>
+                    </div>
+                    <div class="footer">
+                        <div class="circle-button">
+                            <i class="pi pi-plus"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer">
-                    <div class="circle-button">
-                        <i class="pi pi-plus"></i>
+                <div class="card-prompt">
+                    <div class="header">
+                        <div class="category-blob">
+                            <h5>Educación</h5>
+                        </div>
+                        <i class="pi pi-star"></i>
+                    </div>
+                    <div class="content">
+                        <h5>Preguntas de Tareas</h5>
+                        <p>Obten respuestas de todas tus preguntas de la escuela. Value AI tiene la respuesta</p>
+                    </div>
+                    <div class="footer">
+                        <div class="circle-button">
+                            <i class="pi pi-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-prompt">
+                    <div class="header">
+                        <div class="category-blob">
+                            <h5>Educación</h5>
+                        </div>
+                        <i class="pi pi-star"></i>
+                    </div>
+                    <div class="content">
+                        <h5>Preguntas de Tareas</h5>
+                        <p>Obten respuestas de todas tus preguntas de la escuela. Value AI tiene la respuesta</p>
+                    </div>
+                    <div class="footer">
+                        <div class="circle-button">
+                            <i class="pi pi-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-prompt">
+                    <div class="header">
+                        <div class="category-blob">
+                            <h5>Educación</h5>
+                        </div>
+                        <i class="pi pi-star"></i>
+                    </div>
+                    <div class="content">
+                        <h5>Preguntas de Tareas</h5>
+                        <p>Obten respuestas de todas tus preguntas de la escuela. Value AI tiene la respuesta</p>
+                    </div>
+                    <div class="footer">
+                        <div class="circle-button">
+                            <i class="pi pi-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-prompt">
+                    <div class="header">
+                        <div class="category-blob">
+                            <h5>Educación</h5>
+                        </div>
+                        <i class="pi pi-star"></i>
+                    </div>
+                    <div class="content">
+                        <h5>Preguntas de Tareas</h5>
+                        <p>Obten respuestas de todas tus preguntas de la escuela. Value AI tiene la respuesta</p>
+                    </div>
+                    <div class="footer">
+                        <div class="circle-button">
+                            <i class="pi pi-plus"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="visual-box">
-        <div class="header">
-            <h1>Previsualizar</h1>
-            <i class="pi pi-plus"></i>
-        </div>
-        <div class="text-area">
-            <div class="content">
-                <p>Eres el mejor estudiante. Te daré una pregunta de deberes y tú me darás la mejor respuesta.</p>
+    <div class="hidden md:flex lg:col-fixed" style="width: 300px; height: 100%;">
+        <div class="visual-box">
+            <div class="header">
+                <h1>Previsualizar</h1>
             </div>
+            <textarea class="text-area"></textarea>
+            <!-- <div class="text-area">
+                <div class="content">
+                    <p>Eres el mejor estudiante. Te daré una pregunta de deberes y tú me darás la mejor respuesta.</p>
+                </div>
+            </div> -->
+            <button class="button button-primary button-full" routerLink="/chat/chat">Usar consulta <i class="pi pi-check"></i></button>
         </div>
     </div>
 </div>

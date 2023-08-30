@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./prompt-library-page.component.scss']
 })
 export class PromptLibraryPageComponent {
+  columnMenuOpen = false;
 
+
+  toggleMenu() {
+    this.columnMenuOpen = !this.columnMenuOpen
+  }
 }

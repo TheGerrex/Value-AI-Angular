@@ -1,6 +1,8 @@
 @import './_variables.scss';
 @import "primeicons/primeicons.css";
 @import "~primeflex/primeflex.css";
+@import 'primeng/resources/primeng.min.css';
+@import 'primeng/resources/themes/saga-blue/theme.css';
 html,
 body {
     margin: 0;
@@ -76,6 +78,7 @@ li {
     display: inline-flex;
     user-select: none;
     cursor: pointer;
+    border: none;
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -86,6 +89,7 @@ li {
     padding: 16px 32px;
     border-radius: 10px;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    font-weight: 500;
     &:not(:disabled) {
         cursor: pointer;
     }
@@ -100,7 +104,7 @@ li {
         cursor: default;
     }
     .button-label {
-        font-weight: 700;
+        font-weight: 600;
         flex: 1 1 auto;
         transition-duration: 0.2s;
     }
@@ -108,6 +112,11 @@ li {
         color: $primary-color-text;
         background: $primary-color;
         border: 1px $primary-color solid;
+        &-outlined {
+            background-color: #FFF;
+            border: $primary-color 1px solid;
+            color: $primary-color;
+        }
         &:hover {
             background: $primary-color-hover;
             color: $primary-color-text;
@@ -257,4 +266,5 @@ li {
     &-raised {
         box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     }
+    
 }

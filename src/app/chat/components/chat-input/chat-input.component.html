@@ -7,7 +7,7 @@
             </div>
         </div>
     </div>
-    <div class="blob-button">
+    <div class="blob-button" (click)="onButtonClickedSharedChat()">
         <div class="blob-container shared">
             <i class="pi pi-share-alt"></i>
         </div>
@@ -28,7 +28,7 @@
     <div class="chat-input-box">
         <div class="chat-input-field">
             <div class="input-container">
-                <i class="input-icon pi pi-ellipsis-v"></i>
+                <i class="input-icon pi pi-ellipsis-v" (click)="onButtonClickedChat()"></i>
                 <textarea class="input-chat" placeholder="Haz una consulta" [(ngModel)]="message" (input)="resizeTextArea($event)"></textarea>
             </div>
         </div>

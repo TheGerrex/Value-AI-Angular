@@ -37,11 +37,13 @@
             border-radius: 50px;
             
         }
-        :hover {
+        .input-icon:hover {
             background-color: $gray-50;
         }
-        :active {
-            background-color: $gray-100;
+        .input-icon:active {
+            background-color: $primary-color;
+            color: #FFF;
+            // border: $primary-color-focus 1px solid;
         }
         label {
             color: $text;

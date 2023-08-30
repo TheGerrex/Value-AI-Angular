@@ -11,6 +11,7 @@ import { PromptLibraryComponent } from './components/prompt-library/prompt-libra
 
 
 
+
 @NgModule({
   declarations: [
     ChatPageComponent,
@@ -23,7 +24,7 @@ import { PromptLibraryComponent } from './components/prompt-library/prompt-libra
     ChatRoutingModule,
     SharedModule,
     PrimengModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class ChatModule { }

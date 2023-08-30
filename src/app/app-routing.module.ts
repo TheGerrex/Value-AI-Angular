@@ -4,15 +4,15 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent},
+  { path: '', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   // { path: '', component: LoginComponent},
   {
-    path: '',
+    path: 'chat',
     loadChildren: () => import('./chat/chat.module').then( m => m.ChatModule),
   },
   {
-    path: '',
+    path: 'library',
     loadChildren: () => import('./prompt-library/prompt-library.module').then( m => m.PromptLibraryModule),
   },
 ];

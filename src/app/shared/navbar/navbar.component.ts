@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output, } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   checked: boolean = true;
+  @Output() toggleFunctionChats = new EventEmitter<void>();
+  @Output() toggleFunctionPlugins = new EventEmitter<void>();
+
+  onButtonClickedChat() {
+    this.toggleFunctionChats.emit();
+  }
+  onButtonClickedPlugin() {
+    this.toggleFunctionPlugins.emit();
+  }
+
 }

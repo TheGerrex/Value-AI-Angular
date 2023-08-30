@@ -10,12 +10,18 @@
 
 .menu {
     display: flex;
-    width: 250px;
-    height: 100vh;
+    width: 100%;
+    // height: 100vh;
     flex-direction: column;
     align-items: center;
     gap: 32px;
     flex-shrink: 0;
+    .prompt-menu-close-button {
+        padding: 16px 16px;
+        i {
+            color: #B91C1C;
+        }
+    }
     .options {
         display: flex;
         flex-direction: column;
@@ -43,6 +49,10 @@
                     justify-content: center;
                     align-items: center;
                     gap: 6px;
+
+                    i {
+                        color: $primary-color-dark;
+                    }
                 }
             }
         }
@@ -68,30 +78,150 @@
     }
 }
 
+#col-menu {
+    @media (max-width: 768px) { 
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        background-color: #FFF;
+
+     }
+}
 .prompts {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 32px;
+    gap: 16px;
+    height: 100%;
 
-    .search-bar {
+    .prompt-menu-button {
+        padding: 16px 16px;
+        i {
+            font-size: 1.4em;
+            color: $primary-color-dark;
+        }
+    }
+
+    .search-box {
         display: flex;
         width: 100%;
-        padding: 15px;
-        justify-content: space-between;
-        align-items: center;
-        border-radius: 10px;
-        border: 1px solid #033D48;
-        background: #F0FCFE;
+        gap: 4px;
+        .search-field {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            .search-container {
+                position: relative;
+            }
+            .search-icon {
+                position: absolute;
+                left: 10px;
+                /* Adjust the icon's position as needed */
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 1;
+            }
+            label {
+                color: $text;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .search-input {
+                width: 100%;
+                padding-left: 30px;
+                padding-right: 8px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                border-radius: 10px;
+                border: 1px solid $primary-color;
+                background-color: $primary-color-light;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 8px;
+                display: inline-flex;
+                font-size: 1em;
+            }
+        }
     }
 
     .prompt-cards-container {
         display: flex;
         width: 100%;
-        align-items: flex-start;
+        height: 100%;
         align-content: flex-start;
+        justify-content: flex-start;
         gap: 16px;
         flex-wrap: wrap;
+        overflow-y: auto;
+        .card-prompt {
+            display: flex;
+            padding: 16px;
+            width: 300px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            border-radius: 10px;
+            background: $primary-color-light;
+            @media (max-width: 992px) { 
+                width: 100%;
+            }
+            .header {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+
+                .category-blob {
+                    display: flex;
+                    padding: 8px 16px;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    border-radius: 10px;
+                    background: rgba($color: $primary-color, $alpha: .20);
+                    color: $primary-color;
+                }
+
+                i {
+                    font-size: 1.4em;
+                    color: $primary-color-dark;
+                }
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                width: 100%;
+            }
+
+            .footer {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 8px;
+                width: 100%;
+
+                .circle-button {
+                    display: flex;
+                    width: 32px;
+                    height: 32px;
+                    padding: 6px;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 100px;
+                    background: rgba($color: $primary-color, $alpha: .75);
+                    i {
+                        color: #FFF;
+                    }
+                }
+            }
+        }
+
     }
 }
 
@@ -99,11 +229,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 32px;
-    flex: 1 0 0;
+    gap: 16px;
+    width: 100%;
     .text-area {
         display: flex;
-        height: 462px;
+        flex-grow: 1;
+        height: 100%;
+        width: 100%;
         padding: 16px;
         flex-direction: column;
         align-items: flex-start;

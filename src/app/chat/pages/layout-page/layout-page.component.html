@@ -1,18 +1,14 @@
-<div class="flex flex-column overflow-x-hidden" style="background-color: #FAFAFA; position: relative;">
-    <div class="hidden md:block">
-        <app-navbar></app-navbar>
-    </div>
-    <div class="block md:hidden">
-        <div class="Navbar">
-            <i class="pi pi-bars" (click)="toggleSidenav()"></i>
-            <p>Obed Gonzales</p>
-            <i class="pi pi-ellipsis-v"></i>
-        </div>
-    </div>
-    <!-- <div class="container" [class.open]="containerOpen">
-        <div class="sidenav" [class.open]="sidenavOpen">
-            <div class="main-content">
+<div class="flex flex-column overflow-x-hidden relative" style="background-color: #FAFAFA; position: relative;">
+    <app-navbar (toggleFunctionChats)="toggleLayoutFunctionChats()" (toggleFunctionPlugins)="toggleLayoutFunctionPlugins()"></app-navbar>
+    
+    <div class="grid grid-nogutter chat-container">
+        <div class="md:flex md:col-fixed md:p-2" id="column-chats-list-col" style="width: 300px;" [class.md:hidden]="!columnChatsOpen" [class.md:flex]="columnChatsOpen" [class.flex]="columnChatsOpenMobile" [class.hidden]="!columnChatsOpenMobile" >
+            <div class="column-chats-list">
                 <div class="wrapper-search-chats">
+                    <div class="wrapper-buttons">
+                        <button class="button close-button" (click)="ontoggleChats()"><i class="pi pi-times"></i></button>
+                        <button class="button settings-button" (click)="ontoggleSettings()"><i class="pi pi-cog"></i></button>
+                    </div>
                     <div class="search-box">
                         <div class="search-field">
                             <div class="search-container">
@@ -20,7 +16,7 @@
                                 <input type="text" class="search-input" placeholder="Buscar">
                             </div>
                         </div>
-                        <button (click)="toggleSidenav()">Salir</button>
+                        <button class="button toggle-button" (click)="ontoggleChats()"><i class="pi pi-window-minimize"></i></button>
                     </div>
                     <div class="chats">
                         <div class="all-chats">
@@ -80,22 +76,191 @@
                 <div class="buttons-container">
                     <hr>
                     <div class="actions">
-                        <button class="button button-secondary button-full" routerLink="/prompt-library">
+                        <button class="button button-secondary button-full" routerLink="/library/prompt-library">
                             <p>Librería de Consultas</p>
                             <i class="search-icon pi pi-book"></i>
                         </button>
+                        <!-- <app-prompt-library></app-prompt-library> -->
                         <button class="button button-primary button-full">
                             <p>Modelo: GPT-4</p>
                             <i class="search-icon pi pi-chevron-down"></i>
                         </button>
-                        <button class="button button-primary button-full">
+                        <button class="button button-primary button-full" (click)="showModalFilesUpload()">
                             <p>Cargar Archivo</p>
                             <i class="search-icon pi pi-upload"></i>
                         </button>
                     </div>
                 </div>
             </div>
+            <div class="column-settings-mobile hidden" [class.flex]="columnSettingsOpenMobile" [class.hidden]="!columnSettingsOpenMobile">
+                <div class="wrapper">
+                    <div class="wrapper-buttons">
+                        <button class="button close-button" (click)="ontoggleSettings()"><i class="pi pi-times"></i></button>
+                    </div>
+                    <div class="header">
+                        <h2>Ajustes</h2>
+                    </div>
+                    <div class="settings">
+                        <div class="all-settings">
+                            <div class="setting">
+                                <div class="content">
+                                    <p>{{checked ? 'Claro' : 'Obscuro'}}</p>
+                                    <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <div class="content">
+                                    <p>Dashboard</p>
+                                    <i class="pi pi-chart-bar"></i>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <div class="content">
+                                    <p>Idioma</p>
+                                    <div class="blob-container">
+                                        <p>ES</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <div class="content">
+                                    <p>FAQS</p>
+                                    <i class="pi pi-question-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+                <div class="buttons-container">
+                    <hr>
+                    <div class="actions">
+                        <div class="blob-avatar">
+                            <div class="blob-container">
+                                <div class="circle-avatar"></div>
+                                <p>Juan Hernandez</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div> -->
-    <router-outlet></router-outlet>
+        <div class="flex-1 sm:col-9 lg:col md:p-2">
+            <div class="column-chat">
+                <button class="button button-primary button-absolute" (click)="ontoggleChats()" [class.hidden]="columnChatsOpen" [class.md:block]="!columnChatsOpen"><i class="pi pi-comments"></i></button>
+                <button class="button button-primary button-absolute-plugin" (click)="ontogglePlugins()" [class.hidden]="columnPluginsOpen" [class.lg:block]="!columnPluginsOpen"><i class="pi pi-th-large"></i></button>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+        <div class="lg:col-fixed md:p-2" id="column-plugins-list-col" style="width: 300px;" [class.lg:hidden]="!columnPluginsOpen" [class.lg:block]="columnPluginsOpen" [class.md:block]="columnPluginsOpenTablet" [class.md:hidden]="!columnPluginsOpenTablet" [class.block]="columnPluginsOpenMobile" [class.hidden]="!columnPluginsOpenMobile" >
+            <div class="column-plugins">
+                <button class="button toggle-plugins-button" (click)="ontogglePlugins()" [class.hidden]="!columnPluginsOpen" [class.lg:block]="columnPluginsOpen"><i class="pi pi-window-minimize"></i></button>
+                <div class="card-user">
+                    <h2>Obed Gonzales</h2>
+                    <p>Cliente</p>
+                </div>
+                <div class="wrapper">
+                    <button class="button close-button" (click)="ontogglePlugins()"><i class="pi pi-times"></i></button>
+                </div>
+                <div class="header">
+                    <h5>PLUGINS</h5>
+                    <hr>
+                </div>
+                <div class="active-plugins">
+                    <div class="title">
+                        <div class="circle-number">
+                            <span>2</span>
+                        </div>
+                        <p>Activo</p>
+                    </div>
+                    <div class="plugins-container">
+                        <div class="card-plugin">
+                            <div class="circle-plugin-icon">
+                                <img src="" alt="">
+                            </div>
+                            <div class="wrapper">
+                                <div class="content">
+                                    <p>Yahoo Finance</p>
+                                    <small>En llamada (Twilio Flex)</small>
+                                </div>
+                                <div class="icon">
+                                    <i class="search-icon pi pi-star" style="color: #F59E0B;"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-plugin">
+                            <div class="circle-plugin-icon">
+                                <img src="" alt="">
+                            </div>
+                            <div class="wrapper">
+                                <div class="content">
+                                    <p>Bloomberg</p>
+                                    <small>En llamada (Twilio Flex)</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inactive-plugins">
+                    <div class="title">
+                        <p>Inactivo</p>
+                    </div>
+                    <div class="plugins-container">
+                        <div class="card-plugin inactive">
+                            <div class="circle-plugin-icon">
+                                <img src="" alt="">
+                            </div>
+                            <div class="wrapper">
+                                <div class="content">
+                                    <p>Web (Bing)</p>
+                                    <small>Chat personal</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-plugin inactive">
+                            <div class="circle-plugin-icon">
+                                <img src="" alt="">
+                            </div>
+                            <div class="wrapper">
+                                <div class="content">
+                                    <p>BIVA</p>
+                                    <small>Bolsa Institucional de Valores</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<p-dialog header="Nueva Base de Conocimiento" [(visible)]="displayModalFilesUpload" [modal]="true">
+    <div class="save-prompt">
+        <div class="prompt-container">
+            <div class="inputs">
+                <div class="input-field">
+                    <label>Nombra tu Base de Conocimiento</label>
+                    <div class="input-container">
+                        <i class="input-icon pi pi-pencil"></i>
+                        <input type="text" class="input-login" placeholder="Nombre de Base de Conocimiento">
+                    </div>
+                </div>
+                <div class="input-field">
+                    <label>Cargar URL o Video</label>
+                    <div class="input-container">
+                        <div class="input-container">
+                            <i class="input-icon pi pi-link"></i>
+                            <input type="text" class="input-login" placeholder="Agrega tu URL">
+                        </div>
+                    </div>
+                </div>
+                <button class="button button-full">
+                    <span class="button-label">Agregar otro link</span>
+                </button>
+            </div>
+            <div class="footer">
+                <button class="button button-primary-outlined button-full"><p>Cargar Archivo</p><i class="search-icon pi pi-upload"></i></button>
+                <button class="button button-primary button-full"><p>Guardar</p><i class="search-icon pi pi-plus"></i></button>
+            </div>
+        </div>
+    </div>
+</p-dialog>
