@@ -1,4 +1,5 @@
 @import '../../../../variables';
+@import '../../../../styles.scss';
 .chat-container {
    height: calc(100vh - 50px);
    overflow-y: hidden;
@@ -9,12 +10,12 @@
 
 .column-chat {
     height: 100%;
+    position: relative;
     
 }
 
 .main-container {
     display: flex;
-    // max-width: 900px;
     box-sizing: border-box;
     flex: 1 1 auto;
     width: 100%;
@@ -32,6 +33,7 @@
     }
     .top-container {
         display: flex;
+        width: 100%;
         height: calc(100vh - 500px);
         flex-direction: column;
         align-items: flex-start;
@@ -250,41 +252,45 @@
         flex-direction: column;
         width: 100%;
         gap: 16px;
-        .search-field {
-            width: 100%;
+        .search-box {
             display: flex;
-            flex-direction: column;
-            gap: 8px;
-            .search-container {
-                position: relative;
-            }
-            .search-icon {
-                position: absolute;
-                left: 10px;
-                /* Adjust the icon's position as needed */
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 1;
-            }
-            label {
-                color: $text;
-                font-size: 16px;
-                font-weight: 500;
-            }
-            .search-input {
+            gap: 4px;
+            .search-field {
                 width: 100%;
-                padding-left: 30px;
-                padding-right: 8px;
-                padding-top: 12px;
-                padding-bottom: 12px;
-                border-radius: 10px;
-                border: 1px solid $primary-color;
-                background-color: $primary-color-light;
-                justify-content: flex-start;
-                align-items: center;
+                display: flex;
+                flex-direction: column;
                 gap: 8px;
-                display: inline-flex;
-                font-size: 1em;
+                .search-container {
+                    position: relative;
+                }
+                .search-icon {
+                    position: absolute;
+                    left: 10px;
+                    /* Adjust the icon's position as needed */
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: 1;
+                }
+                label {
+                    color: $text;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+                .search-input {
+                    width: 100%;
+                    padding-left: 30px;
+                    padding-right: 8px;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    border-radius: 10px;
+                    border: 1px solid $primary-color;
+                    background-color: $primary-color-light;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 8px;
+                    display: inline-flex;
+                    font-size: 1em;
+                }
             }
         }
         .chats {
@@ -375,6 +381,11 @@
         }
     }
 }
+
+#column-chats-list.open {
+    display: none;
+}
+
 
 .column-plugins {
     display: flex;
@@ -495,3 +506,56 @@
     }
 }
 
+
+.toggle-button {
+    padding: 0px 16px;
+    border: none;
+
+    
+}
+
+.toggle-button:hover {
+    background-color: $gray-100;
+}
+.toggle-plugins-button {
+    padding: 12px 16px;
+    border: none;
+
+    
+}
+
+.toggle-plugins-button:hover {
+    background-color: $gray-100;
+}
+
+.button-absolute {
+    position: absolute;
+    border: none;
+    z-index: 2;
+    top: 5px;
+    left: 5px;
+    padding: 12px 12px 10px 12px;
+    background-color: rgba($color: #05687A, $alpha: .50);
+    @media (max-width: 768px) { 
+        display: none;
+    }
+    // @media (min-width: 769px) and (max-width: 992px) { 
+    //     display: block !important;
+    // }
+}
+
+.button-absolute-plugin {
+    position: absolute;
+    border: none;
+    z-index: 2;
+    top: 5px;
+    right: 5px;
+    padding: 12px 12px 10px 12px;
+    background-color: rgba($color: #05687A, $alpha: .50);
+    @media (max-width: 768px) { 
+        display: none !important;
+    }
+    @media (min-width: 769px) and (max-width: 992px) { 
+        display: block !important;
+    }
+}

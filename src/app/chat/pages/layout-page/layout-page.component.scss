@@ -1,3 +1,5 @@
+@import '../../../../variables';
+
 .Navbar {
     width: 100%;
     height: 50px;
@@ -21,17 +23,156 @@
     height: 100vh;
     overflow: hidden;
     display: none;
-    position: relative;
+    position: absolute;
     z-index: 2;
+    background-color: #FFF;
 }
 
 .sidenav {
     width: 0;
     height: 100%;
-    background-color: #333;
+    background-color: #FFF;
     overflow-x: hidden;
     transition: 0.3s;
     padding-top: 60px;
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        justify-content: space-between;
+        // height: calc(100vh - 96px);
+        height: 100%;
+        .wrapper-search-chats {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 16px;
+            .search-field {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                .search-container {
+                    position: relative;
+                }
+                .search-icon {
+                    position: absolute;
+                    left: 10px;
+                    /* Adjust the icon's position as needed */
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: 1;
+                }
+                label {
+                    color: $text;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+                .search-input {
+                    width: 100%;
+                    padding-left: 30px;
+                    padding-right: 8px;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    border-radius: 10px;
+                    border: 1px solid $primary-color;
+                    background-color: $primary-color-light;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 8px;
+                    display: inline-flex;
+                    font-size: 1em;
+                }
+            }
+            .chats {
+                overflow-y: auto;
+            }
+            .all-chats,
+            .client-chats {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 8px;
+                width: 100%;
+            }
+            .header {
+                display: flex;
+                padding: 8px 0px;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                .title {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    color: $primary-color-dark;
+                }
+                .button-plus {
+                    display: flex;
+                    padding: 8px;
+                    align-items: center;
+                    gap: 10px;
+                    border-radius: 10px;
+                    background: #E7FAFE;
+                    border: none;
+                }
+            }
+            .chat {
+                display: flex;
+                padding: 16px 8px;
+                align-items: center;
+                width: 100%;
+                border-radius: 16px;
+                background: #EFEFEF;
+                .content {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 6px;
+                }
+            }
+            .chat-client {
+                display: flex;
+                padding: 16px 8px;
+                align-items: center;
+                width: 100%;
+                border-radius: 16px;
+                background: #EFEFEF;
+                justify-content: space-between;
+                .title {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 6px;
+                }
+                .actions {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+            }
+        }
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            width: 100%;
+            hr {
+                width: 100%;
+                margin: 0;
+                border: rgba($color: $gray-100, $alpha: .25) 1px solid;
+            }
+            .actions {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                width: 100%;
+            }
+        }
+    }
 }
 
 .sidenav.open {
@@ -53,6 +194,6 @@
         padding-top: 20px;
     }
     .sidenav.open {
-        width: 80%;
+        width: 100vw;
     }
 }

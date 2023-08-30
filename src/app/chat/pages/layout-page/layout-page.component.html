@@ -1,4 +1,4 @@
-<div class="flex flex-column overflow-x-hidden" style="background-color: #FAFAFA;">
+<div class="flex flex-column overflow-x-hidden" style="background-color: #FAFAFA; position: relative;">
     <div class="hidden md:block">
         <app-navbar></app-navbar>
     </div>
@@ -9,14 +9,93 @@
             <i class="pi pi-ellipsis-v"></i>
         </div>
     </div>
-    <div class="container" [class.open]="containerOpen">
+    <!-- <div class="container" [class.open]="containerOpen">
         <div class="sidenav" [class.open]="sidenavOpen">
-            <!-- Sidenav content here -->
-            jkfdlbkslbf
+            <div class="main-content">
+                <div class="wrapper-search-chats">
+                    <div class="search-box">
+                        <div class="search-field">
+                            <div class="search-container">
+                                <i class="search-icon pi pi-search"></i>
+                                <input type="text" class="search-input" placeholder="Buscar">
+                            </div>
+                        </div>
+                        <button (click)="toggleSidenav()">Salir</button>
+                    </div>
+                    <div class="chats">
+                        <div class="all-chats">
+                            <div class="header">
+                                <div class="title">
+                                    <h5>Todos los chats</h5>
+                                    <i class="pi pi-chevron-down"></i>
+                                </div>
+                                <button class="button-plus"><i class="pi pi-plus"></i></button>
+                            </div>
+                            <div class="chat">
+                                <div class="content">
+                                    <i class="search-icon pi pi-comment"></i>
+                                    <p>Análisis TSLA</p>
+                                </div>
+                            </div>
+                            <div class="chat">
+                                <div class="content">
+                                    <i class="search-icon pi pi-comment"></i>
+                                    <p>Tendencias del Mercado 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="client-chats">
+                            <div class="header">
+                                <div class="title">
+                                    <h5>Chats de clientes</h5>
+                                    <i class="pi pi-chevron-down"></i>
+                                </div>
+                                <button class="button-plus"><i class="pi pi-plus"></i></button>
+                            </div>
+                            <div class="chat-client">
+                                <div class="title">
+                                    <i class="search-icon pi pi-comment"></i>
+                                    <p>Obed Gonzales</p>
+                                </div>
+                                <div class="actions">
+                                    <i class="search-icon pi pi-pencil"></i>
+                                    <i class="search-icon pi pi-share-alt"></i>
+                                    <i class="search-icon pi pi-trash"></i>
+                                </div>
+                            </div>
+                            <div class="chat-client">
+                                <div class="title">
+                                    <i class="search-icon pi pi-comment"></i>
+                                    <p>Juan Hernández</p>
+                                </div>
+                                <div class="actions">
+                                    <i class="search-icon pi pi-pencil"></i>
+                                    <i class="search-icon pi pi-share-alt"></i>
+                                    <i class="search-icon pi pi-trash"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons-container">
+                    <hr>
+                    <div class="actions">
+                        <button class="button button-secondary button-full" routerLink="/prompt-library">
+                            <p>Librería de Consultas</p>
+                            <i class="search-icon pi pi-book"></i>
+                        </button>
+                        <button class="button button-primary button-full">
+                            <p>Modelo: GPT-4</p>
+                            <i class="search-icon pi pi-chevron-down"></i>
+                        </button>
+                        <button class="button button-primary button-full">
+                            <p>Cargar Archivo</p>
+                            <i class="search-icon pi pi-upload"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="main-content">
-            <!-- Main content here -->
-        </div>
-    </div>
+    </div> -->
     <router-outlet></router-outlet>
 </div>

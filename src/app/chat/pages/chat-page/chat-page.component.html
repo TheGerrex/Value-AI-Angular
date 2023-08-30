@@ -1,5 +1,5 @@
 <div class="grid grid-nogutter chat-container">
-    <div class="hidden md:flex md:col-fixed md:p-2" style="width: 300px;">
+    <div class="hidden md:flex md:col-fixed md:p-2" id="column-chats-list" style="width: 300px;" [class.md:hidden]="!columnChatsOpen" [class.md:flex]="columnChatsOpen">
         <div class="column-chats-list">
             <div class="wrapper-search-chats">
                 <div class="search-box">
@@ -9,6 +9,7 @@
                             <input type="text" class="search-input" placeholder="Buscar">
                         </div>
                     </div>
+                    <button class="button toggle-button" (click)="toggleChats()"><i class="pi pi-window-minimize"></i></button>
                 </div>
                 <div class="chats">
                     <div class="all-chats">
@@ -87,6 +88,8 @@
     </div>
     <div class="flex-1 sm:col-9 lg:col md:p-2">
         <div class="column-chat">
+            <button class="button button-primary button-absolute" (click)="toggleChats()" [class.hidden]="columnChatsOpen" [class.md:block]="!columnChatsOpen"><i class="pi pi-comments"></i></button>
+            <button class="button button-primary button-absolute-plugin" (click)="togglePlugins()" [class.hidden]="columnPluginsOpen" [class.lg:block]="!columnPluginsOpen"><i class="pi pi-th-large"></i></button>
             <div class="main-container">
                 <div class="top-container">
                     <div class="message-user">
@@ -325,8 +328,9 @@
             </div>
         </div>
     </div>
-    <div class="hidden lg:block lg:col-fixed md:p-2" style="width: 300px;">
+    <div class="hidden lg:col-fixed md:p-2" style="width: 300px;" [class.lg:hidden]="!columnPluginsOpen" [class.lg:block]="columnPluginsOpen" [class.md:block]="columnPluginsOpenTablet" [class.md:hidden]="!columnPluginsOpenTablet" >
         <div class="column-plugins">
+            <button class="button toggle-plugins-button" (click)="togglePlugins()" [class.hidden]="!columnPluginsOpen" [class.lg:block]="columnPluginsOpen"><i class="pi pi-window-minimize"></i></button>
             <div class="card-user">
                 <h2>Obed Gonzales</h2>
                 <p>Cliente</p>
