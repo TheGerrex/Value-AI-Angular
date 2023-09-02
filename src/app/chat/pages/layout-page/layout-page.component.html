@@ -1,8 +1,8 @@
 <div class="flex flex-column overflow-x-hidden relative" style="background-color: #FAFAFA; position: relative;">
     <app-navbar (toggleFunctionChats)="toggleLayoutFunctionChats()" (toggleFunctionPlugins)="toggleLayoutFunctionPlugins()"></app-navbar>
-    
+
     <div class="grid grid-nogutter chat-container">
-        <div class="md:flex md:col-fixed md:p-2" id="column-chats-list-col" style="width: 300px;" [class.md:hidden]="!columnChatsOpen" [class.md:flex]="columnChatsOpen" [class.flex]="columnChatsOpenMobile" [class.hidden]="!columnChatsOpenMobile" >
+        <div class="md:flex md:col-fixed md:p-2" id="column-chats-list-col" style="width: 300px;" [class.md:hidden]="!columnChatsOpen" [class.md:flex]="columnChatsOpen" [class.flex]="columnChatsOpenMobile" [class.hidden]="!columnChatsOpenMobile">
             <div class="column-chats-list">
                 <div class="wrapper-search-chats">
                     <div class="wrapper-buttons">
@@ -76,7 +76,7 @@
                 <div class="buttons-container">
                     <hr>
                     <div class="actions">
-                        <button class="button button-secondary button-full" routerLink="/library/prompt-library">
+                        <button class="button button-secondary button-full" routerLink="/chat/dashboard">
                             <p>Librería de Consultas</p>
                             <i class="search-icon pi pi-book"></i>
                         </button>
@@ -130,7 +130,7 @@
                             </div>
                         </div>
                     </div>
-               </div>
+                </div>
                 <div class="buttons-container">
                     <hr>
                     <div class="actions">
@@ -151,9 +151,10 @@
                 <router-outlet></router-outlet>
             </div>
         </div>
-        <div class="lg:col-fixed md:p-2" id="column-plugins-list-col" style="width: 300px;" [class.lg:hidden]="!columnPluginsOpen" [class.lg:block]="columnPluginsOpen" [class.md:block]="columnPluginsOpenTablet" [class.md:hidden]="!columnPluginsOpenTablet" [class.block]="columnPluginsOpenMobile" [class.hidden]="!columnPluginsOpenMobile" >
+        <div class="lg:col-fixed md:p-2" id="column-plugins-list-col" style="width: 300px;" [class.lg:hidden]="!columnPluginsOpen" [class.lg:block]="columnPluginsOpen" [class.md:block]="columnPluginsOpenTablet" [class.md:hidden]="!columnPluginsOpenTablet" [class.block]="columnPluginsOpenMobile"
+            [class.hidden]="!columnPluginsOpenMobile">
             <div class="column-plugins">
-                <button class="button toggle-plugins-button" (click)="ontogglePlugins()" [class.hidden]="!columnPluginsOpen" [class.lg:block]="columnPluginsOpen"><i class="pi pi-window-minimize"></i></button>
+                <button class="button toggle-plugins-button md:hidden" (click)="ontogglePlugins()" [class.hidden]="!columnPluginsOpen" [class.lg:block]="columnPluginsOpen"><i class="pi pi-window-minimize"></i></button>
                 <div class="card-user">
                     <h2>Obed Gonzales</h2>
                     <p>Cliente</p>

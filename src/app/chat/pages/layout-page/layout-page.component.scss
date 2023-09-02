@@ -1,6 +1,5 @@
 @import '../../../../styles.scss';
 @import '../../../../variables';
-
 .Navbar {
     width: 100%;
     height: 50px;
@@ -19,11 +18,10 @@
     }
 }
 
-
 .chat-container {
-   height: calc(100vh - 50px);
-   overflow-y: hidden;
-    @media (min-width: 768px) { 
+    height: calc(100vh - 50px);
+    overflow-y: hidden;
+    @media (min-width: 768px) {
         height: calc(100vh - 80px);
     }
 }
@@ -31,7 +29,6 @@
 .column-chat {
     height: 100%;
     position: relative;
-    
 }
 
 .main-container {
@@ -48,7 +45,7 @@
     border: 1px solid rgba(3, 61, 72, 0.25);
     background: #FFF;
     gap: 16px;
-    @media (min-width: 768px) { 
+    @media (min-width: 768px) {
         border-radius: 10px;
     }
     .top-container {
@@ -184,77 +181,77 @@
             align-items: center;
             gap: 16px;
             width: 100%;
-                .actions {
+            .actions {
+                display: flex;
+                justify-content: center;
+                // align-items: flex-end;
+                gap: 8px;
+                width: 100%;
+                position: absolute;
+                top: -60px;
+                left: 0;
+                .button-refresh {
                     display: flex;
+                    padding: 8px 16px;
+                    align-items: center;
+                    gap: 10px;
+                    border-radius: 10px;
+                    border: $gray-100 1px solid;
+                    background: $gray-background;
+                    i,
+                    span {
+                        color: $text;
+                    }
+                }
+                .button-play {
+                    display: flex;
+                    padding: 8px 16px;
+                    align-items: center;
+                    gap: 10px;
+                    border-radius: 10px;
+                    border: 1px solid rgba(34, 197, 94, 0.50);
+                    background: #F6FDF9;
+                    i,
+                    span {
+                        color: #15803D;
+                    }
+                }
+                .button-stop {
+                    display: flex;
+                    padding: 8px 16px;
+                    align-items: center;
+                    gap: 10px;
+                    border-radius: 10px;
+                    border: 1px solid rgba(185, 28, 28, 0.50);
+                    background: #FEF8F8;
+                    i,
+                    span {
+                        color: #B91C1C;
+                    }
+                }
+            }
+            .prompts {
+                display: flex;
+                gap: 8px;
+                align-items: flex-end;
+                width: 100%;
+                .button-prompt {
+                    display: flex;
+                    padding: 8px 16px;
                     justify-content: center;
-                    // align-items: flex-end;
+                    align-items: center;
                     gap: 8px;
-                    width: 100%;
-                    position: absolute;
-                    top: -60px;
-                    left: 0;
-                    .button-refresh {
-                        display: flex;
-                        padding: 8px 16px;
-                        align-items: center;
-                        gap: 10px;
-                        border-radius: 10px;
-                        border: $gray-100 1px solid;
-                        background: $gray-background;
-                        i,
-                        span {
-                            color: $text;
-                        }
-                    }
-                    .button-play {
-                        display: flex;
-                        padding: 8px 16px;
-                        align-items: center;
-                        gap: 10px;
-                        border-radius: 10px;
-                        border: 1px solid rgba(34, 197, 94, 0.50);
-                        background: #F6FDF9;
-                        i,
-                        span {
-                            color: #15803D;
-                        }
-                    }
-                    .button-stop {
-                        display: flex;
-                        padding: 8px 16px;
-                        align-items: center;
-                        gap: 10px;
-                        border-radius: 10px;
-                        border: 1px solid rgba(185, 28, 28, 0.50);
-                        background: #FEF8F8;
-                        i,
-                        span {
-                            color: #B91C1C;
-                        }
+                    align-self: stretch;
+                    border-radius: 12px;
+                    background: $secondary-color-light;
+                    border: none;
+                    font-size: 14px;
+                    i,
+                    span {
+                        color: $text;
                     }
                 }
-                .prompts {
-                    display: flex;
-                    gap: 8px;
-                    align-items: flex-end;
-                    width: 100%;
-                    .button-prompt {
-                        display: flex;
-                        padding: 8px 16px;
-                        justify-content: center;
-                        align-items: center;
-                        gap: 8px;
-                        align-self: stretch;
-                        border-radius: 12px;
-                        background: $secondary-color-light;
-                        border: none;
-                        font-size: 14px;
-                        i,
-                        span {
-                            color: $text;
-                        }
-                    }
-                }
+            }
         }
     }
 }
@@ -352,13 +349,17 @@
             align-items: center;
             width: 100%;
             border-radius: 16px;
-            background: #EFEFEF;
+            background: $gray-background;
             .content {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 gap: 6px;
             }
+        }
+        .chat:hover {
+            transition: all 0.15s ease-in;
+            background-color: $gray-100;
         }
         .chat-client {
             display: flex;
@@ -402,13 +403,9 @@
     }
 }
 
-
-
 #column-chats-list-col {
-    
     display: flex;
-
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
         background-color: #FFF;
         position: absolute !important;
         z-index: 2;
@@ -419,11 +416,10 @@
         padding: 8px;
     }
 }
+
 #column-plugins-list-col {
-    
     display: flex;
-
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
         background-color: #FFF;
         position: absolute !important;
         z-index: 2;
@@ -434,13 +430,11 @@
         padding: 8px;
     }
 }
-
 
 .column-plugins {
     display: flex;
     flex-direction: column;
     gap: 16px;
-
     .header {
         color: $primary-color-dark;
         width: 100%;
@@ -449,8 +443,8 @@
             border: rgba($color: $gray-100, $alpha: .25) 1px solid;
         }
     }
-
-    .active-plugins, .inactive-plugins {
+    .active-plugins,
+    .inactive-plugins {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -459,7 +453,6 @@
             display: flex;
             gap: 8px;
             align-items: center;
-
             .circle-number {
                 background-color: $primary-color;
                 border-radius: 100px;
@@ -469,13 +462,11 @@
                     font-size: 14px;
                 }
             }
-
             p {
                 color: $primary-color-dark;
                 font-weight: 500;
             }
         }
-
         .plugins-container {
             display: flex;
             flex-direction: column;
@@ -491,7 +482,6 @@
                 border: 1px solid #05687A;
                 background: #F0FCFE;
                 cursor: pointer;
-
                 .circle-plugin-icon {
                     width: 50px;
                     height: 50px;
@@ -500,10 +490,9 @@
                     border: 2px solid #033D48;
                     background-color: $gray-100;
                     @media (max-width: 1200px) {
-                          display: none;
+                        display: none;
                     }
                 }
-
                 .wrapper {
                     display: flex;
                     justify-content: space-between;
@@ -522,8 +511,6 @@
                         }
                     }
                 }
-
-                
             }
             .inactive {
                 opacity: .50;
@@ -535,11 +522,9 @@
     }
 }
 
-
 .wrapper {
     display: flex;
     gap: 8px;
-    
 }
 
 .card-user {
@@ -560,20 +545,19 @@
         color: rgba(255, 255, 255, 0.50);
         margin: 0;
     }
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
         display: none;
     }
 }
-
 
 .toggle-button {
     padding: 0px 16px;
     border: none;
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
         display: none;
     }
-    
 }
+
 .toggle-button:hover {
     background-color: $gray-100;
 }
@@ -590,11 +574,11 @@
     i {
         color: #B91C1C;
     }
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
         display: flex;
     }
-    
 }
+
 .close-button:hover {
     background-color: $gray-100;
     i {
@@ -606,11 +590,11 @@
     padding: 16px 16px;
     border: none;
     display: none;
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
         display: flex;
     }
-    
 }
+
 .settings-button:hover {
     background-color: $gray-100;
 }
@@ -618,9 +602,8 @@
 .toggle-plugins-button {
     padding: 12px 16px;
     border: none;
-
-    
 }
+
 .toggle-plugins-button:hover {
     background-color: $gray-100;
 }
@@ -633,7 +616,7 @@
     left: 5px;
     padding: 12px 12px 10px 12px;
     background-color: rgba($color: #05687A, $alpha: .50);
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
         display: none;
     }
     // @media (min-width: 769px) and (max-width: 992px) { 
@@ -649,17 +632,17 @@
     right: 5px;
     padding: 12px 12px 10px 12px;
     background-color: rgba($color: #05687A, $alpha: .50);
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
         display: none !important;
     }
-    @media (min-width: 769px) and (max-width: 992px) { 
+    @media (min-width: 769px) and (max-width: 992px) {
         display: block !important;
     }
 }
 
 .column-settings-mobile {
     display: none;
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
         background-color: #FFF;
         position: absolute !important;
         z-index: 3;
@@ -698,12 +681,11 @@
         }
         .setting {
             display: flex;
-            
             align-items: center;
             width: 100%;
             border-radius: 16px;
             background: $gray-background;
-            :hover {
+             :hover {
                 background: $gray-100;
             }
             .content {
@@ -714,14 +696,12 @@
                 justify-content: space-between;
                 align-items: center;
                 gap: 6px;
-
                 i {
                     color: $primary-color-dark;
                 }
             }
         }
     }
-
     .buttons-container {
         .blob-avatar {
             border-radius: 10px;
@@ -761,19 +741,18 @@
         display: flex;
         flex-direction: column;
         gap: 32px;
-        .main{
+        .main {
             overflow-y: auto;
             max-height: 350px;
             border-radius: 10px;
-                border: 1px solid rgba(3, 61, 72, 0.25);
-                background: #FFF;
-                padding: 16px;
+            border: 1px solid rgba(3, 61, 72, 0.25);
+            background: #FFF;
+            padding: 16px;
             .prompt {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 width: 100%;
-                
                 gap: 16px;
                 .message-user {
                     display: flex;
@@ -813,11 +792,9 @@
                                 display: flex;
                                 align-items: center;
                                 gap: 8px;
-        
                                 i {
                                     padding: 8px;
                                     border-radius: 50px;
-        
                                 }
                                 i:hover {
                                     background-color: $gray-50;
@@ -943,11 +920,10 @@
                 }
             }
         }
-        .footer{
+        .footer {
             display: flex;
             flex-direction: column;
             gap: 16px;
         }
-    
     }
 }

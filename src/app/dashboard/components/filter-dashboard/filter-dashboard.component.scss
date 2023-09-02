@@ -1,0 +1,27 @@
+@import "../../../../variables";
+::ng-deep .input-calendar {
+    input {
+        color: $text;
+        background: $primary-color-light;
+        border: 1px $primary-color solid;
+        &:hover {
+            background: #FFF;
+            color: $primary-color-text;
+            border-color: $primary-color-hover;
+        }
+        &:active {
+            background: $primary-color-active;
+            color: $primary-color-text;
+            border-color: $primary-color-active;
+        }
+        &:focus {
+            box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-color-focus, 0 1px 2px 0 black;
+        }
+    }
+    pbutton .p-datepicker-trigger {
+        background-color: $primary-color;
+    }
+    button .p-datepicker-trigger :hover {
+        background-color: $primary-color-hover !important;
+    }
+}

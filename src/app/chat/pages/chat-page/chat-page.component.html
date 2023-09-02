@@ -235,6 +235,11 @@
     </div>
     <div [ngClass]="chatInputSettingsVisible ? 'slide-from-bottom' : 'slide-hidden'" class="slide-from-bottom-div" #chatInputSettings>
         <div class="chat-settings-menu">
+            <div class="option" (click)="toggleChatInputSettings()">
+                <p style="color: #B91C1C;">Cerrar</p>
+                <i class="input-icon pi pi-times" style="color: #B91C1C;"></i>
+            </div>
+            <hr>
             <div class="option">
                 <p>Transcribir la llamada en curso</p>
                 <i class="input-icon pi pi-play"></i>
@@ -248,11 +253,6 @@
             <div class="option">
                 <p>Voz a texto</p>
                 <i class="input-icon pi pi-microphone" style="font-size: 22px;"></i>
-            </div>
-            <hr>
-            <div class="option" (click)="toggleChatInputSettings()">
-                <p>Cerrar</p>
-                <i class="input-icon pi pi-times" style="color: #B91C1C;"></i>
             </div>
         </div>
     </div>
@@ -426,5 +426,5 @@
                 </div>
             </div>
         </div>
-    </p-dialog>   
+    </p-dialog>
 </div>

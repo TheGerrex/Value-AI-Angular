@@ -9,6 +9,7 @@ body {
     height: 100%;
     width: 100%;
     box-sizing: border-box;
+    font-family: $font-family;
 }
 
 h1,
@@ -27,6 +28,7 @@ textarea,
 a {
     font-family: $font-family;
     margin: 0;
+    color: $text;
 }
 
 h1 {
@@ -112,6 +114,9 @@ li {
         color: $primary-color-text;
         background: $primary-color;
         border: 1px $primary-color solid;
+        p {
+            color: #FFF;
+        }
         &-outlined {
             background-color: #FFF;
             border: $primary-color 1px solid;
@@ -153,6 +158,9 @@ li {
         color: $secondary-color-text;
         background: $secondary-color;
         border: 1px $secondary-color solid;
+        p {
+            color: #FFF;
+        }
         &:hover {
             background: $secondary-color-hover;
             color: $secondary-color-text;
@@ -266,5 +274,4 @@ li {
     &-raised {
         box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     }
-    
 }

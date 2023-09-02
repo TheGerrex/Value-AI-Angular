@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'library',
     loadChildren: () => import('./prompt-library/prompt-library.module').then( m => m.PromptLibraryModule),
   },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardModule),
+  },
 ];
 
 @NgModule({

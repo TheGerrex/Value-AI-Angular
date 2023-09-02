@@ -12,6 +12,7 @@
     .logo {
         width: 64px;
         height: 64px;
+        cursor: pointer;
     }
     .right-options-container {
         display: flex;
@@ -22,12 +23,14 @@
     .blob-switch {
         border-radius: 10px;
         background-color: $gray-background;
+        cursor: pointer;
         .blob-container {
             display: flex;
             flex-direction: row;
             padding: 8px 16px;
             align-items: center;
             gap: 8px;
+            height: 52px;
             p {
                 margin: 0;
                 font-weight: 500;
@@ -41,6 +44,7 @@
     .blob-button {
         border-radius: 10px;
         background-color: $gray-background;
+        cursor: pointer;
         .blob-container {
             display: flex;
             padding: 16px 16px;
@@ -48,7 +52,10 @@
             gap: 8px;
             p {
                 margin: 0;
-                font-weight: 400;
+                font-weight: 500;
+            }
+            i {
+                color: $primary-color-dark;
             }
         }
          :hover {
@@ -68,11 +75,13 @@
     .blob-avatar {
         border-radius: 10px;
         background-color: $gray-background;
+        cursor: pointer;
         .blob-container {
             display: flex;
-            padding: 8px 16px;
+            padding: 10px 16px;
             align-items: center;
             gap: 8px;
+            height: 52px;
             p {
                 margin: 0;
                 font-weight: 500;
@@ -92,11 +101,13 @@
     .blob-language {
         border-radius: 10px;
         background-color: $gray-background;
+        cursor: pointer;
         .blob-container {
             display: flex;
             padding: 14px 16px;
             align-items: center;
             gap: 8px;
+            height: 52px;
             p {
                 margin: 0;
                 font-weight: 400;
@@ -123,12 +134,11 @@
         padding: 8px;
         border-radius: 40px;
         // background-color: $primary-color-hover;
-       
     }
-    :hover {
+     :hover {
         background-color: $primary-color-hover;
     }
-    :active {
+     :active {
         background-color: $primary-color-hover;
         border: $primary-color-focus 1px solid;
     }

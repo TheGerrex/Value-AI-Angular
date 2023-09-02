@@ -1,0 +1,60 @@
+@import "../../../../variables";
+.tabs {
+    display: flex;
+    padding: 16px 0px;
+    align-items: flex-start;
+    gap: 64px;
+}
+
+.tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+    position: relative;
+    h4 {
+        font-weight: 500;
+        opacity: .5;
+        text-align: center;
+        transition: opacity 0.3s ease;
+    }
+}
+
+.tab:hover {
+    h4 {
+        opacity: 1;
+    }
+}
+
+.tab-border {
+    width: 0px;
+    border: $secondary-color 2px solid;
+    border-radius: 10px;
+    margin: 0;
+    display: none;
+    transition: width .5s ease;
+}
+
+.active {
+    h4 {
+        font-weight: 500;
+        opacity: 1;
+    }
+    .tab-border {
+        display: block;
+        border: $secondary-color 2px solid;
+        width: 100%;
+        animation: growWidth 0.5s forwards;
+    }
+}
+
+@keyframes growWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+        /* Full width when active */
+    }
+}

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PrimengModule } from '../primeng/primeng.module';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PrimengModule,
-    FormsModule
+    FormsModule,
+    RouterModule,
   ],
   exports: [
     NavbarComponent

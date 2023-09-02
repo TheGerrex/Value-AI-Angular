@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { DialogModule } from 'primeng/dialog';
+import { TabViewModule } from 'primeng/tabview';
+import { CalendarModule } from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 
@@ -12,7 +15,10 @@ import { DialogModule } from 'primeng/dialog';
   ],
   exports: [
     InputSwitchModule,
-    DialogModule
+    DialogModule,
+    TabViewModule,
+    CalendarModule,
+    DropdownModule
   ]
 })
 export class PrimengModule { }

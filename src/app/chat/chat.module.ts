@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PrimengModule } from '../primeng/primeng.module';
 import { FormsModule } from '@angular/forms';
 import { PromptLibraryComponent } from './components/prompt-library/prompt-library.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -17,7 +18,7 @@ import { PromptLibraryComponent } from './components/prompt-library/prompt-libra
     ChatPageComponent,
     LayoutPageComponent,
     ChatInputComponent,
-    PromptLibraryComponent
+    PromptLibraryComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +26,7 @@ import { PromptLibraryComponent } from './components/prompt-library/prompt-libra
     SharedModule,
     PrimengModule,
     FormsModule,
+    RouterModule,
   ]
 })
 export class ChatModule { }
