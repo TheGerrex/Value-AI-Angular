@@ -107,6 +107,7 @@ li {
     }
     .button-label {
         font-weight: 600;
+        color: #FFF;
         flex: 1 1 auto;
         transition-duration: 0.2s;
     }
@@ -140,10 +141,16 @@ li {
         color: $text;
         background: $primary-color-light;
         border: 1px $primary-color solid;
+        .button-label {
+            color: $text;
+        }
         &:hover {
             background: $primary-color-hover;
             color: $primary-color-text;
             border-color: $primary-color-hover;
+            .button-label {
+                color: #FFF;
+            }
         }
         &:active {
             background: $primary-color-active;

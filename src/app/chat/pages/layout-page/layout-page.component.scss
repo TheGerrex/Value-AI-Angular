@@ -332,6 +332,9 @@
                 align-items: center;
                 gap: 4px;
                 color: $primary-color-dark;
+                h5 {
+                    color: $primary-color-dark;
+                }
             }
             .button-plus {
                 display: flex;
@@ -438,6 +441,9 @@
     .header {
         color: $primary-color-dark;
         width: 100%;
+        h5 {
+            color: $primary-color-dark;
+        }
         hr {
             width: 100%;
             border: rgba($color: $gray-100, $alpha: .25) 1px solid;
@@ -456,7 +462,7 @@
             .circle-number {
                 background-color: $primary-color;
                 border-radius: 100px;
-                padding: 2px 6px;
+                padding: 1px 6px;
                 span {
                     color: #FFF;
                     font-size: 14px;

@@ -2,26 +2,97 @@
 ::ng-deep .input-calendar {
     input {
         color: $text;
-        background: $primary-color-light;
+        background: #FFF;
         border: 1px $primary-color solid;
-        &:hover {
-            background: #FFF;
-            color: $primary-color-text;
-            border-color: $primary-color-hover;
-        }
-        &:active {
-            background: $primary-color-active;
-            color: $primary-color-text;
-            border-color: $primary-color-active;
-        }
-        &:focus {
-            box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-color-focus, 0 1px 2px 0 black;
-        }
     }
-    pbutton .p-datepicker-trigger {
-        background-color: $primary-color;
+}
+
+::ng-deep .p-inputtext:hover {
+    border-color: $primary-color-hover !important;
+    color: $text !important;
+    background-color: $primary-color-light !important;
+}
+
+::ng-deep .p-inputtext:focus {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-color-focus, 0 1px 2px 0 black !important;
+}
+
+::ng-deep .p-inputtext:enabled:focus {
+    border-color: $primary-color;
+}
+
+::ng-deep .p-inputtext:active {
+    color: $primary-color !important;
+}
+
+::ng-deep .p-button {
+    background-color: $primary-color;
+    border: $primary-color 1px solid;
+}
+
+::ng-deep .p-button:hover {
+    background-color: $primary-color-hover !important;
+    border: $primary-color-hover 1px solid !important;
+}
+
+::ng-deep .p-button:active {
+    background: $primary-color-active !important;
+    color: $primary-color-text !important;
+    border-color: $primary-color-active !important;
+}
+
+::ng-deep .p-button:focus {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-color-focus, 0 1px 2px 0 black !important;
+}
+
+::ng-deep .p-datepicker-title {
+    .p-datepicker-month:hover {
+        color: $primary-color !important;
     }
-    button .p-datepicker-trigger :hover {
-        background-color: $primary-color-hover !important;
+    .p-datepicker-year:hover {
+        color: $primary-color !important;
     }
+    .p-datepicker-month:focus {
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-color-focus, 0 1px 2px 0 black !important;
+    }
+    .p-datepicker-year:focus {
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-color-focus, 0 1px 2px 0 black !important;
+    }
+}
+
+::ng-deep .p-monthpicker {
+    .p-ripple:focus {
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-color-focus, 0 1px 2px 0 black !important;
+    }
+}
+
+::ng-deep .p-yearpicker {
+    .p-ripple:focus {
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-color-focus, 0 1px 2px 0 black !important;
+    }
+}
+
+::ng-deep .p-datepicker-header {
+    .p-ripple:focus {
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-color-focus, 0 1px 2px 0 black !important;
+    }
+}
+
+::ng-deep .p-datepicker table td span:focus {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-color-focus, 0 1px 2px 0 black !important;
+}
+
+::ng-deep .p-datepicker table td span.p-highlight {
+    color: $primary-color-light !important;
+    background-color: $primary-color !important;
+}
+
+::ng-deep .p-datepicker .p-yearpicker .p-yearpicker-year.p-highlight {
+    color: $primary-color !important;
+    background: $primary-color-light !important;
+}
+
+::ng-deep .p-datepicker .p-monthpicker .p-monthpicker-month.p-highlight {
+    color: $primary-color !important;
+    background: $primary-color-light !important;
 }
