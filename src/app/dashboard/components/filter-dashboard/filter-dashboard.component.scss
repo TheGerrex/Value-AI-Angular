@@ -7,6 +7,12 @@
     }
 }
 
+::ng-deep .p-calendar {
+    @media (max-width: 768px) {
+        width: 100% !important;
+    }
+}
+
 ::ng-deep .p-inputtext:hover {
     border-color: $primary-color-hover !important;
     color: $text !important;
@@ -95,4 +101,20 @@
 ::ng-deep .p-datepicker .p-monthpicker .p-monthpicker-month.p-highlight {
     color: $primary-color !important;
     background: $primary-color-light !important;
+}
+
+.button {
+    i {
+        color: $primary-color-dark;
+    }
+}
+
+.filter-dashboard {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+    padding: 16px 0px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 }

@@ -105,6 +105,9 @@ li {
         opacity: 0.6;
         cursor: default;
     }
+    &:hover {
+        background-color: $gray-50;
+    }
     .button-label {
         font-weight: 600;
         color: #FFF;
