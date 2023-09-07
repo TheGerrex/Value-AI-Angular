@@ -9,7 +9,7 @@
 
 .column-settings-mobile {
     display: none;
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
         background-color: #FFF;
         position: absolute !important;
         z-index: 3;
@@ -28,7 +28,7 @@
         i {
             color: #B91C1C;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             display: flex;
         }
     }

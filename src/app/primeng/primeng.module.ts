@@ -5,6 +5,7 @@ import { DialogModule } from 'primeng/dialog';
 import { TabViewModule } from 'primeng/tabview';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
+import { ChartModule } from 'primeng/chart';
 
 
 
@@ -18,7 +19,8 @@ import { DropdownModule } from 'primeng/dropdown';
     DialogModule,
     TabViewModule,
     CalendarModule,
-    DropdownModule
+    DropdownModule,
+    ChartModule
   ]
 })
 export class PrimengModule { }

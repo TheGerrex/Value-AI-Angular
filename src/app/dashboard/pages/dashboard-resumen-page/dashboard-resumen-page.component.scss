@@ -40,7 +40,7 @@
         font-weight: 600;
     }
     &-small {
-        width:fit-content;
+        width: fit-content;
     }
 }
 
@@ -107,18 +107,6 @@
                 }
             }
         }
-        .position {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            // background-color: $gray-background;
-            // border-radius: 10px;
-            // padding: 3px 6px;
-            // border: #FFF solid 2px;
-            p {
-                font-weight: 600;
-            }
-        }
     }
     .user-row:hover {
         background-color: $gray-background;
@@ -155,11 +143,17 @@
 .position {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
     .wrapper {
         display: flex;
         align-items: center;
         gap: 8px;
+    }
+    p {
+        font-weight: 600;
     }
 }
 
@@ -205,17 +199,6 @@
                 font-weight: 500;
                 white-space: normal;
             }
-        }
-    }
-    .position {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        p {
-            font-weight: 600;
-        }
-        @media (max-width: 768px) {
-            flex-direction: column;
         }
     }
 }

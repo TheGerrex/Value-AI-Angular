@@ -40,7 +40,7 @@
         font-weight: 600;
     }
     &-small {
-        width:fit-content;
+        width: fit-content;
     }
 }
 
@@ -107,18 +107,6 @@
                 }
             }
         }
-        .position {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            // background-color: $gray-background;
-            // border-radius: 10px;
-            // padding: 3px 6px;
-            // border: #FFF solid 2px;
-            p {
-                font-weight: 600;
-            }
-        }
     }
     .user-row:hover {
         background-color: $gray-background;
@@ -155,11 +143,17 @@
 .position {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
     .wrapper {
         display: flex;
         align-items: center;
         gap: 8px;
+    }
+    p {
+        font-weight: 600;
     }
 }
 
@@ -207,17 +201,6 @@
             }
         }
     }
-    .position {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        p {
-            font-weight: 600;
-        }
-        @media (max-width: 768px) {
-            flex-direction: column;
-        }
-    }
 }
 
 .consult-row:hover {
@@ -231,7 +214,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 16px 32px;
     width: 100%;
     border-radius: 10px;
     border: 1px solid #EFF0F6;
@@ -241,69 +224,70 @@
     }
     .word {
         font-weight: 600;
-        color: $primary-color-dark;
-        position: relative; /* Create a positioning context for tooltips */
-        cursor: pointer; /* Change cursor to indicate interactivity */
-        
+        color: $text;
+        position: relative;
+        /* Create a positioning context for tooltips */
+        cursor: pointer;
+        /* Change cursor to indicate interactivity */
         &-25 {
             font-size: 25px;
             @media (max-width: 768px) {
-            font-size: 15px;
-        }
+                font-size: 15px;
+            }
         }
         &-30 {
             font-size: 30px;
             @media (max-width: 768px) {
-            font-size: 20px;
-        }
+                font-size: 20px;
+            }
         }
         &-35 {
             font-size: 35px;
             @media (max-width: 768px) {
-            font-size: 25px;
-        }
+                font-size: 25px;
+            }
         }
         &-40 {
             font-size: 40px;
             @media (max-width: 768px) {
-            font-size: 30px;
-        }
+                font-size: 30px;
+            }
         }
         &-45 {
             font-size: 45px;
             @media (max-width: 768px) {
-            font-size: 35px;
-        }
+                font-size: 35px;
+            }
         }
         &-50 {
             font-size: 50px;
             @media (max-width: 768px) {
-            font-size: 40px;
-        }
+                font-size: 40px;
+            }
         }
         &-55 {
             font-size: 55px;
             @media (max-width: 768px) {
-            font-size: 45px;
-        }
+                font-size: 45px;
+            }
         }
         &-60 {
             font-size: 60px;
             @media (max-width: 768px) {
-            font-size: 50px;
-        }
+                font-size: 50px;
+            }
         }
         &-70 {
             font-size: 70px;
             @media (max-width: 768px) {
-            font-size: 60px;
-        }
+                font-size: 60px;
+            }
         }
         &-80 {
             font-size: 80px;
             @media (max-width: 768px) {
-            font-size: 65px;
-        }
+                font-size: 65px;
+            }
         }
     }
     .tooltip {
@@ -313,9 +297,12 @@
         padding: 16px;
         border-radius: 10px;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        opacity: 0; /* Initially hide the tooltip */
-        transition: opacity 0.3s; /* Add a smooth transition */
-        bottom: 100%; /* Position the tooltip below the word */
+        opacity: 0;
+        /* Initially hide the tooltip */
+        transition: opacity 0.3s;
+        /* Add a smooth transition */
+        bottom: 100%;
+        /* Position the tooltip below the word */
         left: 50%;
         transform: translateX(-50%);
         display: flex;
@@ -323,7 +310,6 @@
         gap: 8px;
         width: 250px;
         z-index: 2;
-
         .ranking {
             // font-size: 12px;
             color: $primary-color;
@@ -333,13 +319,11 @@
             color: $text;
             opacity: .9;
         }
-        
     }
-
     .word:hover {
         box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-color-focus, 0 1px 2px 0 black;
         .tooltip {
-            opacity: 1; 
+            opacity: 1;
         }
     }
 }
