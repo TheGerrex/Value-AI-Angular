@@ -16,7 +16,6 @@
     align-items: center;
     gap: 32px;
     flex-shrink: 0;
-    
     .options {
         display: flex;
         flex-direction: column;
@@ -29,7 +28,6 @@
             align-items: flex-end;
             gap: 8px;
             align-self: stretch;
-
             .option {
                 display: flex;
                 padding: 16px 8px;
@@ -38,13 +36,11 @@
                 align-self: stretch;
                 border-radius: 16px;
                 background: #EFEFEF;
-
                 .content {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     gap: 6px;
-
                     i {
                         color: $primary-color-dark;
                     }
@@ -83,7 +79,7 @@
 #col-promptbox {
     width: 300px;
     height: 100%;
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -92,11 +88,11 @@
         top: 0;
         left: 0;
         padding: 12px;
-     }
+    }
 }
 
 #col-menu {
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -105,38 +101,44 @@
         top: 0;
         left: 0;
         padding: 12px;
-     }
+    }
 }
+
 .prompts {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
     height: 100%;
-
+    // background-color: $gray-background;
+    // border-radius: 10px;
+    // padding: 16px 16px;
     .nav-buttons-container {
         display: flex;
         width: 100%;
         justify-content: space-between;
+        @media (min-width: 1200px) {
+            display: none;
+        }
         .prompt-menu-button {
             padding: 16px 16px;
             i {
-                font-size: 1.4em;
+                font-size: 1em;
                 color: $primary-color-dark;
             }
         }
         .prompt-box-button {
             padding: 16px 16px;
             i {
-                font-size: 1.4em;
+                font-size: 1em;
                 color: $primary-color-dark;
             }
         }
     }
-
     .search-box {
         display: flex;
         width: 100%;
+        max-width: 600px;
         gap: 4px;
         .search-field {
             width: 100%;
@@ -176,7 +178,6 @@
             }
         }
     }
-
     .prompt-cards-container {
         display: flex;
         width: 100%;
@@ -196,7 +197,10 @@
             gap: 16px;
             border-radius: 10px;
             background: $primary-color-light;
-            @media (max-width: 992px) { 
+            &:hover {
+                background: hsl(189, 88%, 95%);
+            }
+            @media (max-width: 992px) {
                 width: 100%;
             }
             .header {
@@ -204,7 +208,6 @@
                 width: 100%;
                 align-items: center;
                 justify-content: space-between;
-
                 .category-blob {
                     display: flex;
                     padding: 8px 16px;
@@ -215,13 +218,11 @@
                     background: rgba($color: $primary-color, $alpha: .20);
                     color: $primary-color;
                 }
-
                 i {
                     font-size: 1.4em;
                     color: $primary-color-dark;
                 }
             }
-
             .content {
                 display: flex;
                 flex-direction: column;
@@ -229,14 +230,12 @@
                 gap: 8px;
                 width: 100%;
             }
-
             .footer {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-end;
                 gap: 8px;
                 width: 100%;
-
                 .circle-button {
                     display: flex;
                     width: 32px;
@@ -252,7 +251,6 @@
                 }
             }
         }
-
     }
 }
 
@@ -274,7 +272,6 @@
         align-self: stretch;
         border-radius: 10px;
         background: #EFEFEF;
-
         .content {
             display: flex;
             flex-direction: column;
