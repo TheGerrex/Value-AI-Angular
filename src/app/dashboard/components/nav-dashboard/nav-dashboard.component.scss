@@ -16,7 +16,7 @@
     cursor: pointer;
     h4 {
         font-weight: 500;
-        opacity: .5;
+        opacity: .6;
         text-align: center;
         transition: opacity 0.3s ease;
     }
@@ -26,6 +26,13 @@
     h4 {
         opacity: 1;
     }
+}
+
+.nav-border {
+    border: $gray-50 2px solid;
+    border-radius: 10px;
+    margin-top: -20px;
+    opacity: 1;
 }
 
 .tab-border {
@@ -66,7 +73,9 @@
 }
 
 ::ng-deep .p-focus {
-    box-shadow: 0 0 0 0.2rem $primary-color-focus !important;
+    // box-shadow: 0 0 0 0.2rem $primary-color-focus;
+    box-shadow: none;
+    
 }
 
 ::ng-deep .p-dropdown-label {
