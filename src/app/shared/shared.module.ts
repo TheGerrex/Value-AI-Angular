@@ -4,12 +4,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PrimengModule } from '../primeng/primeng.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NavbarDashboardComponent } from './navbar-dashboard/navbar-dashboard.component';
 
 
 
 @NgModule({
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    NavbarDashboardComponent,
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    NavbarDashboardComponent,
   ]
 })
 export class SharedModule { }

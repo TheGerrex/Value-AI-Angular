@@ -1,19 +1,4 @@
-<!-- <div class="card">
-    <p-tabView>
-        <p-tabPanel header="Resumen">
-
-        </p-tabPanel>
-        <p-tabPanel header="Chats">
-        </p-tabPanel>
-        <p-tabPanel header="Consultas">
-        </p-tabPanel>
-        <p-tabPanel header="Agentes de Ventas">
-        </p-tabPanel>
-        <p-tabPanel header="Agentes de Uso General">
-        </p-tabPanel>
-    </p-tabView>
-</div> -->
-<nav class="navbar-dashboard">
+<nav class="navbar-dashboard hidden lg:block">
     <div class="tabs">
         <div class="tab" routerLink="/dashboard/resumen" routerLinkActive="active">
             <h4>Resumen</h4>
@@ -37,3 +22,7 @@
         </div>
     </div>
 </nav>
+
+<div class="block lg:hidden">
+    <p-dropdown [options]="navOptions" [(ngModel)]="selectedNavOption" optionLabel="name" (ngModelChange)="navigateToPage(selectedNavOption)"></p-dropdown>
+</div>

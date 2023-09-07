@@ -59,3 +59,23 @@
         /* Full width when active */
     }
 }
+
+::ng-deep .p-dropdown {
+    background: transparent !important;
+    border: none !important;
+}
+
+::ng-deep .p-focus {
+    box-shadow: 0 0 0 0.2rem $primary-color-focus !important;
+}
+
+::ng-deep .p-dropdown-label {
+    color: $text !important;
+    font-weight: 500 !important;
+    font-size: 17.5px !important;
+}
+
+::ng-deep .p-highlight {
+    color: $primary-color !important;
+    background-color: $primary-color-light !important;
+}

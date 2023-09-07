@@ -1,0 +1,45 @@
+<div class="hidden md:block">
+    <div class="navbar">
+        <img src="../../../assets/logo/value-logo.svg" class='logo' alt="value-logo" routerLink="/chat/chat">
+        <div class="right-options-container">
+            <div class="blob-switch">
+                <div class="blob-container">
+                    <p>{{checked ? 'Claro' : 'Obscuro'}}</p>
+                    <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+                </div>
+            </div>
+            <div class="blob-button">
+                <div class="blob-container" routerLink="/chat/chat">
+                    <p>Chat</p>
+                    <i class="pi pi-comment"></i>
+                </div>
+            </div>
+            <div class="vertical-hr"></div>
+            <div class="blob-button">
+                <div class="blob-container">
+                    <p>FAQS</p>
+                    <i class="pi pi-question-circle"></i>
+                </div>
+            </div>
+            <div class="blob-avatar">
+                <div class="blob-container">
+                    <div class="circle-avatar"></div>
+                    <p>Juan Hernandez</p>
+                </div>
+            </div>
+            <div class="blob-language">
+                <div class="blob-container">
+                    <p>ES</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="block md:hidden">
+    <div class="navbar-mobile">
+        <p>Dashboard</p>
+        <i class="pi pi-bars" (click)="onButtonClickedSettings()"></i>
+    </div>
+</div>

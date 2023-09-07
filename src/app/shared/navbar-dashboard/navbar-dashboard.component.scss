@@ -1,0 +1,149 @@
+@import '../../../variables';
+.navbar {
+    width: 100%;
+    height: 80px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;
+    align-items: center;
+    display: inline-flex;
+    .logo {
+        width: 64px;
+        height: 64px;
+        cursor: pointer;
+    }
+    .right-options-container {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        align-items: center;
+    }
+    .blob-switch {
+        border-radius: 10px;
+        background-color: $gray-background;
+        cursor: pointer;
+        .blob-container {
+            display: flex;
+            flex-direction: row;
+            padding: 8px 16px;
+            align-items: center;
+            gap: 8px;
+            height: 52px;
+            p {
+                margin: 0;
+                font-weight: 500;
+            }
+        }
+         :hover {
+            border-radius: 10px;
+            background-color: $gray-50;
+        }
+    }
+    .blob-button {
+        border-radius: 10px;
+        background-color: $gray-background;
+        cursor: pointer;
+        .blob-container {
+            display: flex;
+            padding: 16px 16px;
+            align-items: center;
+            gap: 8px;
+            p {
+                margin: 0;
+                font-weight: 500;
+            }
+            i {
+                color: $primary-color-dark;
+            }
+        }
+         :hover {
+            border-radius: 10px;
+            background-color: $gray-50;
+        }
+    }
+    .vertical-hr {
+        border-left: 2px solid rgba($color: #033D48, $alpha: .25);
+        /* Change color and thickness as needed */
+        height: 40px;
+        width: 20px;
+        /* Change height as needed */
+        margin: 0 10px;
+        /* Adjust spacing as needed */
+    }
+    .blob-avatar {
+        border-radius: 10px;
+        background-color: $gray-background;
+        cursor: pointer;
+        .blob-container {
+            display: flex;
+            padding: 10px 16px;
+            align-items: center;
+            gap: 8px;
+            height: 52px;
+            p {
+                margin: 0;
+                font-weight: 500;
+            }
+            .circle-avatar {
+                width: 32px;
+                height: 32px;
+                border-radius: 100px;
+                background-image: url("https://i.pravatar.cc/32");
+            }
+        }
+         :hover {
+            border-radius: 10px;
+            background-color: $gray-50;
+        }
+    }
+    .blob-language {
+        border-radius: 10px;
+        background-color: $gray-background;
+        cursor: pointer;
+        .blob-container {
+            display: flex;
+            padding: 14px 16px;
+            align-items: center;
+            gap: 8px;
+            height: 52px;
+            p {
+                margin: 0;
+                font-weight: 400;
+            }
+        }
+         :hover {
+            border-radius: 10px;
+            background-color: $gray-50;
+        }
+    }
+}
+
+.navbar-mobile {
+    width: 100%;
+    height: 50px;
+    padding: 12px;
+    background: #033D48;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    i {
+        color: #FFF;
+        padding: 8px;
+        border-radius: 40px;
+        // background-color: $primary-color-hover;
+    }
+    i:hover {
+        background-color: $primary-color-hover;
+    }
+    i:active {
+        background-color: $primary-color-hover;
+        // border: $primary-color-focus 1px solid;
+    }
+    p {
+        color: white;
+        font-weight: 400;
+    }
+}

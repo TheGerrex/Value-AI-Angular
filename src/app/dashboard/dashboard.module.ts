@@ -24,7 +24,7 @@ import { FormsModule } from '@angular/forms';
     DashboardAgentesVentasPageComponent,
     DashboardAgentesGeneralPageComponent,
     NavDashboardComponent,
-    FilterDashboardComponent
+    FilterDashboardComponent,
   ],
   imports: [
     CommonModule,

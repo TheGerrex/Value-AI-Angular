@@ -5,35 +5,30 @@
         background: #FFF;
         border: 1px $primary-color solid;
     }
+     ::ng-deep .p-inputtext:hover {
+        border-color: $primary-color-hover !important;
+        color: $text !important;
+        background-color: $primary-color-light !important;
+    }
+     ::ng-deep .p-inputtext:focus {
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-color-focus, 0 1px 2px 0 black !important;
+    }
+     ::ng-deep .p-inputtext:enabled:focus {
+        border-color: $primary-color;
+    }
+     ::ng-deep .p-inputtext:active {
+        color: $primary-color !important;
+    }
+     ::ng-deep .p-button {
+        background-color: $primary-color;
+        border: $primary-color 1px solid;
+    }
 }
 
 ::ng-deep .p-calendar {
     @media (max-width: 768px) {
         width: 100% !important;
     }
-}
-
-::ng-deep .p-inputtext:hover {
-    border-color: $primary-color-hover !important;
-    color: $text !important;
-    background-color: $primary-color-light !important;
-}
-
-::ng-deep .p-inputtext:focus {
-    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-color-focus, 0 1px 2px 0 black !important;
-}
-
-::ng-deep .p-inputtext:enabled:focus {
-    border-color: $primary-color;
-}
-
-::ng-deep .p-inputtext:active {
-    color: $primary-color !important;
-}
-
-::ng-deep .p-button {
-    background-color: $primary-color;
-    border: $primary-color 1px solid;
 }
 
 ::ng-deep .p-button:hover {
