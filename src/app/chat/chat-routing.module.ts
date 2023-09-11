@@ -8,7 +8,7 @@ const routes: Routes = [
       path: '',
       component: LayoutPageComponent,
       children: [
-        {path: 'chat', component: ChatPageComponent},
+        {path: ':id', component: ChatPageComponent},
       ]
     }
   ];

@@ -2,8 +2,8 @@
     <app-navbar (toggleFunctionChats)="toggleLayoutFunctionChats()" (toggleFunctionPlugins)="toggleLayoutFunctionPlugins()"></app-navbar>
 
     <div class="grid grid-nogutter chat-container">
-        <div class="md:flex md:col-fixed md:p-2" id="column-chats-list-col" style="width: 300px;" [class.md:hidden]="!columnChatsOpen" [class.md:flex]="columnChatsOpen" [class.flex]="columnChatsOpenMobile" [class.hidden]="!columnChatsOpenMobile">
-            <div class="column-chats-list">
+        <div class="md:flex md:col-fixed" id="column-chats-list-col" style="width: 300px;" [class.md:hidden]="!columnChatsOpen" [class.md:flex]="columnChatsOpen" [class.flex]="columnChatsOpenMobile" [class.hidden]="!columnChatsOpenMobile">
+            <div class="column-chats-list md:p-2">
                 <div class="wrapper-search-chats">
                     <div class="wrapper-buttons">
                         <button class="button close-button" (click)="ontoggleChats()"><i class="pi pi-times"></i></button>
@@ -25,18 +25,22 @@
                                     <h5>Todos los chats</h5>
                                     <i class="pi pi-chevron-down"></i>
                                 </div>
-                                <button class="button-plus"><i class="pi pi-plus"></i></button>
+                                <button class="button button-plus"><i class="pi pi-plus"></i></button>
                             </div>
-                            <div class="chat">
-                                <div class="content">
+                            <div class="chat" *ngFor="let chat of nonClientChats" [class.selected]="selectedChat === chat" (click)="selectChat(chat)">
+                                <div class="title" *ngIf="!chat.isEditing">
                                     <i class="search-icon pi pi-comment"></i>
-                                    <p>Análisis TSLA</p>
+                                    <p>{{ chat.title }}</p>
                                 </div>
-                            </div>
-                            <div class="chat">
-                                <div class="content">
-                                    <i class="search-icon pi pi-comment"></i>
-                                    <p>Tendencias del Mercado 2023</p>
+                                <div class="title-edit" *ngIf="chat.isEditing">
+                                    <input [(ngModel)]="chat.title" (blur)="saveChanges(chat)" class="edit-input" />
+                                </div>
+                                <div class="actions">
+                                    <i class="search-icon pi pi-pencil" (click)="startEditing(chat)" *ngIf="!chat.isEditing"></i>
+                                    <i class="search-icon pi pi-save" (click)="saveChanges(chat)" *ngIf="chat.isEditing"></i>
+                                    <i class="search-icon pi pi-times" (click)="cancelEdit(chat)" *ngIf="chat.isEditing"></i>
+                                    <i class="search-icon pi pi-share-alt" *ngIf="!chat.isEditing"></i>
+                                    <i class="search-icon pi pi-trash" *ngIf="!chat.isEditing"></i>
                                 </div>
                             </div>
                         </div>
@@ -46,28 +50,22 @@
                                     <h5>Chats de clientes</h5>
                                     <i class="pi pi-chevron-down"></i>
                                 </div>
-                                <button class="button-plus"><i class="pi pi-plus"></i></button>
+                                <button class="button button-plus"><i class="pi pi-plus"></i></button>
                             </div>
-                            <div class="chat-client">
-                                <div class="title">
+                            <div class="chat" *ngFor="let chat of clientChats" [class.selected]="selectedChat === chat" (click)="selectChat(chat)">
+                                <div class="title" *ngIf="!chat.isEditing">
                                     <i class="search-icon pi pi-comment"></i>
-                                    <p>Obed Gonzales</p>
+                                    <p>{{ chat.title }}</p>
+                                </div>
+                                <div class="title-edit" *ngIf="chat.isEditing">
+                                    <input [(ngModel)]="chat.title" (blur)="saveChanges(chat)" class="edit-input" />
                                 </div>
                                 <div class="actions">
-                                    <i class="search-icon pi pi-pencil"></i>
-                                    <i class="search-icon pi pi-share-alt"></i>
-                                    <i class="search-icon pi pi-trash"></i>
-                                </div>
-                            </div>
-                            <div class="chat-client">
-                                <div class="title">
-                                    <i class="search-icon pi pi-comment"></i>
-                                    <p>Juan Hernández</p>
-                                </div>
-                                <div class="actions">
-                                    <i class="search-icon pi pi-pencil"></i>
-                                    <i class="search-icon pi pi-share-alt"></i>
-                                    <i class="search-icon pi pi-trash"></i>
+                                    <i class="search-icon pi pi-pencil" (click)="startEditing(chat)" *ngIf="!chat.isEditing"></i>
+                                    <i class="search-icon pi pi-save" (click)="saveChanges(chat)" *ngIf="chat.isEditing"></i>
+                                    <i class="search-icon pi pi-times" (click)="cancelEdit(chat)" *ngIf="chat.isEditing"></i>
+                                    <i class="search-icon pi pi-share-alt" *ngIf="!chat.isEditing"></i>
+                                    <i class="search-icon pi pi-trash" *ngIf="!chat.isEditing"></i>
                                 </div>
                             </div>
                         </div>
@@ -148,17 +146,66 @@
             <div class="column-chat">
                 <button class="button button-primary button-absolute" (click)="ontoggleChats()" [class.hidden]="columnChatsOpen" [class.md:block]="!columnChatsOpen"><i class="pi pi-comments"></i></button>
                 <button class="button button-primary button-absolute-plugin" (click)="ontogglePlugins()" [class.hidden]="columnPluginsOpen" [class.lg:block]="!columnPluginsOpen"><i class="pi pi-th-large"></i></button>
-                <router-outlet></router-outlet>
+                <div class="main-container">
+                    <!-- <app-chat-page (toggleFunctionSavePrompt)="showModalSavePrompt()" [style.width]="'100%'"></app-chat-page> -->
+                    <div style="width: 100%;">
+                        <router-outlet></router-outlet>
+                    </div>
+                    <div class="bottom-container">
+                        <div class="wrapper">
+                            <div class="actions">
+                                <button class="button button-refresh">
+                                    <span>Regenerar respuesta</span>
+                                    <i class="input-icon pi pi-refresh"></i>
+                                </button>
+                                <!-- <button class="button button-play">
+                                    <span>Continuar respuesta</span>
+                                    <i class="input-icon pi pi-play"></i>
+                                </button>
+                                <button class="button button-stop">
+                                    <span>Detener respuesta</span>
+                                    <i class="input-icon pi pi-stop-circle"></i>
+                                </button> -->
+                            </div>
+                            <div class="prompts">
+                                <button class="button button-prompt">Que es Value AI?</button>
+                                <button class="button button-prompt">Dime 10 cosas que puedo hacer con Value AI</button>
+                                <button class="button button-prompt">Ver más</button>
+                            </div>
+                            <app-chat-input (toggleFunctionChatInput)="toggleChatInputSettings()" (toggleFunctionShareChat)="toggleChatShareModal()" style="width: 100%;"></app-chat-input>
+                        </div>
+                    </div>
+                    <div [ngClass]="chatInputSettingsVisible ? 'slide-from-bottom' : 'slide-hidden'" class="slide-from-bottom-div" #chatInputSettings>
+                        <div class="chat-settings-menu">
+                            <div class="option" (click)="toggleChatInputSettings()">
+                                <p style="color: #B91C1C;">Cerrar</p>
+                                <i class="input-icon pi pi-times" style="color: #B91C1C;"></i>
+                            </div>
+                            <hr>
+                            <div class="option">
+                                <p>Transcribir la llamada en curso</p>
+                                <i class="input-icon pi pi-play"></i>
+                            </div>
+                            <hr>
+                            <div class="option" (click)="showModalShareChat()">
+                                <p>Compartir Chat</p>
+                                <i class="input-icon pi pi-share-alt"></i>
+                            </div>
+                            <hr>
+                            <div class="option">
+                                <p>Voz a texto</p>
+                                <i class="input-icon pi pi-microphone" style="font-size: 22px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="lg:col-fixed md:p-2" id="column-plugins-list-col" style="width: 300px;" [class.lg:hidden]="!columnPluginsOpen" [class.lg:block]="columnPluginsOpen" [class.md:block]="columnPluginsOpenTablet" [class.md:hidden]="!columnPluginsOpenTablet" [class.block]="columnPluginsOpenMobile"
             [class.hidden]="!columnPluginsOpenMobile">
             <div class="column-plugins">
                 <button class="button toggle-plugins-button md:hidden" (click)="ontogglePlugins()" [class.hidden]="!columnPluginsOpen" [class.lg:block]="columnPluginsOpen"><i class="pi pi-window-minimize"></i></button>
-                <div class="card-user">
-                    <h2>Obed Gonzales</h2>
-                    <p>Cliente</p>
-                </div>
+                
                 <div class="wrapper">
                     <button class="button close-button" (click)="ontogglePlugins()"><i class="pi pi-times"></i></button>
                 </div>
@@ -261,6 +308,177 @@
             <div class="footer">
                 <button class="button button-primary-outlined button-full"><p>Cargar Archivo</p><i class="search-icon pi pi-upload"></i></button>
                 <button class="button button-primary button-full"><p>Guardar</p><i class="search-icon pi pi-plus"></i></button>
+            </div>
+        </div>
+    </div>
+</p-dialog>
+<p-dialog header="Guardar tu consulta" [(visible)]="displayModalSavePrompt" [modal]="true">
+    <div class="save-prompt">
+        <div class="header">
+            <p>Las consultas que guardes puedes acceder a ellas cuando quieras en tu librería de consultas. </p>
+        </div>
+        <div class="prompt-container">
+            <div class="main">
+                <div class="prompt">
+                    <div class="message-user">
+                        <div class="message-blob">
+                            <div class="header">
+                                <div class="user">
+                                    <div class="circle-avatar"></div>
+                                    <p>Juan Hernandez</p>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                            </div>
+                            <div class="details-icon">
+                                <div class="time">
+                                    <small>12:20</small>
+                                </div>
+                                <!-- <i class="pi pi-microphone"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inputs">
+                <div class="input-field">
+                    <label>Nombre de la consulta</label>
+                    <div class="input-container">
+                        <i class="input-icon pi pi-pencil"></i>
+                        <input type="text" class="input-login" placeholder="Nombre de consulta">
+                    </div>
+                </div>
+                <div class="input-field">
+                    <label>Categoria</label>
+                    <div class="input-container">
+                        <i class="input-icon pi pi-th-large"></i>
+                        <!-- <input type="password" class="input-login" placeholder="amorpropio123"> -->
+                        <select id="state" class="input-login" style="appearance: auto" placeholder>
+                            <option>Educacion</option>
+                            <option>Finanzas</option>
+                            <option>Mercados Globales</option>
+                            <option>Economia</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <button class="button button-primary button-full"><p>Guardar</p><i class="search-icon pi pi-upload"></i></button>
+            </div>
+        </div>
+    </div>
+</p-dialog>
+<p-dialog header="Comparte link del chat" [(visible)]="displayModalShareChat" [modal]="true">
+    <div class="save-prompt">
+        <div class="header">
+            <p>Mensajes que mandes despues de crear tu link no serán compartidos. Cualquier persona con el URL puede ver el chat compartido.</p>
+        </div>
+        <div class="prompt-container">
+            <div class="main">
+                <div class="prompt">
+                    <div class="message-user">
+                        <div class="message-blob">
+                            <div class="header">
+                                <div class="user">
+                                    <div class="circle-avatar"></div>
+                                    <p>Juan Hernandez</p>
+                                </div>
+                                <div class="icons">
+                                    <i class="pi pi-pencil"></i>
+                                    <i class="pi pi-save" (click)="showModalSavePrompt()"></i>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                            </div>
+                        </div>
+                        <div class="details-icon">
+                            <div class="time">
+                                <small>12:20</small>
+                            </div>
+                            <i class="pi pi-microphone"></i>
+                        </div>
+                    </div>
+                    <div class="message-ai">
+                        <div class="details-icon">
+                            <div class="time">
+                                <small>12:21</small>
+                            </div>
+                            <i class="pi pi-microphone"></i>
+                        </div>
+                        <div class="message-blob-ai">
+                            <div class="header">
+                                <div class="ai">
+                                    <div class="circle-ai"></div>
+                                    <p>Value AI</p>
+                                </div>
+                                <div class="icons">
+                                    <i class="pi pi-thumbs-down"></i>
+                                    <i class="pi pi-thumbs-up"></i>
+                                    <i class="pi pi-copy"></i>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message-user">
+                        <div class="message-blob">
+                            <div class="header">
+                                <div class="user">
+                                    <div class="circle-avatar"></div>
+                                    <p>Juan Hernandez</p>
+                                </div>
+                                <div class="icons">
+                                    <i class="pi pi-pencil"></i>
+                                    <i class="pi pi-save" (click)="showModalSavePrompt()"></i>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                            </div>
+                        </div>
+                        <div class="details-icon">
+                            <div class="time">
+                                <small>12:20</small>
+                            </div>
+                            <i class="pi pi-microphone"></i>
+                        </div>
+                    </div>
+                    <div class="message-ai">
+                        <div class="details-icon">
+                            <div class="time">
+                                <small>12:21</small>
+                            </div>
+                            <i class="pi pi-microphone"></i>
+                        </div>
+                        <div class="message-blob-ai">
+                            <div class="header">
+                                <div class="ai">
+                                    <div class="circle-ai"></div>
+                                    <p>Value AI</p>
+                                </div>
+                                <div class="icons">
+                                    <i class="pi pi-thumbs-down"></i>
+                                    <i class="pi pi-thumbs-up"></i>
+                                    <i class="pi pi-copy"></i>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title-container">
+                <h5>Introducción a Value AI</h5>
+                <p>Julio 21 2023</p>
+            </div>
+            <div class="footer">
+                <button class="button button-primary button-full"><p>Copiar link</p><i class="search-icon pi pi-link"></i></button>
             </div>
         </div>
     </div>
