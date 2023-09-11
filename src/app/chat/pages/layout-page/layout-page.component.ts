@@ -1,12 +1,15 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Chat } from '../../interfaces/interfaces.chat';
+import { Router } from '@angular/router';
+import { MessageService } from '../../services/message.service';
+import { ChatService } from '../../services/chat.service';
 
 @Component({
   selector: 'app-layout-page',
   templateUrl: './layout-page.component.html',
   styleUrls: ['./layout-page.component.scss']
 })
-export class LayoutPageComponent {
+export class LayoutPageComponent implements OnInit {
   columnChatsOpen = true;
   columnChatsOpenMobile = false;
   columnPluginsOpen = true;
@@ -23,16 +26,41 @@ export class LayoutPageComponent {
   originalTitleCopy: string = '';
   selectedChat: Chat | null = null;
 
-  chats: Chat[] = [
-    { title: 'Análisis TSLA', isEditing: false, chatClient: false },
-    { title: 'Tendencias del Mercado 2023', isEditing: false, chatClient: false },
-    { title: 'Obed Gonzales', isEditing: false, chatClient: true },
-    { title: 'Juan Hernadez', isEditing: false, chatClient: true },
-    // Add more chat objects as needed
-  ];
+  // chats: Chat[] = [
+  //   { title: 'Análisis TSLA', isEditing: false, chatClient: false },
+  //   { title: 'Tendencias del Mercado 2023', isEditing: false, chatClient: false },
+  //   { title: 'Obed Gonzales', isEditing: false, chatClient: true },
+  //   { title: 'Juan Hernadez', isEditing: false, chatClient: true },
+  // ];
+  chats: Chat[] = [];
+  clientChats: Chat[] | undefined;
+  nonClientChats: Chat[] | undefined; 
 
-  clientChats: Chat[] = this.chats.filter((chat) => chat.chatClient);
-  nonClientChats: Chat[] = this.chats.filter((chat) => !chat.chatClient);
+  
+  constructor(private router: Router, private chatService: ChatService, private messageService: MessageService) { } 
+  
+  ngOnInit(): void {
+    if (  window.innerWidth >= 768) {
+      this.columnSettingsOpenMobile = false;
+    }
+    this.chatService.getChats().subscribe(
+      (response) => {
+        console.log(response.chats);
+        this.clientChats = response.chats.filter((chat) => chat.chatClient);
+        console.log(this.clientChats);
+        this.nonClientChats = response.chats.filter((chat) => !chat.chatClient);
+        console.log(this.nonClientChats);
+      },
+      (error) => {
+        console.error('Error fetching chats:', error);
+      }
+    );
+  }
+  
+
+  navigateToChat(chatId: number) {
+    this.router.navigate(['/chat', chatId]);
+  }
 
 
   toggleChat( ) {
@@ -149,12 +177,5 @@ export class LayoutPageComponent {
   ontoggleSettings() {
     this.columnSettingsOpenMobile = !this.columnSettingsOpenMobile;
     
-  }
-
-
-  ngOnInit() {
-    if (  window.innerWidth >= 768) {
-      this.columnSettingsOpenMobile = false;
-    }
   }
 }

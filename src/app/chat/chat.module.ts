@@ -9,6 +9,7 @@ import { PrimengModule } from '../primeng/primeng.module';
 import { FormsModule } from '@angular/forms';
 import { PromptLibraryComponent } from './components/prompt-library/prompt-library.component';
 import { RouterModule } from '@angular/router';
+import { MessageService } from './services/message.service';
 
 
 
@@ -27,6 +28,7 @@ import { RouterModule } from '@angular/router';
     PrimengModule,
     FormsModule,
     RouterModule,
-  ]
+  ],
+  providers: [MessageService],
 })
 export class ChatModule { }

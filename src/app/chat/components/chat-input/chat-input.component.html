@@ -3,7 +3,7 @@
         <div class="chat-input-field">
             <div class="input-container">
                 <i class="input-icon pi pi-microphone"></i>
-                <textarea class="input-chat" placeholder="Haz una consulta, seleccionando un hilo..." [(ngModel)]="message" (input)="resizeTextArea($event)"></textarea>
+                <textarea class="input-chat" placeholder="Haz una consulta, seleccionando un hilo..." [(ngModel)]="userMessage" (input)="resizeTextArea($event)"></textarea>
             </div>
         </div>
     </div>
@@ -17,7 +17,7 @@
             <i class="pi pi-microphone"></i>
         </div>
     </div>
-    <div class="blob-button send">
+    <div class="blob-button send" (click)="sendMessage()">
         <div class="blob-container">
             <i class="pi pi-send"></i>
         </div>
@@ -29,11 +29,11 @@
         <div class="chat-input-field">
             <div class="input-container">
                 <i class="input-icon pi pi-ellipsis-v" (click)="onButtonClickedChat()"></i>
-                <textarea class="input-chat" placeholder="Haz una consulta" [(ngModel)]="message" (input)="resizeTextArea($event)"></textarea>
+                <textarea class="input-chat" placeholder="Haz una consulta" [(ngModel)]="userMessage" (input)="resizeTextArea($event)"></textarea>
             </div>
         </div>
     </div>
-    <div class="blob-button send">
+    <div class="blob-button send" (click)="sendMessage()">
         <div class="blob-container">
             <i class="pi pi-send"></i>
         </div>

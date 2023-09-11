@@ -27,7 +27,7 @@
                                 </div>
                                 <button class="button button-plus"><i class="pi pi-plus"></i></button>
                             </div>
-                            <div class="chat" *ngFor="let chat of nonClientChats" [class.selected]="selectedChat === chat" (click)="selectChat(chat)">
+                            <div class="chat" *ngFor="let chat of nonClientChats" routerLinkActive="selected" [routerLink]="['/chat', chat.id]">
                                 <div class="title" *ngIf="!chat.isEditing">
                                     <i class="search-icon pi pi-comment"></i>
                                     <p>{{ chat.title }}</p>
@@ -52,7 +52,7 @@
                                 </div>
                                 <button class="button button-plus"><i class="pi pi-plus"></i></button>
                             </div>
-                            <div class="chat" *ngFor="let chat of clientChats" [class.selected]="selectedChat === chat" (click)="selectChat(chat)">
+                            <div class="chat" *ngFor="let chat of clientChats" routerLinkActive="selected" [routerLink]="['/chat', chat.id]">
                                 <div class="title" *ngIf="!chat.isEditing">
                                     <i class="search-icon pi pi-comment"></i>
                                     <p>{{ chat.title }}</p>

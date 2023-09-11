@@ -2,7 +2,7 @@
     <div class="messages-container" #messagesContainer (scroll)="onScroll($event)">
         <div class="wrapper">
             <button class="button button-circle button-absolute" (click)="scrollBottomChat()" *ngIf="showScrollDownButton"><i class="pi pi-arrow-down"></i></button>
-        <div class="message-user">
+        <!-- <div class="message-user">
             <div class="message-blob">
                 <div class="header">
                     <div class="user">
@@ -29,7 +29,6 @@
                 <div class="time">
                     <small>12:21</small>
                 </div>
-                <!-- <i class="pi pi-microphone"></i> -->
             </div>
             <div class="message-blob-ai">
                 <div class="header">
@@ -47,40 +46,41 @@
                     <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
                 </div>
             </div>
-            <!-- <div class="button-down-container">
-                <div class="circle-button">
-                    <i class="pi pi-arrow-down"></i>
-                </div>
-            </div> -->
-        </div>
-        <div class="message-user">
+        </div> -->
+        <div *ngFor="let message of chat?.messages" [ngClass]="{'message-user': message.isUserMessage, 'message-ai': !message.isUserMessage}">
             <div class="message-blob">
                 <div class="header">
-                    <div class="user">
+                    <div class="user" *ngIf="message.isUserMessage">
                         <div class="circle-avatar"></div>
                         <p>Juan Hernandez</p>
                     </div>
+                    <div class="ai" *ngIf="!message.isUserMessage">
+                        <div class="circle-ai"></div>
+                        <p>Value AI</p>
+                      </div>
                     <div class="icons">
-                        <i class="pi pi-pencil"></i>
-                        <i class="pi pi-save" (click)="onButtonClickedShowModalSavePrompt()"></i>
+                        <i class="pi pi-pencil" *ngIf="message.isUserMessage"></i>
+                        <i class="pi pi-save" (click)="onButtonClickedShowModalSavePrompt()" *ngIf="message.isUserMessage"></i>
+                        <i class="pi pi-thumbs-down" *ngIf="!message.isUserMessage"></i>
+                        <i class="pi pi-thumbs-up" *ngIf="!message.isUserMessage"></i>
+                        <i class="pi pi-copy" *ngIf="!message.isUserMessage"></i>
                     </div>
                 </div>
                 <div class="message">
-                    <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                    <p>{{message.text}}</p>
                 </div>
             </div>
             <div class="details-icon">
                 <div class="time">
-                    <small>12:20</small>
+                    <small>{{message.timestamp | date:'h:mm'}}</small>
                 </div>
             </div>
         </div>
-        <div class="message-ai">
+        <!-- <div class="message-ai" *ngFor="let message of chat?.messages">
             <div class="details-icon">
                 <div class="time">
-                    <small>12:21</small>
+                    <small>{{message.timestamp | date:'h:mm'}}</small>
                 </div>
-                <!-- <i class="pi pi-microphone"></i> -->
             </div>
             <div class="message-blob-ai">
                 <div class="header">
@@ -95,117 +95,9 @@
                     </div>
                 </div>
                 <div class="message">
-                    <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                    <p>{{message.text}}</p>
                 </div>
             </div>
-            <!-- <div class="button-down-container">
-                <div class="circle-button">
-                    <i class="pi pi-arrow-down"></i>
-                </div>
-            </div> -->
-        </div>
-        <div class="message-user">
-            <div class="message-blob">
-                <div class="header">
-                    <div class="user">
-                        <div class="circle-avatar"></div>
-                        <p>Juan Hernandez</p>
-                    </div>
-                    <div class="icons">
-                        <i class="pi pi-pencil"></i>
-                        <i class="pi pi-save" (click)="onButtonClickedShowModalSavePrompt()"></i>
-                    </div>
-                </div>
-                <div class="message">
-                    <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
-                </div>
-            </div>
-            <div class="details-icon">
-                <div class="time">
-                    <small>12:20</small>
-                </div>
-            </div>
-        </div>
-        <div class="message-ai">
-            <div class="details-icon">
-                <div class="time">
-                    <small>12:21</small>
-                </div>
-                <!-- <i class="pi pi-microphone"></i> -->
-            </div>
-            <div class="message-blob-ai">
-                <div class="header">
-                    <div class="ai">
-                        <div class="circle-ai"></div>
-                        <p>Value AI</p>
-                    </div>
-                    <div class="icons">
-                        <i class="pi pi-thumbs-down"></i>
-                        <i class="pi pi-thumbs-up"></i>
-                        <i class="pi pi-copy"></i>
-                    </div>
-                </div>
-                <div class="message">
-                    <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
-                </div>
-            </div>
-            <!-- <div class="button-down-container">
-                <div class="circle-button">
-                    <i class="pi pi-arrow-down"></i>
-                </div>
-            </div> -->
-        </div>
-        <div class="message-user">
-            <div class="message-blob">
-                <div class="header">
-                    <div class="user">
-                        <div class="circle-avatar"></div>
-                        <p>Juan Hernandez</p>
-                    </div>
-                    <div class="icons">
-                        <i class="pi pi-pencil"></i>
-                        <i class="pi pi-save" (click)="onButtonClickedShowModalSavePrompt()"></i>
-                    </div>
-                </div>
-                <div class="message">
-                    <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
-                </div>
-            </div>
-            <div class="details-icon">
-                <div class="time">
-                    <small>12:20</small>
-                </div>
-            </div>
-        </div>
-        <div class="message-ai">
-            <div class="details-icon">
-                <div class="time">
-                    <small>12:21</small>
-                </div>
-                <!-- <i class="pi pi-microphone"></i> -->
-            </div>
-            <div class="message-blob-ai">
-                <div class="header">
-                    <div class="ai">
-                        <div class="circle-ai"></div>
-                        <p>Value AI</p>
-                    </div>
-                    <div class="icons">
-                        <i class="pi pi-thumbs-down"></i>
-                        <i class="pi pi-thumbs-up"></i>
-                        <i class="pi pi-copy"></i>
-                    </div>
-                </div>
-                <div class="message">
-                    <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
-                </div>
-            </div>
-            <!-- <div class="button-down-container">
-                <div class="circle-button">
-                    <i class="pi pi-arrow-down"></i>
-                </div>
-            </div> -->
-        </div>  
-        </div>
+        </div> -->
     </div>
 </div>
