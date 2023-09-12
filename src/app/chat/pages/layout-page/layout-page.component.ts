@@ -1,8 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Chat } from '../../interfaces/interfaces.chat';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from '../../services/message.service';
 import { ChatService } from '../../services/chat.service';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-layout-page',
@@ -25,24 +26,23 @@ export class LayoutPageComponent implements OnInit {
   chatActive = false;
   originalTitleCopy: string = '';
   selectedChat: Chat | null = null;
-
-  // chats: Chat[] = [
-  //   { title: 'Análisis TSLA', isEditing: false, chatClient: false },
-  //   { title: 'Tendencias del Mercado 2023', isEditing: false, chatClient: false },
-  //   { title: 'Obed Gonzales', isEditing: false, chatClient: true },
-  //   { title: 'Juan Hernadez', isEditing: false, chatClient: true },
-  // ];
   chats: Chat[] = [];
   clientChats: Chat[] | undefined;
   nonClientChats: Chat[] | undefined; 
+  chatTitle: string | undefined;
 
   
-  constructor(private router: Router, private chatService: ChatService, private messageService: MessageService) { } 
+  constructor(
+    private router: Router, 
+    private route: ActivatedRoute, 
+    private chatService: ChatService, 
+    private messageService: MessageService,
+    private sharedService: SharedService) { } 
   
   ngOnInit(): void {
     if (  window.innerWidth >= 768) {
       this.columnSettingsOpenMobile = false;
-    }
+    };
     this.chatService.getChats().subscribe(
       (response) => {
         console.log(response.chats);
@@ -55,13 +55,19 @@ export class LayoutPageComponent implements OnInit {
         console.error('Error fetching chats:', error);
       }
     );
+    this.sharedService.chatTitleChanged.subscribe((title) => {
+      this.chatTitle = title;
+    });
   }
   
 
   navigateToChat(chatId: number) {
     this.router.navigate(['/chat', chatId]);
   }
-
+  
+  closeChatListMobile() {
+    this.columnChatsOpenMobile = false;
+  }
 
   toggleChat( ) {
     this.chatActive = !this.chatActive;

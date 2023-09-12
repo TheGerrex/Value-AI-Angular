@@ -72,9 +72,9 @@
                 // align-items: flex-end;
                 gap: 8px;
                 width: 100%;
-                position: absolute;
-                top: -60px;
-                left: 0;
+                // position: absolute;
+                // top: -60px;
+                // left: 0;
                 .button-refresh {
                     display: flex;
                     padding: 8px 16px;
@@ -235,7 +235,6 @@
                 }
             }
         }
-        
         .chat {
             display: flex;
             padding: 16px 8px;
@@ -246,11 +245,10 @@
             justify-content: space-between;
             position: relative;
             cursor: pointer;
-            
             .title {
                 display: flex;
                 align-items: center;
-                gap: 6px; 
+                gap: 6px;
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
@@ -329,11 +327,14 @@
     // background-color: $gray-50 !important;
     box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $primary-color-focus, 0 1px 2px 0 black !important;
     font-weight: 500;
-
     p {
         color: $primary-color-dark !important;
     }
     // background-color: #B91C1C !important;
+}
+
+.display-options {
+    display: flex !important;
 }
 
 #column-chats-list-col {
@@ -341,7 +342,7 @@
     @media (max-width: 768px) {
         background-color: #FFF;
         position: absolute !important;
-        z-index: 2;
+        z-index: 3;
         top: 0;
         left: 0;
         width: 100vw !important;
@@ -355,7 +356,7 @@
     @media (max-width: 768px) {
         background-color: #FFF;
         position: absolute !important;
-        z-index: 2;
+        z-index: 3;
         top: 0;
         left: 0;
         width: 100vw !important;

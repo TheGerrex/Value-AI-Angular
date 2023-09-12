@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { PromptLibraryComponent } from './components/prompt-library/prompt-library.component';
 import { RouterModule } from '@angular/router';
 import { MessageService } from './services/message.service';
+import { DefaultPageComponent } from './pages/default-page/default-page.component';
 
 
 
@@ -20,6 +21,7 @@ import { MessageService } from './services/message.service';
     LayoutPageComponent,
     ChatInputComponent,
     PromptLibraryComponent,
+    DefaultPageComponent,
   ],
   imports: [
     CommonModule,

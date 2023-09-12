@@ -1,156 +1,151 @@
 {
-    "chats": [
-      {
-        "id": 1,
-        "title": "Chat 1",
-        "isEditing": false,
-        "chatClient": true,
-        "messages": [
-            {
-              "text": "Hello, how can I help you?",
-              "timestamp": "2023-09-11T10:00:00Z",
-              "isUserMessage": true
-            },
-            {
-              "text": "I'd like to inquire about your services.",
-              "timestamp": "2023-09-11T10:01:00Z",
-              "isUserMessage": true
-            },
-            {
-              "text": "Sure! We offer a wide range of services including...",
-              "timestamp": "2023-09-11T10:02:00Z",
-              "isUserMessage": false
-            },
-            {
-              "text": "That sounds great! Can you provide more details about...",
-              "timestamp": "2023-09-11T10:03:00Z",
-              "isUserMessage": true
-            },
-            {
-              "text": "Of course! Here are the details...",
-              "timestamp": "2023-09-11T10:04:00Z",
-              "isUserMessage": false
-            },
-            {
-              "text": "Hello, how can I help you?",
-              "timestamp": "2023-09-11T10:00:00Z",
-              "isUserMessage": true
-            },
-            {
-              "text": "I'd like to inquire about your services.",
-              "timestamp": "2023-09-11T10:01:00Z",
-              "isUserMessage": true
-            },
-            {
-              "text": "Sure! We offer a wide range of services including...",
-              "timestamp": "2023-09-11T10:02:00Z",
-              "isUserMessage": false
-            },
-            {
-              "text": "That sounds great! Can you provide more details about...",
-              "timestamp": "2023-09-11T10:03:00Z",
-              "isUserMessage": true
-            },
-            {
-              "text": "Of course! Here are the details...",
-              "timestamp": "2023-09-11T10:04:00Z",
-              "isUserMessage": false
-            }
-          ]
-      },
-      {
-        "id": 2,
-        "title": "Chat 2",
-        "isEditing": false,
-        "chatClient": true,
-        "messages": [
-            {
-              "text": "I need help in my Finanicals?",
-              "timestamp": "2023-09-11T10:00:00Z",
-              "isUserMessage": true
-            },
-            {
-              "text": "Sure! I can help you to do this....",
-              "timestamp": "2023-09-11T10:02:00Z",
-              "isUserMessage": false
-            },
-            {
-              "text": "I really need help, can you check on this dataset?",
-              "timestamp": "2023-09-11T10:03:00Z",
-              "isUserMessage": true
-            },
-            {
-              "text": "Of course! Here are the details...",
-              "timestamp": "2023-09-11T10:04:00Z",
-              "isUserMessage": false
-            }
-          ]
-      },
-      {
-        "id": 3,
-        "title": "Chat 3",
-        "isEditing": false,
-        "chatClient": false,
-        "messages": [
-            {
-              "text": "Are you an AI?",
-              "timestamp": "2023-09-11T10:00:00Z",
-              "isUserMessage": true
-            },
-            {
-              "text": "Because I have some answers to be resolved for...",
-              "timestamp": "2023-09-11T10:01:00Z",
-              "isUserMessage": true
-            },
-            {
-              "text": "Lorem Ipsimata Lore Creator and Trans International Business Machines Corporation",
-              "timestamp": "2023-09-11T10:02:00Z",
-              "isUserMessage": false
-            },
-            {
-              "text": "That sounds great! Can you provide more details about...",
-              "timestamp": "2023-09-11T10:03:00Z",
-              "isUserMessage": true
-            },
-            {
-              "text": "Of course! Here are the details...",
-              "timestamp": "2023-09-11T10:04:00Z",
-              "isUserMessage": false
-            }
-          ]
-      },
-      {
-        "id": 4,
-        "title": "Chat 4",
-        "isEditing": false,
-        "chatClient": false,
-        "messages": [
-            {
-              "text": "How can I help you?",
-              "timestamp": "2023-09-11T10:00:00Z",
-              "isUserMessage": false
-            },
-            {
-              "text": "I'd like to inquire about your services.",
-              "timestamp": "2023-09-11T10:01:00Z",
-              "isUserMessage": true
-            },
-            {
-              "text": "Sure! We offer a wide range of services including...",
-              "timestamp": "2023-09-11T10:02:00Z",
-              "isUserMessage": false
-            },
-            {
-              "text": "That sounds great! Can you provide more details about...",
-              "timestamp": "2023-09-11T10:03:00Z",
-              "isUserMessage": true
-            },
-            {
-              "text": "Of course! Here are the details...",
-              "timestamp": "2023-09-11T10:04:00Z",
-              "isUserMessage": false
-            }
-          ]
-      }
+    "chats": [{
+            "id": 1,
+            "title": "Obed Gonzalez",
+            "isEditing": false,
+            "chatClient": true,
+            "messages": [{
+                    "text": "Hello, how can I help you?",
+                    "timestamp": "2023-09-11T10:00:00Z",
+                    "isUserMessage": true
+                },
+                {
+                    "text": "I'd like to inquire about your services.",
+                    "timestamp": "2023-09-11T10:01:00Z",
+                    "isUserMessage": true
+                },
+                {
+                    "text": "Sure! We offer a wide range of services including...",
+                    "timestamp": "2023-09-11T10:02:00Z",
+                    "isUserMessage": false
+                },
+                {
+                    "text": "That sounds great! Can you provide more details about...",
+                    "timestamp": "2023-09-11T10:03:00Z",
+                    "isUserMessage": true
+                },
+                {
+                    "text": "Of course! Here are the details...",
+                    "timestamp": "2023-09-11T10:04:00Z",
+                    "isUserMessage": false
+                },
+                {
+                    "text": "Hello, how can I help you?",
+                    "timestamp": "2023-09-11T10:00:00Z",
+                    "isUserMessage": true
+                },
+                {
+                    "text": "I'd like to inquire about your services.",
+                    "timestamp": "2023-09-11T10:01:00Z",
+                    "isUserMessage": true
+                },
+                {
+                    "text": "Sure! We offer a wide range of services including...",
+                    "timestamp": "2023-09-11T10:02:00Z",
+                    "isUserMessage": false
+                },
+                {
+                    "text": "That sounds great! Can you provide more details about...",
+                    "timestamp": "2023-09-11T10:03:00Z",
+                    "isUserMessage": true
+                },
+                {
+                    "text": "Of course! Here are the details...",
+                    "timestamp": "2023-09-11T10:04:00Z",
+                    "isUserMessage": false
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Raul Garcia",
+            "isEditing": false,
+            "chatClient": true,
+            "messages": [{
+                    "text": "I need help in my Finanicals?",
+                    "timestamp": "2023-09-11T10:00:00Z",
+                    "isUserMessage": true
+                },
+                {
+                    "text": "Sure! I can help you to do this....",
+                    "timestamp": "2023-09-11T10:02:00Z",
+                    "isUserMessage": false
+                },
+                {
+                    "text": "I really need help, can you check on this dataset?",
+                    "timestamp": "2023-09-11T10:03:00Z",
+                    "isUserMessage": true
+                },
+                {
+                    "text": "Of course! Here are the details...",
+                    "timestamp": "2023-09-11T10:04:00Z",
+                    "isUserMessage": false
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Chat 3",
+            "isEditing": false,
+            "chatClient": false,
+            "messages": [{
+                    "text": "Are you an AI?",
+                    "timestamp": "2023-09-11T10:00:00Z",
+                    "isUserMessage": true
+                },
+                {
+                    "text": "Because I have some answers to be resolved for...",
+                    "timestamp": "2023-09-11T10:01:00Z",
+                    "isUserMessage": true
+                },
+                {
+                    "text": "Lorem Ipsimata Lore Creator and Trans International Business Machines Corporation",
+                    "timestamp": "2023-09-11T10:02:00Z",
+                    "isUserMessage": false
+                },
+                {
+                    "text": "That sounds great! Can you provide more details about...",
+                    "timestamp": "2023-09-11T10:03:00Z",
+                    "isUserMessage": true
+                },
+                {
+                    "text": "Of course! Here are the details...",
+                    "timestamp": "2023-09-11T10:04:00Z",
+                    "isUserMessage": false
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Chat 4",
+            "isEditing": false,
+            "chatClient": false,
+            "messages": [{
+                    "text": "How can I help you?",
+                    "timestamp": "2023-09-11T10:00:00Z",
+                    "isUserMessage": false
+                },
+                {
+                    "text": "I'd like to inquire about your services.",
+                    "timestamp": "2023-09-11T10:01:00Z",
+                    "isUserMessage": true
+                },
+                {
+                    "text": "Sure! We offer a wide range of services including...",
+                    "timestamp": "2023-09-11T10:02:00Z",
+                    "isUserMessage": false
+                },
+                {
+                    "text": "That sounds great! Can you provide more details about...",
+                    "timestamp": "2023-09-11T10:03:00Z",
+                    "isUserMessage": true
+                },
+                {
+                    "text": "Of course! Here are the details...",
+                    "timestamp": "2023-09-11T10:04:00Z",
+                    "isUserMessage": false
+                }
+            ]
+        }
     ]
 }

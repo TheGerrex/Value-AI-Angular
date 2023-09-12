@@ -9,6 +9,7 @@ export class NavbarComponent {
   checked: boolean = true;
   @Output() toggleFunctionChats = new EventEmitter<void>();
   @Output() toggleFunctionPlugins = new EventEmitter<void>();
+  @Input() title: string | undefined = '';
 
   onButtonClickedChat() {
     this.toggleFunctionChats.emit();

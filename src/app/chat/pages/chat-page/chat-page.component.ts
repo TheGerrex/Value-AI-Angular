@@ -4,6 +4,7 @@ import { MessageService } from '../../services/message.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChatService } from '../../services/chat.service';
 import { Chat } from '../../interfaces/interfaces.chat';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-chat-page',
@@ -14,10 +15,15 @@ export class ChatPageComponent implements OnInit {
   @ViewChild('messagesContainer', { static: false }) messagesContainer?: ElementRef;
   @Output() toggleFunctionSavePrompt = new EventEmitter<void>();
   showScrollDownButton  = false;
-  scrollThreshold = 300;
+  scrollThreshold = 500;
   chat: Chat | null = null;
 
-  constructor(private chatService: ChatService, private elementRef: ElementRef, private route: ActivatedRoute, private router: Router) {
+  constructor(
+    private chatService: ChatService, 
+    private elementRef: ElementRef, 
+    private route: ActivatedRoute, 
+    private router: Router,
+    private sharedService: SharedService,) {
   }
 
   ngOnInit(): void {
@@ -29,6 +35,10 @@ export class ChatPageComponent implements OnInit {
       this.chatService.getChatById(chatId).subscribe((chat) => {
         console.log("Chat Object:", chat);
         this.chat = chat;
+
+        if (this.chat) {
+          this.sharedService.updateChatTitle(this.chat.title);
+        }
       });
     } else {
       // Handle the case where 'id' is not present in the URL
@@ -47,7 +57,8 @@ export class ChatPageComponent implements OnInit {
     const container = this.elementRef.nativeElement.querySelector('.messages-container');
     if (container) {
       // Check if scrolled to the top
-      this.showScrollDownButton = container.scrollTop <= this.scrollThreshold;
+      // this.showScrollDownButton = container.scrollTop <= this.scrollThreshold;
+      this.showScrollDownButton = container.scrollHeight > container.clientHeight;
     }
   }
 

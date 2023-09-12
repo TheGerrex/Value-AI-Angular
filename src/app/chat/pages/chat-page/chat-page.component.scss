@@ -1,6 +1,5 @@
 @import '../../../../variables';
 @import '../../../../styles.scss';
-
 .app-chat-page {
     width: 100%;
 }
@@ -22,11 +21,17 @@
         gap: 32px;
         overflow-y: auto;
         @media (min-width: 1201px) {
-            height: calc(100vh - 250px);
+            height: calc(100vh - 280px);
         }
-        @media (min-width: 992px) and (max-width: 1200px) { height: calc(100vh - 258px); }
-        @media (min-width: 769px) and (max-width: 991px) { height: calc(100vh - 250px); }
-        @media (min-width: 575.98px) and (max-width: 768px) { height: calc(100vh - 196px); }
+        @media (min-width: 992px) and (max-width: 1200px) {
+            height: calc(100vh - 300px);
+        }
+        @media (min-width: 769px) and (max-width: 991px) {
+            height: calc(100vh - 300px);
+        }
+        @media (min-width: 575.98px) and (max-width: 768px) {
+            height: calc(100vh - 220px);
+        }
         .wrapper {
             display: flex;
             width: 100%;
@@ -43,8 +48,6 @@
             // @media (max-width: 768px) {
             //     height: calc(100vh - 196px);
             // }
-            
-            
             .message-user {
                 display: flex;
                 align-items: flex-start;
@@ -81,7 +84,6 @@
                                 font-weight: 600;
                             }
                         }
-                        
                     }
                 }
                 .details-icon {
@@ -120,7 +122,11 @@
                                 width: 32px;
                                 height: 32px;
                                 border-radius: 100px;
-                                background-color: green;
+                                background-color: transparent;
+                                img {
+                                    width: 100%;
+                                    height: auto;
+                                }
                             }
                             p {
                                 margin: 0;
@@ -152,7 +158,6 @@
     }
 }
 
-
 .icons {
     display: flex;
     align-items: center;
@@ -183,10 +188,10 @@
     bottom: 5px;
     right: 20px;
     z-index: 2;
-    @media (min-width: 768px) { 
+    @media (min-width: 768px) {
         bottom: 5px;
         right: 20px;
-     }
+    }
 }
 
 .scroll-transition {
@@ -195,6 +200,23 @@
 }
 
 .messages-container.smooth-scroll {
-/* Apply smooth scrolling behavior */
-scroll-behavior: smooth;
+    /* Apply smooth scrolling behavior */
+    scroll-behavior: smooth;
+}
+
+.client {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    .circle-avatar-client {
+        width: 32px;
+        height: 32px;
+        border-radius: 100px;
+        // background-color: red;
+        background-image: url("https://i.pravatar.cc/32");
+    }
+    p {
+        margin: 0;
+        font-weight: 600;
+    }
 }

@@ -1,6 +1,6 @@
 <div class="hidden md:block">
     <div class="navbar">
-        <img src="../../../assets/logo/value-logo.svg" class='logo' alt="value-logo" routerLink="/chat/chat">
+        <img src="../../../assets/logo/value-logo.svg" class='logo' alt="value-logo" routerLink="/chat">
         <div class="right-options-container">
             <div class="blob-switch">
                 <div class="blob-container">
@@ -40,7 +40,7 @@
 <div class="block md:hidden">
     <div class="navbar-mobile">
         <i class="pi pi-bars" (click)="onButtonClickedChat()"></i>
-        <p>Obed Gonzales</p>
+        <p>{{ title }}</p>
         <i class="pi pi-ellipsis-v" (click)="onButtonClickedPlugin()"></i>
     </div>
 </div>
