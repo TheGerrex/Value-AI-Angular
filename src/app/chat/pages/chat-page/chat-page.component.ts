@@ -58,17 +58,6 @@ export class ChatPageComponent implements OnInit {
     });
   }
 
-  onButtonClickedSharedChat() {
-    // Assuming you have access to the current chat data in this component
-    const chatData = {
-      // Populate chatData with the relevant chat information
-    };
-
-    // Share the chat data with the shared service
-    this.sharedService.shareChat(chatData);
-
-    // Show the modal here (if needed)
-  }
 
   showModalSavePrompt(message: Message) {
     this.selectedMessage = message;

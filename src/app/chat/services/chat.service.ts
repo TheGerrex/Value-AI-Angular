@@ -10,7 +10,7 @@ export class ChatService {
   private readonly chatsUrl = '../../../assets/chats.json';
   constructor(private http: HttpClient) { }
 
-  getChatById(id: number): Observable<Chat> {
+  getChatById(id: number|string): Observable<Chat> {
     return this.http.get(this.chatsUrl).pipe(
       map((data: any) => data.chats.find((chat: Chat) => chat.id === id))
     );

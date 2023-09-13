@@ -9,8 +9,11 @@ export class SharedService {
   chatTitle: string | undefined;
   chatTitleChanged = new EventEmitter<string>();
   private chatDataSubject = new BehaviorSubject<any>(null);
+  chatData$ = this.chatDataSubject.asObservable();
+  chatData: any;
 
-  shareChat(chatData: any) {
+  shareChat(chatData: Chat) {
+    console.log(chatData);
     this.chatDataSubject.next(chatData);
   }
 

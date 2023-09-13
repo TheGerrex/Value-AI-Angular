@@ -62,9 +62,13 @@ export class LayoutPageComponent implements OnInit {
     this.sharedService.chatTitleChanged.subscribe((title) => {
       this.chatTitle = title;
     });
-    this.sharedService.getChatData().subscribe((data) => {
-      this.chatData = data;
-      console.log("Layout-page shared service chat data",this.chatData);
+    console.log('Chat data in shared service Layout Page:', this.sharedService.chatData$);
+    this.sharedService.chatData$.subscribe((chatData) => {
+      if (chatData) {
+        this.chatData = chatData;
+        console.log('Chat data in Layout Page:', this.chatData);
+        // Now, this.chatData contains the JSON data emitted by the observable.
+      }
     });
   }
 
@@ -84,7 +88,6 @@ export class LayoutPageComponent implements OnInit {
   selectChat(chat: Chat) {
     this.selectedChat = chat;
   }
-
 
   startEditing(chat: Chat) {
     // Set isEditing to true to show the editing template
@@ -126,6 +129,7 @@ export class LayoutPageComponent implements OnInit {
   
   toggleChatShareModal() {
     this.showModalShareChat();
+    console.log("showModalShareChat");
   }
 
   toggleFilesUploadModal() {
@@ -191,5 +195,13 @@ export class LayoutPageComponent implements OnInit {
   ontoggleSettings() {
     this.columnSettingsOpenMobile = !this.columnSettingsOpenMobile;
     
+  }
+
+  onShareChatData(chatData: any) {
+    // Update the chat data property with the received data
+    this.chatData = chatData;
+    console.log("Chat data:", this.chatData);
+    // Handle the chat data as needed (e.g., display a modal or perform other actions)
+    // this.toggleChatShareModal()
   }
 }
