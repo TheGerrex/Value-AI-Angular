@@ -1,5 +1,5 @@
 export interface Message {
     text: string
-    timestamp: string
+    timestamp: Date
     isUserMessage: boolean
   }

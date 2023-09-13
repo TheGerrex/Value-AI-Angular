@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Message } from '../../classes/message';
 import { MessageService } from '../../services/message.service';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-chat-input',
@@ -14,7 +15,7 @@ export class ChatInputComponent {
   userMessage: string = '';
 
 
-  constructor(private messageService: MessageService) {}
+  constructor(private messageService: MessageService, private sharedService: SharedService) {}
 
   sendMessage(): void {
     if (this.userMessage.trim() !== '') {
@@ -36,5 +37,13 @@ export class ChatInputComponent {
   }
   onButtonClickedSharedChat() {
     this.toggleFunctionShareChat.emit();
+    const chatData = {
+      // Populate chatData with the relevant chat information
+    };
+  
+    console.log('Chat Data to be shared:', chatData); // Log chat data for debugging
+  
+    // Share the chat data with the shared service
+    this.sharedService.shareChat(chatData);
   }
 }

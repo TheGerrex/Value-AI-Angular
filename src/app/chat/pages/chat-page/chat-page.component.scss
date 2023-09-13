@@ -90,6 +90,7 @@
                     display: flex;
                     align-items: center;
                     gap: 8px;
+                    
                 }
             }
             .message-ai {
@@ -158,6 +159,12 @@
     }
 }
 
+.time {
+    small {
+    white-space: nowrap
+    }
+}
+
 .icons {
     display: flex;
     align-items: center;
@@ -218,5 +225,200 @@
     p {
         margin: 0;
         font-weight: 600;
+    }
+}
+
+.save-prompt {
+    .header {
+        padding-bottom: 16px;
+    }
+    .prompt-container {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        .main {
+            overflow-y: auto;
+            max-height: 350px;
+            border-radius: 10px;
+            border: 1px solid rgba(3, 61, 72, 0.25);
+            background: #FFF;
+            padding: 16px;
+            .prompt {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                gap: 16px;
+                .message-user {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 12px;
+                    align-self: stretch;
+                    .message-blob {
+                        display: flex;
+                        padding: 16px;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 8px;
+                        flex: 1 0 0;
+                        border-radius: 12px;
+                        background: #F4F4F4;
+                        .header {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            align-self: stretch;
+                            .user {
+                                display: flex;
+                                align-items: center;
+                                gap: 8px;
+                                .circle-avatar {
+                                    width: 32px;
+                                    height: 32px;
+                                    border-radius: 100px;
+                                    background-image: url("https://i.pravatar.cc/32");
+                                }
+                                p {
+                                    margin: 0;
+                                    font-weight: 600;
+                                }
+                            }
+                            .icons {
+                                display: flex;
+                                align-items: center;
+                                gap: 8px;
+                                i {
+                                    padding: 8px;
+                                    border-radius: 50px;
+                                }
+                                i:hover {
+                                    background-color: $gray-50;
+                                }
+                                i:active {
+                                    background-color: $primary-color;
+                                    color: #FFF;
+                                }
+                            }
+                        }
+                    }
+                    .details-icon {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                    }
+                }
+                .message-ai {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: flex-start;
+                    gap: 16px;
+                    .message-blob-ai {
+                        display: flex;
+                        width: 100%;
+                        padding: 16px;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 8px;
+                        background-color: $primary-color-light;
+                        border-radius: 12px;
+                        .header {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            align-self: stretch;
+                            .ai {
+                                display: flex;
+                                align-items: center;
+                                gap: 8px;
+                                .circle-ai {
+                                    width: 32px;
+                                    height: 32px;
+                                    border-radius: 100px;
+                                    background-color: green;
+                                }
+                                p {
+                                    margin: 0;
+                                    font-weight: 600;
+                                }
+                            }
+                            .icons {
+                                display: flex;
+                                align-items: center;
+                                gap: 8px;
+                            }
+                        }
+                    }
+                    .details-icon {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                    }
+                    .button-down-container {
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        align-self: stretch;
+                        .circle-button {
+                            display: flex;
+                            align-items: center;
+                            border-radius: 30px;
+                            background: #EFEFEF;
+                            padding: 8px;
+                        }
+                    }
+                }
+            }
+        }
+        .inputs {
+            width: 100%;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 16px;
+            display: flex;
+            .input-field {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                .input-container {
+                    position: relative;
+                }
+                .input-icon {
+                    position: absolute;
+                    left: 10px;
+                    /* Adjust the icon's position as needed */
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: 1;
+                }
+                label {
+                    color: $text;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+                .input-login {
+                    width: 100%;
+                    align-self: stretch;
+                    padding-left: 30px;
+                    padding-right: 8px;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    border-radius: 10px;
+                    border: 0.50px #033D48 solid;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 8px;
+                    display: inline-flex;
+                    font-size: 1em;
+                }
+            }
+        }
+        .footer {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
     }
 }

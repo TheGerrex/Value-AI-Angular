@@ -312,63 +312,6 @@
         </div>
     </div>
 </p-dialog>
-<p-dialog header="Guardar tu consulta" [(visible)]="displayModalSavePrompt" [modal]="true">
-    <div class="save-prompt">
-        <div class="header">
-            <p>Las consultas que guardes puedes acceder a ellas cuando quieras en tu librería de consultas. </p>
-        </div>
-        <div class="prompt-container">
-            <div class="main">
-                <div class="prompt">
-                    <div class="message-user">
-                        <div class="message-blob">
-                            <div class="header">
-                                <div class="user">
-                                    <div class="circle-avatar"></div>
-                                    <p>Juan Hernandez</p>
-                                </div>
-                            </div>
-                            <div class="message">
-                                <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
-                            </div>
-                            <div class="details-icon">
-                                <div class="time">
-                                    <small>12:20</small>
-                                </div>
-                                <!-- <i class="pi pi-microphone"></i> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="inputs">
-                <div class="input-field">
-                    <label>Nombre de la consulta</label>
-                    <div class="input-container">
-                        <i class="input-icon pi pi-pencil"></i>
-                        <input type="text" class="input-login" placeholder="Nombre de consulta">
-                    </div>
-                </div>
-                <div class="input-field">
-                    <label>Categoria</label>
-                    <div class="input-container">
-                        <i class="input-icon pi pi-th-large"></i>
-                        <!-- <input type="password" class="input-login" placeholder="amorpropio123"> -->
-                        <select id="state" class="input-login" style="appearance: auto" placeholder>
-                            <option>Educacion</option>
-                            <option>Finanzas</option>
-                            <option>Mercados Globales</option>
-                            <option>Economia</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="footer">
-                <button class="button button-primary button-full"><p>Guardar</p><i class="search-icon pi pi-upload"></i></button>
-            </div>
-        </div>
-    </div>
-</p-dialog>
 <p-dialog header="Comparte link del chat" [(visible)]="displayModalShareChat" [modal]="true">
     <div class="save-prompt">
         <div class="header">
@@ -377,7 +320,48 @@
         <div class="prompt-container">
             <div class="main">
                 <div class="prompt">
-                    <div class="message-user">
+                    <div *ngFor="let message of chatData" [ngClass]="{'message-user': message.isUserMessage, 'message-ai': !message.isUserMessage}">
+                        <div class="details-icon" *ngIf="!message.isUserMessage">
+                            <div class="time">
+                                <small>{{message.timestamp | date:'h:mm a'}}</small>
+                            </div>
+                        </div>
+                        <div class="message-blob">
+                            <div class="header">
+                                <div class="user" *ngIf="message.isUserMessage">
+                                    <div class="circle-avatar"></div>
+                                    <p>Gerardo Garcia</p>
+                                </div>
+                                <div class="client" *ngIf="!message.isUserMessage && chatData?.chatClient">
+                                    <div class="circle-avatar-client">
+                                    </div>
+                                    <p>{{chatData?.title}}</p>
+                                </div>
+                                <div class="ai" *ngIf="!message.isUserMessage && !chatData?.chatClient">
+                                    <div class="circle-ai">
+                                        <img src="../../../../assets/logo/value-logo.svg" alt="">
+                                    </div>
+                                    <p>Value AI</p>
+                                </div>
+                                <div class="icons">
+                                    <i class="pi pi-pencil" *ngIf="message.isUserMessage"></i>
+                                    <i class="pi pi-save" (click)="showModalSavePrompt()" *ngIf="message.isUserMessage"></i>
+                                    <i class="pi pi-thumbs-down" *ngIf="!message.isUserMessage"></i>
+                                    <i class="pi pi-thumbs-up" *ngIf="!message.isUserMessage"></i>
+                                    <i class="pi pi-copy" *ngIf="!message.isUserMessage"></i>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>{{message.text}}</p>
+                            </div>
+                        </div>
+                        <div class="details-icon" *ngIf="message.isUserMessage">
+                            <div class="time">
+                                <small>{{message.timestamp | date:'h:mm a'}}</small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="message-user">
                         <div class="message-blob">
                             <div class="header">
                                 <div class="user">
@@ -470,7 +454,7 @@
                                 <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="title-container">

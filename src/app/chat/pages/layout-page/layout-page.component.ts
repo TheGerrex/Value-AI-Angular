@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from '../../services/message.service';
 import { ChatService } from '../../services/chat.service';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import { ModalService } from '../../services/modal.service';
+import { Message } from '../../interfaces/interface.message';
 
 @Component({
   selector: 'app-layout-page',
@@ -29,6 +31,7 @@ export class LayoutPageComponent implements OnInit {
   chats: Chat[] = [];
   clientChats: Chat[] | undefined;
   nonClientChats: Chat[] | undefined; 
+  chatData: any;
   chatTitle: string | undefined;
 
   
@@ -37,7 +40,8 @@ export class LayoutPageComponent implements OnInit {
     private route: ActivatedRoute, 
     private chatService: ChatService, 
     private messageService: MessageService,
-    private sharedService: SharedService) { } 
+    private sharedService: SharedService,
+    private modalService: ModalService,) { } 
   
   ngOnInit(): void {
     if (  window.innerWidth >= 768) {
@@ -58,9 +62,13 @@ export class LayoutPageComponent implements OnInit {
     this.sharedService.chatTitleChanged.subscribe((title) => {
       this.chatTitle = title;
     });
+    this.sharedService.getChatData().subscribe((data) => {
+      this.chatData = data;
+      console.log("Layout-page shared service chat data",this.chatData);
+    });
   }
-  
 
+  
   navigateToChat(chatId: number) {
     this.router.navigate(['/chat', chatId]);
   }

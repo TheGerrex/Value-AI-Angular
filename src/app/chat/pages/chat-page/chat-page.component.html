@@ -50,7 +50,7 @@
             <div *ngFor="let message of chat?.messages" [ngClass]="{'message-user': message.isUserMessage, 'message-ai': !message.isUserMessage}">
                 <div class="details-icon" *ngIf="!message.isUserMessage">
                     <div class="time">
-                        <small>{{message.timestamp | date:'h:mm'}}</small>
+                        <small>{{message.timestamp | date:'h:mm a'}}</small>
                     </div>
                 </div>
                 <div class="message-blob">
@@ -72,7 +72,7 @@
                         </div>
                         <div class="icons">
                             <i class="pi pi-pencil" *ngIf="message.isUserMessage"></i>
-                            <i class="pi pi-save" (click)="onButtonClickedShowModalSavePrompt()" *ngIf="message.isUserMessage"></i>
+                            <i class="pi pi-save" (click)="showModalSavePrompt(message)" *ngIf="message.isUserMessage"></i>
                             <i class="pi pi-thumbs-down" *ngIf="!message.isUserMessage"></i>
                             <i class="pi pi-thumbs-up" *ngIf="!message.isUserMessage"></i>
                             <i class="pi pi-copy" *ngIf="!message.isUserMessage"></i>
@@ -84,9 +84,67 @@
                 </div>
                 <div class="details-icon" *ngIf="message.isUserMessage">
                     <div class="time">
-                        <small>{{message.timestamp | date:'h:mm'}}</small>
+                        <small>{{message.timestamp | date:'h:mm a'}}</small>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>    
+<p-dialog header="Guardar tu consulta" [(visible)]="displayModalSavePrompt" [modal]="true">
+    <div class="save-prompt">
+        <div class="header">
+            <p>Las consultas que guardes puedes acceder a ellas cuando quieras en tu librería de consultas. </p>
+        </div>
+        <div class="prompt-container">
+            <div class="main">
+                <div class="prompt">
+                    <div class="message-user">
+                        <div class="message-blob">
+                            <div class="header">
+                                <div class="user">
+                                    <div class="circle-avatar"></div>
+                                    <p>Juan Hernandez</p>
+                                </div>
+                            </div>
+                            <div class="message">
+                                <p>{{selectedMessage?.text}}</p>
+                            </div>
+                            <div class="details-icon">
+                                <div class="time">
+                                    <small>{{selectedMessage?.timestamp | date:'h:mm a'}}</small>
+                                </div>
+                                <!-- <i class="pi pi-microphone"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inputs">
+                <div class="input-field">
+                    <label>Nombre de la consulta</label>
+                    <div class="input-container">
+                        <i class="input-icon pi pi-pencil"></i>
+                        <input type="text" class="input-login" placeholder="Nombre de consulta">
+                    </div>
+                </div>
+                <div class="input-field">
+                    <label>Categoria</label>
+                    <div class="input-container">
+                        <i class="input-icon pi pi-th-large"></i>
+                        <!-- <input type="password" class="input-login" placeholder="amorpropio123"> -->
+                        <select id="state" class="input-login" style="appearance: auto" placeholder>
+                            <option>Educacion</option>
+                            <option>Finanzas</option>
+                            <option>Mercados Globales</option>
+                            <option>Economia</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <button class="button button-primary button-full"><p>Guardar</p><i class="search-icon pi pi-upload"></i></button>
+            </div>
+        </div>
+    </div>
+</p-dialog>

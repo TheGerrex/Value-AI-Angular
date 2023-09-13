@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ChatService } from '../../services/chat.service';
 import { Chat } from '../../interfaces/interfaces.chat';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import { ModalService } from '../../services/modal.service';
+import { LayoutPageComponent } from '../layout-page/layout-page.component';
 
 @Component({
   selector: 'app-chat-page',
@@ -17,36 +19,65 @@ export class ChatPageComponent implements OnInit {
   showScrollDownButton  = false;
   scrollThreshold = 500;
   chat: Chat | null = null;
+  displayModalSavePrompt: boolean = false;
+  selectedMessage: Message | null = null;
 
   constructor(
     private chatService: ChatService, 
     private elementRef: ElementRef, 
     private route: ActivatedRoute, 
     private router: Router,
-    private sharedService: SharedService,) {
+    private sharedService: SharedService,
+    private modalService: ModalService,
+    private messageService: MessageService,
+    private layoutPage: LayoutPageComponent) {
   }
 
   ngOnInit(): void {
-  this.route.paramMap.subscribe((params) => {
-    const idParam = params.get('id');
-    if (idParam !== null) {
-      const chatId = +idParam;
-      console.log("Chat ID:", chatId);
-      this.chatService.getChatById(chatId).subscribe((chat) => {
-        console.log("Chat Object:", chat);
-        this.chat = chat;
+    this.route.paramMap.subscribe((params) => {
+      const idParam = params.get('id');
+      if (idParam !== null) {
+        const chatId = +idParam;
+        console.log("Chat ID:", chatId);
+        this.chatService.getChatById(chatId).subscribe((chat) => {
+          console.log("Chat Object:", chat);
+          this.chat = chat;
+  
+          if (this.chat) {
+            this.sharedService.updateChatTitle(this.chat.title);
+          }
+        });
+      } else {
+        // Handle the case where 'id' is not present in the URL
+        this.router.navigate(['/chat']);
+        console.error('Invalid chatId or chatId is null');
+      }
+    });
+    this.modalService.modalState$.subscribe((showModal) => {
+      this.displayModalSavePrompt = showModal;
+    });
+  }
 
-        if (this.chat) {
-          this.sharedService.updateChatTitle(this.chat.title);
-        }
-      });
-    } else {
-      // Handle the case where 'id' is not present in the URL
-      this.router.navigate(['/chat']);
-      console.error('Invalid chatId or chatId is null');
-    }
-  });
-}
+  onButtonClickedSharedChat() {
+    // Assuming you have access to the current chat data in this component
+    const chatData = {
+      // Populate chatData with the relevant chat information
+    };
+
+    // Share the chat data with the shared service
+    this.sharedService.shareChat(chatData);
+
+    // Show the modal here (if needed)
+  }
+
+  showModalSavePrompt(message: Message) {
+    this.selectedMessage = message;
+    this.modalService.showModal();
+  }
+
+  hideModalSavePrompt() {
+    this.modalService.hideModal();
+  }
 
   onButtonClickedShowModalSavePrompt() {
     this.toggleFunctionSavePrompt.emit();
