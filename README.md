@@ -7,7 +7,7 @@ This project was generated with [Angular CLI] version 15.1.3.
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Project Structure
-1. App
+1. App Modules
  - Pages
    * Login
    * Register
@@ -28,6 +28,15 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
    * Navbar
    * Navbar Dashboard
 
+## Services
+1. Chat Service
+    * getChatbyId(id:number)
+    * getChats()
+2. Message Service
+    * addMessage(text:string, isUserMessage: booelean)
+    * getMessage()
+3. Shared Service
+    * updateChatTitle(title:string)
 
 ## Build
 
