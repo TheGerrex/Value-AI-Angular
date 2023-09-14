@@ -5,7 +5,8 @@ import { MessageService } from '../../services/message.service';
 import { ChatService } from '../../services/chat.service';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { ModalService } from '../../services/modal.service';
-import { Message } from '../../interfaces/interface.message';
+import { Message } from '../../classes/message';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-layout-page',
@@ -33,6 +34,9 @@ export class LayoutPageComponent implements OnInit {
   nonClientChats: Chat[] | undefined; 
   chatData: any;
   chatTitle: string | undefined;
+  chatMessages: Message[] = [];
+  userMessage: string = '';
+  chatId: string | null = null;
 
   
   constructor(
@@ -49,11 +53,18 @@ export class LayoutPageComponent implements OnInit {
     };
     this.chatService.getChats().subscribe(
       (response) => {
-        console.log(response.chats);
-        this.clientChats = response.chats.filter((chat) => chat.chatClient);
-        console.log(this.clientChats);
-        this.nonClientChats = response.chats.filter((chat) => !chat.chatClient);
-        console.log(this.nonClientChats);
+        if ('chats' in response) {
+          const chatData: any = response['chats'];
+          console.log(chatData);
+    
+          this.clientChats = chatData.filter((chat: Chat) => chat.chatClient);
+          console.log(this.clientChats);
+    
+          this.nonClientChats = chatData.filter((chat: Chat) => !chat.chatClient);
+          console.log(this.nonClientChats);
+        } else {
+          console.error('Invalid response format: "chats" property not found.');
+        }
       },
       (error) => {
         console.error('Error fetching chats:', error);
@@ -70,9 +81,59 @@ export class LayoutPageComponent implements OnInit {
         // Now, this.chatData contains the JSON data emitted by the observable.
       }
     });
+    this.chatService.chatMessages$.subscribe((messages) => {
+      this.chatMessages = messages;
+    });
+    this.route.firstChild?.params.subscribe((params) => {
+      const idParam = params['id'];
+      if (idParam !== null) {
+        this.chatId = idParam;
+        // Now you can use this.chatId to fetch and display messages.
+        // For example:
+        // this.messages = this.messageService.getMessages(this.chatId);
+      }
+    });
   }
 
-  
+  handleSentMessage(messageText: string) {
+    console.log("handleSentMessage",messageText);
+    const newMessage = new Message(messageText, true);
+    this.chatMessages.push(newMessage);
+    console.log("Chat Messages:",this.chatMessages);
+  }
+
+  // sendMessage() {
+  //   if (this.userMessage.trim() !== '') {
+  //     // Create a new Message object
+  //     const newMessage = new Message(this.userMessage, true);
+
+  //     // Get the current chat messages
+  //     const currentMessages = [...this.chatMessages];
+
+  //     // Add the new message
+  //     currentMessages.push(newMessage);
+
+  //     // Update the chat messages in the chat service
+  //     this.chatService.updateChatMessages(currentMessages);
+
+  //     // Clear the input field
+  //     this.userMessage = '';
+  //   }
+  // }
+
+  onSendMessage(message: string) {
+    const chatId = this.getCurrentChatId(); // Implement a method to get the current chat ID
+    this.messageService.addMessage(chatId, message, true);
+  }
+
+  getCurrentChatId(): string {
+    if (this.chatId !== null) {
+      return this.chatId
+    } else {
+      return "";
+    }
+  }
+
   navigateToChat(chatId: number) {
     this.router.navigate(['/chat', chatId]);
   }

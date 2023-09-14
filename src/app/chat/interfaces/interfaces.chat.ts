@@ -2,7 +2,7 @@ import { Message } from "./interface.message";
 
 
 export interface Chat {
-    id: number;
+    id: string;
     title: string;
     isEditing: boolean;
     chatClient: boolean;

@@ -90,7 +90,6 @@
                     display: flex;
                     align-items: center;
                     gap: 8px;
-                    
                 }
             }
             .message-ai {
@@ -161,8 +160,12 @@
 
 .time {
     small {
-    white-space: nowrap
+        white-space: nowrap
     }
+}
+
+.message {
+    width: 100%;
 }
 
 .icons {

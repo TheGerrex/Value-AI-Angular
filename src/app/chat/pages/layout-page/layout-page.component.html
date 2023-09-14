@@ -172,7 +172,7 @@
                                 <button class="button button-prompt">Dime 10 cosas que puedo hacer con Value AI</button>
                                 <button class="button button-prompt">Ver más</button>
                             </div>
-                            <app-chat-input (toggleFunctionChatInput)="toggleChatInputSettings()" (toggleFunctionShareChat)="toggleChatShareModal()" (shareChatData)="onShareChatData($event)" style="width: 100%;"></app-chat-input>
+                            <app-chat-input (toggleFunctionChatInput)="toggleChatInputSettings()" (toggleFunctionShareChat)="toggleChatShareModal()" (shareChatData)="onShareChatData($event)" (sendMessageEvent)="onSendMessage($event)" style="width: 100%;"></app-chat-input>
                         </div>
                     </div>
                     <div [ngClass]="chatInputSettingsVisible ? 'slide-from-bottom' : 'slide-hidden'" class="slide-from-bottom-div" #chatInputSettings>
