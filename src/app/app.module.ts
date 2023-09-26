@@ -5,18 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { ChatRoutingModule } from './chat/chat-routing.module';
 import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthRoutingModule } from './auth/auth-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     ChatRoutingModule,
     DashboardRoutingModule,
+    AuthRoutingModule,
     FormsModule,
     HttpClientModule,
   ],

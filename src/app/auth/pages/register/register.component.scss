@@ -1,5 +1,5 @@
-@import '../../../variables';
-@import '../../../styles.scss';
+@import '../../../../variables';
+@import '../../../../styles.scss';
 .logo {
     width: 64px;
     height: 64px;
@@ -91,7 +91,7 @@ hr {
 .img-container {
     width: 100%;
     height: 100%;
-    background-image: url('../../../assets/register/register-image.jpg');
+    background-image: url('../../../../assets/register/register-image.jpg');
     background-position: 35% 25%;
     background-size: cover;
 }

@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './auth/pages/login/login.component';
+import { RegisterComponent } from './auth/pages/register/register.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent},
-  // { path: '', component: LoginComponent},
+  {
+    path: '',
+    redirectTo: 'auth/login', // Redirect to the 'auth' route
+    pathMatch: 'full',  // Only redirect if the full URL is empty
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule),
+  },
   {
     path: 'chat',
     loadChildren: () => import('./chat/chat.module').then( m => m.ChatModule),
