@@ -2,51 +2,48 @@
     <div class="messages-container" #messagesContainer (scroll)="onScroll($event)">
         <div class="wrapper">
             <button class="button button-circle button-absolute" (click)="scrollBottomChat()" *ngIf="showScrollDownButton"><i class="pi pi-arrow-down"></i></button>
-            <!-- <div class="message-user">
-            <div class="message-blob">
-                <div class="header">
-                    <div class="user">
-                        <div class="circle-avatar"></div>
-                        <p>Juan Hernandez</p>
-                    </div>
-                    <div class="icons">
-                        <i class="pi pi-pencil"></i>
-                        <i class="pi pi-save" (click)="onButtonClickedShowModalSavePrompt()"></i>
+            <!-- <div *ngFor="let message of chat?.messages" [ngClass]="{'message-user': message.isUserMessage, 'message-ai': !message.isUserMessage}">
+                <div class="details-icon" *ngIf="!message.isUserMessage">
+                    <div class="time">
+                        <small>{{message.timestamp | date:'h:mm a'}}</small>
                     </div>
                 </div>
-                <div class="message">
-                    <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
-                </div>
-            </div>
-            <div class="details-icon">
-                <div class="time">
-                    <small>12:20</small>
-                </div>
-            </div>
-        </div>
-        <div class="message-ai">
-            <div class="details-icon">
-                <div class="time">
-                    <small>12:21</small>
-                </div>
-            </div>
-            <div class="message-blob-ai">
-                <div class="header">
-                    <div class="ai">
-                        <div class="circle-ai"></div>
-                        <p>Value AI</p>
+                <div class="message-blob">
+                    <div class="header">
+                        <div class="user" *ngIf="message.isUserMessage">
+                            <div class="circle-avatar"></div>
+                            <p>Gerardo Garcia</p>
+                        </div>
+                        <div class="client" *ngIf="!message.isUserMessage && chat?.chatClient">
+                            <div class="circle-avatar-client">
+                            </div>
+                            <p>{{chat?.title}}</p>
+                        </div>
+                        <div class="ai" *ngIf="!message.isUserMessage && !chat?.chatClient">
+                            <div class="circle-ai">
+                                <img src="../../../../assets/logo/value-logo.svg" alt="">
+                            </div>
+                            <p>Value AI</p>
+                        </div>
+                        <div class="icons">
+                            <i class="pi pi-pencil" *ngIf="message.isUserMessage"></i>
+                            <i class="pi pi-save" (click)="showModalSavePrompt(message)" *ngIf="message.isUserMessage"></i>
+                            <i class="pi pi-thumbs-down" *ngIf="!message.isUserMessage"></i>
+                            <i class="pi pi-thumbs-up" *ngIf="!message.isUserMessage"></i>
+                            <i class="pi pi-copy" *ngIf="!message.isUserMessage"></i>
+                        </div>
                     </div>
-                    <div class="icons">
-                        <i class="pi pi-thumbs-down"></i>
-                        <i class="pi pi-thumbs-up"></i>
-                        <i class="pi pi-copy"></i>
+                    <div class="message">
+                        <p>{{message.text}}</p>
                     </div>
                 </div>
-                <div class="message">
-                    <p>Hola!, ¿entonces estás interesado en invertir 10 millones de pesos en el fondo de inversión de Value? Si, podrías darme más información sobre que estrategia siguen y como/cuando puedo obtener mis beneficios?</p>
+                <div class="details-icon" *ngIf="message.isUserMessage">
+                    <div class="time">
+                        <small>{{message.timestamp | date:'h:mm a'}}</small>
+                    </div>
                 </div>
-            </div>
-        </div> -->
+            </div> -->
+
             <div *ngFor="let message of chat?.messages" [ngClass]="{'message-user': message.isUserMessage, 'message-ai': !message.isUserMessage}">
                 <div class="details-icon" *ngIf="!message.isUserMessage">
                     <div class="time">
@@ -90,7 +87,7 @@
             </div>
         </div>
     </div>
-</div>    
+</div>
 <p-dialog header="Guardar tu consulta" [(visible)]="displayModalSavePrompt" [modal]="true">
     <div class="save-prompt">
         <div class="header">

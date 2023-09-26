@@ -2,8 +2,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Message } from '../../classes/message';
 import { MessageService } from '../../services/message.service';
 import { SharedService } from 'src/app/shared/services/shared.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import { ChatService } from '../../services/chat.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-chat-input',
@@ -14,15 +15,17 @@ export class ChatInputComponent implements OnInit{
   @Output() toggleFunctionChatInput = new EventEmitter<void>();
   @Output() toggleFunctionShareChat = new EventEmitter<void>();
   @Output() shareChatData: EventEmitter<any> = new EventEmitter<any>();
+  @Output() sendMessageEvent = new EventEmitter<string>();
   messages: Message[] = [];
   userMessage: string = '';
-
+  
 
   constructor(
     private messageService: MessageService, 
     private sharedService: SharedService, 
     private activatedRoute: ActivatedRoute,
-    private chatService: ChatService) {}
+    private chatService: ChatService,
+    private router: Router,) {}
 
 
   ngOnInit() {
@@ -48,11 +51,21 @@ export class ChatInputComponent implements OnInit{
     });
   }
 
-  sendMessage(): void {
-    if (this.userMessage.trim() !== '') {
-      this.messageService.addMessage(this.userMessage, true); // User message
-      // Send this.userMessage to your AI backend and receive a response
-      // Add the AI's response to the chat using messageService
+  // sendMessage(text: string) {
+  //   const chatId = this.activatedRoute.firstChild?.snapshot.paramMap.get('id');
+  //   console.log(chatId);
+  //   if (chatId !== null && chatId !== undefined) {
+  //     this.messageService.addMessage(chatId, text, true);
+  //     this.userMessage = '';
+  //     console.log('entered message add')
+  //     this.router.navigate(['/chat', chatId]);
+  //   }
+  // }
+
+  sendMessage() {
+    console.log('send message function');
+    if (this.userMessage.trim() !== '') { // Check if the message is not empty
+      this.sendMessageEvent.emit(this.userMessage); // Emit the message
       this.userMessage = ''; // Clear the input field
     }
   }

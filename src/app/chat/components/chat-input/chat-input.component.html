@@ -29,7 +29,7 @@
         <div class="chat-input-field">
             <div class="input-container">
                 <i class="input-icon pi pi-ellipsis-v" (click)="onButtonClickedChat()"></i>
-                <textarea class="input-chat" placeholder="Haz una consulta" [(ngModel)]="userMessage" (input)="resizeTextArea($event)"></textarea>
+                <textarea class="input-chat" placeholder="Haz una consulta" [(ngModel)]="userMessage" (input)="resizeTextArea($event)" (keyup.enter)="sendMessage()"></textarea>
             </div>
         </div>
     </div>
